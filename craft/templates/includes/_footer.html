@@ -1,0 +1,62 @@
+{% set mainNavPages = craft.entries.section('pages').status('all').level(1) %}
+{% set companySlogan = footer.companySlogan | default('') %}
+{% set facebookUrl = footer.socialFacebook | default('') %}
+{% set twitterUrl = footer.socialFacebook | default('') %}
+{% set linkedInUrl = footer.socialFacebook | default('') %}
+{% set copyrightNotice = footer.copyrightNotice | default('Copyright © Syapse, Inc. All rights reserved.') %}
+
+<footer class="core-footer">
+
+	<a class="logo" href="{{ siteUrl }}" title="{{ siteName }}">
+		{{ craft.inlin.er('/images/logos/syapse.svg') | raw }}
+	</a>
+
+	<div class="slogan">
+		{{ companySlogan }}
+	</div>
+	
+	<nav class="nav">
+
+		<ul class="pages">
+
+		{% for page in mainNavPages %}
+
+			<li class="pages-li">
+
+				<a class="{% if page.slug == 'contact' %}button {% else %}nav-link nav-link-{{ loop.index }}{% endif %}" href="#" {% if page.slug == 'contact' %}title="{{ page.title }}"{% endif %}>
+					
+					{{ page.title }}
+
+					{% if page.hasDescendants() %}
+						{{ craft.inlin.er('/images/ui/icon-triangle-down.svg') | raw }}
+					{% endif %}
+					
+				</a>
+
+				{% set subpages = page.children() %}
+
+				{% if subpages | length %}
+
+					<ul class="subpages">
+
+					{% for subpage in subpages %}
+					
+						<li class="subpages-li">
+							<a class="subpage-link subpage-{{ loop.index }}" href="#">{{ subpage.title }}</a>
+						</li>
+
+					{% endfor %}
+
+					</ul>
+
+				{% endif %}
+
+			</li>
+
+		{% endfor %}
+
+		</ul>
+
+	</nav>
+
+</footer>

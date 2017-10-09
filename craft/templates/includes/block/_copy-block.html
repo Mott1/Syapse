@@ -1,0 +1,19 @@
+{% set section = entry.section | lower %}
+{% set color = entry.color.getHex() %}
+
+<div class="copy-block reveal" style="{% if isFirst and section == 'work' %}background-color: {{ color }};{% endif %}
+">
+
+	<div class="content">
+
+		<h2 class="heading">
+			{{ theBlock.heading }}
+		</h2>
+		
+		<div class="description">
+			{{ theBlock.description }}
+		</div>
+
+	</div>
+
+</div>

@@ -1,0 +1,8 @@
+{% set image = theBlock.image.first().url %}
+{% set imageFocalPoint = theBlock.image.first().focalPoint %}
+
+<div class="full-image">
+
+	<img class="reveal" src="{{ image }}" style="transform-origin: {{ imageFocalPoint }};">
+
+</div>

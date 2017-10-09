@@ -1,0 +1,12 @@
+{% if entry.type.handle == "pages" %}
+	{% set switchType = entry.slug %}
+{% else %}
+	{% set switchType = entry.type.handle %}
+{% endif %}
+
+{% switch switchType %}
+
+	{% default %}
+		{% include "pages/default-page" %}
+
+{% endswitch %}

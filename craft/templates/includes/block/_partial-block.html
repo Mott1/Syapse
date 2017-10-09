@@ -1,0 +1,14 @@
+{% set partialSelector = theBlock.partialSelector %}
+
+{% switch partialSelector %}
+
+	{% case "pushProcess" %}
+		{% include 'includes/partial/_push-process' %}
+
+	{% case "brandConvergenceModel" %}
+		{% include 'includes/partial/_brand-convergence-model' %}
+
+	{% default %}
+		{# ignore #}
+
+{% endswitch %}
