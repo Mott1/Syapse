@@ -1,0 +1,53 @@
+{#
+ # Layout template
+ # ---------------
+ #
+ # This template defines your site’s global layout. It can be
+ # “extended” by other templates to fill in the gaps.
+ #
+ # See Twig’s Template Inheritance documentation for more details:
+ # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+ #}
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>{% if title is defined %}{{ title }} - {% endif %}{{ siteName }}</title>
+	<link rel="home" href="{{ siteUrl }}" />
+	
+	<script src="https://use.typekit.net/saf2tbh.js"></script>
+	<script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+{% if craft.config.devMode %}
+	<link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+{% else %}
+	<link rel="stylesheet" type="text/css" href="/stylesheets/app.min.css?v=1.0.0">
+{% endif %}
+
+</head>
+
+<body>
+
+	<main class="core-body" role="main">
+
+		{% include 'includes/_nav' %}
+
+		{% block content %}{% endblock %}
+
+		{% include 'includes/_footer' %}
+		
+	</main>
+
+{% if craft.config.devMode %}
+    <script type="text/javascript" src="/javascripts/app.js"></script>
+{% else %}
+    <script type="text/javascript" src="/javascripts/app.min.js?v=1.0.0"></script>
+{% endif %}
+
+{% include '/includes/_tracking.html' %}
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% set heading = theBlock.heading %}
+{% set clients = theBlock.clients %}
+{% set description = theBlock.description %}
+
+<div class="client-list">
+
+	<div class="content reveal">
+
+		<h2 class="heading">
+			{{ heading }}
+		</h2>
+
+	</div>
+
+	<div class="logo-list">
+		{% for client in clients %}
+			{% set clientLogo = client.logo.first().url() | default('') %}
+			<div class="client reveal">
+				<img src="{{ clientLogo }}">
+			</div>
+		{% endfor %}
+	</div>
+
+	<div class="content reveal">
+
+		<div class="description">
+			{{ description }}
+		</div>
+
+	</div>
+
+</div>

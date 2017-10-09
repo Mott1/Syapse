@@ -1,0 +1,30 @@
+{% set color = entry.color.getHex() %}
+{% set imageSquare = theBlock.squareImage.first() | default('') %}
+{% set imageSquareUrl = imageSquare.url() | default('') %}
+{% set imageSquareFocalPoint = imageSquare.focalPoint | default('50% 50%') %}
+{% set layout = theBlock.layout %}
+
+<div class="image-and-copy reveal">
+
+	<div class="container">
+
+		<div class="image-container" style="background-color: {{ color }}; {% if layout == 'imageRight' %}order: 2;{% endif %}">
+			<div class="square-image" style="background-image: url('{{ imageSquareUrl }}'); background-position: {{ imageSquareFocalPoint }}; transform-origin: {{ imageSquareFocalPoint }};">
+			</div>
+		</div>
+
+		<div class="copy" style="{% if layout == 'imageRight' %}order: 1;{% endif %}">
+
+			<h2 class="heading">
+				{{ theBlock.heading }}
+			</h2>
+			
+			<div class="description">
+				{{ theBlock.description }}
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

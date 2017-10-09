@@ -1,0 +1,68 @@
+//  Colors
+
+$buttonBlue: #21C2D2;
+
+// Global
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+	width: 100vw;
+	overflow-x: hidden;
+	font-family: "museo-sans", sans-serif;
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	// background-color: #f9f9f9;
+}
+
+a {
+	text-decoration: none;
+}
+
+::selection {
+	// color: #fff;
+	// background: #222;
+}
+
+// Display
+
+@media screen and (min-width: 768px) {
+	.hide-on-desktop {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.hide-on-mobile {
+		display: none;
+	}
+}
+
+// Buttons
+
+a.button {
+
+	display: inline-block;
+	min-height: 36px;
+	padding: 9px 50px 10px;
+	border: 1px solid $buttonBlue;
+	border-radius: 6px;
+	font-size: 14px;
+	font-weight: 500;
+
+	background-color: transparent;
+	color: $buttonBlue;
+
+	transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+
+	&:hover {
+		background-color: $buttonBlue;
+		color: #fff;
+	}
+
+}

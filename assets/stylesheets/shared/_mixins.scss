@@ -1,0 +1,49 @@
+// Global
+
+@mixin hide-on-desktop {
+	@media screen and (min-width: 768px) {
+		display: none;
+	}
+}
+
+@mixin hide-on-mobile {
+	@media screen and (max-width: 767px) {
+		display: none;
+	}
+}
+
+// Layout
+
+@mixin wrapper {
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 30px;
+}
+
+@mixin center-x-y {
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin clear-fix {
+
+	&:before,
+	&:after {
+		content: " "; 
+		display: table; 
+	}
+
+	&:after {
+		display: block;
+		clear: both;
+		height: 1px;
+		margin-top: -1px;
+		visibility: hidden;
+	}
+
+	& {
+		*zoom: 1;
+	}
+
+}
+
