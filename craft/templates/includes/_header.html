@@ -1,0 +1,72 @@
+{% set mainNavPages = craft.entries.section('pages').status('all').level(1) %}
+{% set supportIndex = craft.entries.section('pages').slug('support').status('all').first().children()[0] %}
+
+<header class="core-header">
+
+	<div class="core-wrapper">
+
+		<a class="logo" href="{{ siteUrl }}" title="{{ siteName }}">
+			{{ craft.inlin.er('/images/logos/syapse.svg') | raw }}
+		</a>
+		
+		<nav class="nav">
+
+			<ul class="pages">
+
+			{% for page in mainNavPages %}
+
+				{% if page.slug == 'support' %}
+
+					<a class="button" href="{{ supportIndex.url }}" title="{{ supportIndex.title }}">
+						{{ supportIndex.title }}
+					</a>
+
+				{% else %}
+
+					<li class="pages-li">
+
+						<a class="nav-link nav-link-{{ loop.index }}" href="page.url">
+							
+							{{ page.title }}
+
+							{% if page.hasDescendants() %}
+								{{ craft.inlin.er('/images/ui/icon-triangle-down.svg') | raw }}
+							{% endif %}
+							
+						</a>
+
+						{% set subpages = page.children() %}
+
+						{% if subpages | length %}
+
+							<ul class="subpages">
+
+							{% for subpage in subpages %}
+
+								{% if subpage.slug != 'resources' and subpage.slug != 'partners' %}
+							
+									<li class="subpages-li">
+										<a class="subpage-link subpage-{{ loop.index }}" href="{{ subpage.url }}">{{ subpage.title }}</a>
+									</li>
+
+								{% endif %}
+
+							{% endfor %}
+
+							</ul>
+
+						{% endif %}
+
+					</li>
+
+				{% endif %}
+
+			{% endfor %}
+
+			</ul>
+
+		</nav>
+
+	</div>
+
+</header>

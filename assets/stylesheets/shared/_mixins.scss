@@ -25,7 +25,7 @@
 	align-items: center;
 }
 
-@mixin clear-fix {
+@mixin clearfix {
 
 	&:before,
 	&:after {
