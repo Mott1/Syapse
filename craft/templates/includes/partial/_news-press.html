@@ -1,0 +1,79 @@
+{% set latestNews = craft.entries.section('inTheNews').order('postDate desc').first() %}
+{% set newsParentUrl = latestNews.uri | split('/') | slice(0,2) | join('/') %}
+{% set newsThumbnailUrl = latestNews.thumbnail.first().url | default('http://via.placeholder.com/180x180') %}
+{% set newsTitle = latestNews.title | default('') %}
+{% set newsDescription = latestNews.description | default('') %}
+{% set newsUrl = latestNews.url | default('#') %}
+
+{% set latestPress = craft.entries.section('pressReleases').order('postDate desc').first() %}
+{% set pressParentUrl = latestPress.uri | split('/') | slice(0,2) | join('/') %}
+{% set pressThumbnailUrl = latestPress.thumbnail.first().url | default('http://via.placeholder.com/180x180') %}
+{% set pressTitle = latestPress.title | default('') %}
+{% set pressDescription = latestPress.description | default('') %}
+{% set pressUrl = latestPress.url | default('#') %}
+
+<div class="news-press">
+
+	<div class="news">
+
+		<h4 class="heading">
+			<a href="{{ newsParentUrl }}">
+				In the News
+			</a>
+		</h4>
+
+		<div class="article">
+
+			<a href="{{ newsUrl }}">
+				<img class="image" src="{{ newsThumbnailUrl }}">
+			</a>
+
+			<div class="info">
+
+				<p class="title">
+					{{ newsTitle }}
+				</p>
+
+				<a class="link" href="{{ newsUrl }}">
+					Read
+				</a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="vertical-divider"></div>
+
+	<div class="press">
+		
+		<h4 class="heading">
+			<a href="{{ pressParentUrl }}">
+				Press
+			</a>
+		</h4>
+
+		<div class="article">
+
+			<a href="{{ pressUrl }}">
+				<img class="image" src="{{ pressThumbnailUrl }}">
+			</a>
+
+			<div class="info">
+
+				<p class="title">
+					{{ pressTitle }}
+				</p>
+
+				<a class="link" href="{{ pressUrl }}">
+					Read
+				</a>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

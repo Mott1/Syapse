@@ -49,14 +49,12 @@
 		display: block;
 	}
 
-	.nav-link {
+	.page-heading {
+
 		cursor: default;
 		display: inline-block;
-		color: #4a4a4a;
-	}
-
-	.nav-link {
-
+		-webkit-font-smoothing: subpixel-antialiased;
+		-moz-osx-font-smoothing: grayscale;
 		font-size: 18px;
 		padding-bottom: 20px;
 
@@ -92,6 +90,8 @@
 	.subpage-link {
 		display: block;
 		width: 100%;
+		-webkit-font-smoothing: subpixel-antialiased;
+		-moz-osx-font-smoothing: grayscale;
 		color: #4a4a4a;
 	}
 
@@ -100,13 +100,40 @@
 // Core Footer
 .core-footer {
 
-	padding: 35px 80px 60px;
+	padding: 40px 80px 60px;
+	background-color: #F4F5F6;
 
 	.content-wrapper {
 		@include clearfix;
 		width: 100%;
-		padding-top: 85px;
-		border-top: 1px solid #DFE0E4;
+	}
+
+	// Subscribe
+	.subscribe {
+
+		margin-bottom: 85px;
+		padding-bottom: 35px;
+		border-bottom: 1px solid #DFE0E4;
+
+		label {
+			margin-right: 20px;
+			font-size: 24px;
+			font-weight: 500;
+			color: $buttonBlue;
+		}
+
+		input {
+			position: relative;
+			top: -3px;
+			margin-right: 20px;
+			margin-bottom: 0;
+		}
+
+		button {
+			position: relative;
+			top: -3px;
+		}
+
 	}
 
 	// Company Info
@@ -162,7 +189,7 @@
 
 	.page-heading {
 		cursor: default;
-		margin-bottom: 0.75em;
+		margin-bottom: 0.7em;
 		font-size: 20px;
 	}
 

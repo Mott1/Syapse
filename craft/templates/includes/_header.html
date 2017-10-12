@@ -25,7 +25,7 @@
 
 					<li class="pages-li">
 
-						<a class="nav-link nav-link-{{ loop.index }}" href="page.url">
+						<div class="page-heading">
 							
 							{{ page.title }}
 
@@ -33,7 +33,7 @@
 								{{ craft.inlin.er('/images/ui/icon-triangle-down.svg') | raw }}
 							{% endif %}
 							
-						</a>
+						</div>
 
 						{% set subpages = page.children() %}
 

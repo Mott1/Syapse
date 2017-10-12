@@ -1,0 +1,32 @@
+.lets-talk {
+
+	@include clearfix;
+	padding: 100px 80px 80px;
+
+	.left-info {
+		float: left;
+		width: 290px;
+	}
+
+	.right-info {
+		float: right;
+		width: calc(100% - 430px);
+	}
+
+	// Form
+
+	input {
+		float: left;
+		width: calc(50% - 35px);
+	}
+
+	input:nth-child(odd) {
+		margin-right: 70px;
+	}
+
+	#title {
+		width: 100%;
+		margin-right: 0;
+	}
+
+}

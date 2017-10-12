@@ -4,4 +4,9 @@
 // Shared
 @import "shared/mixins";
 @import "shared/global";
+@import "shared/typography";
 @import "shared/core";
+
+// Partial
+@import "partial/news-press";
+@import "partial/lets-talk";

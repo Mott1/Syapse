@@ -398,9 +398,6 @@ html {
 body {
   width: 100vw;
   overflow-x: hidden;
-  font-family: "museo-sans", sans-serif;
-  -webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: #4A4A4A; }
 
 .core-wrapper {
@@ -412,6 +409,35 @@ body {
 a {
   text-decoration: none; }
 
+input {
+  width: 300px;
+  max-width: 100%;
+  margin-bottom: 30px;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid #D2D2D2;
+  background-color: transparent; }
+
+.button {
+  display: inline-block;
+  min-height: 36px;
+  padding: 9px 50px 10px;
+  border: 1px solid #21C2D2;
+  border-radius: 6px; }
+
+.button[type="submit"] {
+  padding: 9px 70px 6px; }
+
+textarea {
+  width: 100%;
+  margin-bottom: 30px;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid #D2D2D2;
+  background-color: transparent; }
+
 @media screen and (min-width: 768px) {
   .hide-on-desktop {
     display: none; } }
@@ -420,21 +446,56 @@ a {
   .hide-on-mobile {
     display: none; } }
 
+body {
+  font-family: "museo-sans", sans-serif;
+  color: #4A4A4A; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.6em;
+  color: #21C2D2; }
+
+p {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 0.7em;
+  margin-bottom: 0.7em;
+  font-size: 18px;
+  line-height: 1.7em; }
+  p:first-of-type {
+    margin-top: 0; }
+  p:last-of-type {
+    margin-bottom: 0; }
+
+h2 {
+  font-weight: 500;
+  font-size: 36px; }
+
+h4 {
+  font-weight: 500;
+  font-size: 24px; }
+
+input,
+textarea {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "museo-sans", sans-serif;
+  font-size: 14px; }
+
 .button {
-  display: inline-block;
-  min-height: 36px;
-  padding: 9px 50px 10px;
-  border: 1px solid #21C2D2;
-  border-radius: 6px;
+  font-family: "museo-sans", sans-serif;
   font-size: 14px;
   font-weight: 500;
   text-align: center;
   background-color: transparent;
   color: #21C2D2;
   transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out; }
-  .button:hover {
+  .button:hover, .button.fill {
     background-color: #21C2D2;
     color: #fff; }
+  .button.fill:hover {
+    background-color: transparent;
+    color: #21C2D2; }
 
 .core-header {
   padding: 30px 80px; }
@@ -466,14 +527,14 @@ a {
     margin-right: 40px; }
   .core-header .pages-li:hover > .subpages {
     display: block; }
-  .core-header .nav-link {
+  .core-header .page-heading {
     cursor: default;
     display: inline-block;
-    color: #4a4a4a; }
-  .core-header .nav-link {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
     font-size: 18px;
     padding-bottom: 20px; }
-    .core-header .nav-link svg {
+    .core-header .page-heading svg {
       position: relative;
       top: -3px;
       margin-left: 5px; }
@@ -495,14 +556,15 @@ a {
   .core-header .subpage-link {
     display: block;
     width: 100%;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
     color: #4a4a4a; }
 
 .core-footer {
-  padding: 35px 80px 60px; }
+  padding: 40px 80px 60px;
+  background-color: #F4F5F6; }
   .core-footer .content-wrapper {
-    width: 100%;
-    padding-top: 85px;
-    border-top: 1px solid #DFE0E4; }
+    width: 100%; }
     .core-footer .content-wrapper:before, .core-footer .content-wrapper:after {
       content: " ";
       display: table; }
@@ -514,6 +576,23 @@ a {
       visibility: hidden; }
     .core-footer .content-wrapper {
       *zoom: 1; }
+  .core-footer .subscribe {
+    margin-bottom: 85px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #DFE0E4; }
+    .core-footer .subscribe label {
+      margin-right: 20px;
+      font-size: 24px;
+      font-weight: 500;
+      color: #21C2D2; }
+    .core-footer .subscribe input {
+      position: relative;
+      top: -3px;
+      margin-right: 20px;
+      margin-bottom: 0; }
+    .core-footer .subscribe button {
+      position: relative;
+      top: -3px; }
   .core-footer .company-info {
     float: left;
     margin-bottom: 30px;
@@ -571,7 +650,7 @@ a {
     width: 100%; }
   .core-footer .page-heading {
     cursor: default;
-    margin-bottom: 0.75em;
+    margin-bottom: 0.7em;
     font-size: 20px; }
   .core-footer .subpages-li {
     margin-bottom: 0.5em; }
@@ -620,3 +699,73 @@ a {
   .core-footer .privacy-policy {
     margin-left: 30px;
     color: #4A4A4A; }
+
+.news-press {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 100px 80px;
+  background-color: #F4F5F6; }
+  .news-press .news,
+  .news-press .press {
+    width: calc(50% - 80px); }
+  .news-press .vertical-divider {
+    -ms-flex-item-align: stretch;
+        align-self: stretch;
+    width: 1px;
+    margin: 40px 80px 0;
+    background-color: #D8D8D8; }
+  .news-press .heading a {
+    color: #21C2D2; }
+  .news-press .article {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  .news-press .image {
+    min-width: 180px;
+    margin-right: 40px; }
+  .news-press .info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+  .news-press .title {
+    width: 100%;
+    font-size: 20px; }
+  .news-press .link {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    margin-top: 30px;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 18px;
+    color: #4A4A4A; }
+
+.lets-talk {
+  padding: 100px 80px 80px; }
+  .lets-talk:before, .lets-talk:after {
+    content: " ";
+    display: table; }
+  .lets-talk:after {
+    display: block;
+    clear: both;
+    height: 1px;
+    margin-top: -1px;
+    visibility: hidden; }
+  .lets-talk {
+    *zoom: 1; }
+  .lets-talk .left-info {
+    float: left;
+    width: 290px; }
+  .lets-talk .right-info {
+    float: right;
+    width: calc(100% - 430px); }
+  .lets-talk input {
+    float: left;
+    width: calc(50% - 35px); }
+  .lets-talk input:nth-child(odd) {
+    margin-right: 70px; }
+  .lets-talk #title {
+    width: 100%;
+    margin-right: 0; }

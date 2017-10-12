@@ -15,9 +15,6 @@ html {
 body {
 	width: 100vw;
 	overflow-x: hidden;
-	font-family: "museo-sans", sans-serif;
-	-webkit-font-smoothing: subpixel-antialiased;
-	-moz-osx-font-smoothing: grayscale;
 	// background-color: #f9f9f9;
 	color: $defaultColor;
 }
@@ -29,13 +26,46 @@ body {
 	margin-right: auto;
 }
 
+::selection {
+	// color: #fff;
+	// background: #222;
+}
+
 a {
 	text-decoration: none;
 }
 
-::selection {
-	// color: #fff;
-	// background: #222;
+input {
+	width: 300px;
+	max-width: 100%;
+	margin-bottom: 30px;
+	padding-top: 0;
+	padding-bottom: 4px;
+	border: none;
+	border-bottom: 1px solid #D2D2D2;
+	background-color: transparent;
+}
+
+.button {
+	display: inline-block;
+	min-height: 36px;
+	padding: 9px 50px 10px;
+	border: 1px solid $buttonBlue;
+	border-radius: 6px;
+}
+
+.button[type="submit"] {
+	padding: 9px 70px 6px;
+}
+
+textarea {
+	width: 100%;
+	margin-bottom: 30px;
+	padding-top: 0;
+	padding-bottom: 4px;
+	border: none;
+	border-bottom: 1px solid #D2D2D2;
+	background-color: transparent;
 }
 
 // Display
@@ -52,27 +82,3 @@ a {
 	}
 }
 
-// Buttons
-
-.button {
-
-	display: inline-block;
-	min-height: 36px;
-	padding: 9px 50px 10px;
-	border: 1px solid $buttonBlue;
-	border-radius: 6px;
-	font-size: 14px;
-	font-weight: 500;
-	text-align: center;
-
-	background-color: transparent;
-	color: $buttonBlue;
-
-	transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
-
-	&:hover {
-		background-color: $buttonBlue;
-		color: #fff;
-	}
-
-}

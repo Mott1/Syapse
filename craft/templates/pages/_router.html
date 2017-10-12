@@ -6,6 +6,12 @@
 
 {% switch switchType %}
 
+	{% case "inTheNews" %}
+		{% include "pages/news/in-the-news" %}
+
+	{% case "inTheNewsArticle" %}
+		{% include "pages/news/in-the-news-article" %}
+
 	{% default %}
 		{% include "pages/default-page" %}
 

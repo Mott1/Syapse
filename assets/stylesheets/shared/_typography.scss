@@ -1,0 +1,112 @@
+body {
+	// -webkit-font-smoothing: subpixel-antialiased;
+	// -moz-osx-font-smoothing: grayscale;
+	font-family: "museo-sans", sans-serif;
+	color: $defaultColor;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0;
+	margin-bottom: 0.6em;
+	color: $buttonBlue;
+}
+
+p {
+
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	margin-top: 0.7em;
+	margin-bottom: 0.7em;
+	font-size: 18px;
+	line-height: 1.7em;
+
+	&:first-of-type {
+		margin-top: 0;
+	}
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+
+}
+
+// h1 {
+// 	font-size: px;
+// 	line-height: em;
+// 	color: #;
+// }
+
+h2 {
+	font-weight: 500;
+	font-size: 36px;
+	// line-height: em;
+}
+
+// h3 {
+// 	font-size: px;
+// 	line-height: em;
+// 	color: #;
+// }
+
+h4 {
+	font-weight: 500;
+	font-size: 24px;
+	// line-height: em;
+}
+
+// h5 {
+// 	font-size: px;
+// 	line-height: em;
+// 	color: #;
+// }
+
+// h6 {
+// 	font-size: px;
+// 	line-height: em;
+// 	color: #;
+// }
+
+// p {
+// 	font-size: px;
+// 	line-height: em;
+// 	color: #;
+// }
+
+// label {
+// 	font-size: px;
+// 	line-height: em;
+// 	color: #;
+// }
+
+input, 
+textarea {
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-family: "museo-sans", sans-serif;
+	font-size: 14px;
+}
+
+.button {
+
+	font-family: "museo-sans", sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	text-align: center;
+
+	background-color: transparent;
+	color: $buttonBlue;
+
+	transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+
+	&:hover, 
+	&.fill {
+		background-color: $buttonBlue;
+		color: #fff;
+	}
+
+	&.fill:hover {
+		background-color: transparent;
+		color: $buttonBlue;
+	}
+
+}

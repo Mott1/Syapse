@@ -5,11 +5,17 @@
 {% set twitterUrl = footer.socialFacebook | default('') %}
 {% set linkedInUrl = footer.socialFacebook | default('') %}
 
+{% include 'includes/partial/_news-press' %}
+
+{% include 'includes/partial/_letsTalk' %}
+
 <footer class="core-footer">
 
 	<div class="core-wrapper">
 
 		<div class="content-wrapper">
+
+			{% include 'includes/partial/_subscribe' %}
 
 			<div class="company-info">
 
