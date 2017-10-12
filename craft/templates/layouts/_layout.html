@@ -22,9 +22,9 @@
 	<script>try{Typekit.load({ async: true });}catch(e){}</script>
 
 {% if craft.config.devMode %}
-	<link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+	<link rel="stylesheet" type="text/css" href="{{ siteUrl }}stylesheets/app.css">
 {% else %}
-	<link rel="stylesheet" type="text/css" href="/stylesheets/app.min.css?v=1.0.0">
+	<link rel="stylesheet" type="text/css" href="{{ siteUrl }}stylesheets/app.min.css?v=1.0.0">
 {% endif %}
 
 </head>
@@ -42,9 +42,9 @@
 	</main>
 
 {% if craft.config.devMode %}
-    <script type="text/javascript" src="/javascripts/app.js"></script>
+    <script type="text/javascript" src="{{ siteUrl }}javascripts/app.js"></script>
 {% else %}
-    <script type="text/javascript" src="/javascripts/app.min.js?v=1.0.0"></script>
+    <script type="text/javascript" src="{{ siteUrl }}javascripts/app.min.js?v=1.0.0"></script>
 {% endif %}
 
 {% include '/includes/_tracking.html' %}
