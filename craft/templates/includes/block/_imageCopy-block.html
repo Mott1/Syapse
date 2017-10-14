@@ -1,0 +1,73 @@
+{# To-do: 
+	- Setup internal & external link.
+	- Remove commented testing code.
+#}
+
+{% set themes = '' %}
+{% set layout = 'imageLeft' %}
+{% set image = '' | default('http://via.placeholder.com/620x460') %}
+{% set heading = '' | default('Content Block Heading') %}
+{% set description = '' | default('Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl arcu, vestibulum in tortor eget, mattis viverra leo.') %}
+{% set buttonUrl = '' | default('#') %}
+{% set buttonLabel = '' | default('Button label') %}
+{% set buttonTarget = '' | default('_self') %}
+
+<div class="image-copy {{ themes }}">
+
+	<div class="global-wrapper">
+
+		<div class="image" style="background-image: url('{{ image }}');"></div>
+
+		<div class="copy">
+
+			<h2 class="heading">
+				{{ heading }}
+			</h2>
+			
+			<div class="description">
+
+				{{ description }}
+
+				{# List #}
+				{# <p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl arcu, vestibulum in tortor eget, mattis viverra leo.
+				</p>
+				<ul>
+					<li>List items goes here.</li>
+					<li>List items goes here.</li>
+					<li>List items goes here.</li>
+				</ul> #}
+
+				{# Contact #}
+				{# <p>
+					Our headquarters are in San Francisco, CA and we have an office in Wayne, PA, just outside Philadelphia.
+				</p>
+
+				<h3>
+					Headquarters
+				</h3>
+
+				<p>
+					<a href="#" target="_blank">
+						303 2nd St., Sixth Floor, Suite 650  <br>
+						San Francisco, CA 94107
+					</a>
+				</p>
+
+				<p>
+					<a href="tel:+1-650-924-1461">
+						+1-650-924-1461
+					</a>
+				</p>
+
+				<a class="button" href="#">Contact</a> #}
+
+			</div>
+
+			<a class="button" href="{{ buttonUrl }}" target="{{ buttonTarget }}">{{ buttonLabel }}</a>
+
+		</div>
+
+	</div>
+
+</div>

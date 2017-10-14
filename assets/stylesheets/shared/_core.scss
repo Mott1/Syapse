@@ -97,11 +97,17 @@
 
 }
 
+// Core Content
+.core-content {
+	@include clearfix;
+	width: 100%;
+}
+
 // Core Footer
 .core-footer {
 
 	padding: 40px 80px 60px;
-	background-color: #F4F5F6;
+	background-color: $darkGray;
 
 	.content-wrapper {
 		@include clearfix;

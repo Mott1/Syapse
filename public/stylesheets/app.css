@@ -400,7 +400,7 @@ body {
   overflow-x: hidden;
   color: #4A4A4A; }
 
-.core-wrapper {
+.global-wrapper {
   width: 100%;
   max-width: 1280px;
   margin-left: auto;
@@ -448,6 +448,7 @@ textarea {
 
 body {
   font-family: "museo-sans", sans-serif;
+  font-size: 18px;
   color: #4A4A4A; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -460,7 +461,6 @@ p {
   -moz-osx-font-smoothing: grayscale;
   margin-top: 0.7em;
   margin-bottom: 0.7em;
-  font-size: 18px;
   line-height: 1.7em; }
   p:first-of-type {
     margin-top: 0; }
@@ -490,10 +490,10 @@ textarea {
   background-color: transparent;
   color: #21C2D2;
   transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out; }
-  .button:hover, .button.fill {
+  .button:hover, .button.theme-colored-button {
     background-color: #21C2D2;
     color: #fff; }
-  .button.fill:hover {
+  .button.theme-colored-button:hover {
     background-color: transparent;
     color: #21C2D2; }
 
@@ -559,6 +559,20 @@ textarea {
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #4a4a4a; }
+
+.core-content {
+  width: 100%; }
+  .core-content:before, .core-content:after {
+    content: " ";
+    display: table; }
+  .core-content:after {
+    display: block;
+    clear: both;
+    height: 1px;
+    margin-top: -1px;
+    visibility: hidden; }
+  .core-content {
+    *zoom: 1; }
 
 .core-footer {
   padding: 40px 80px 60px;
@@ -700,6 +714,91 @@ textarea {
     margin-left: 30px;
     color: #4A4A4A; }
 
+.theme-darker-background {
+  background-color: #F4F5F6; }
+
+.image-copy {
+  padding: 100px 80px; }
+  .image-copy .global-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  .image-copy .image {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    width: 100%;
+    min-height: 460px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover; }
+  .image-copy .copy {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    padding: 80px;
+    padding-right: 0; }
+  .image-copy ul {
+    padding-left: 0;
+    list-style-type: none; }
+  .image-copy ul li {
+    margin-top: 0; }
+    .image-copy ul li:not(:last-of-type) {
+      margin-bottom: 20px; }
+  .image-copy ul li:before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 20px;
+    border-radius: 100%;
+    background-color: #21C2D2;
+    vertical-align: middle; }
+  .image-copy p + h3 {
+    margin-top: 30px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #3F3F3F; }
+  .image-copy a:not(.button) {
+    color: #4A4A4A;
+    transition: color 0.15s ease-in-out; }
+  .image-copy a:not(.button):hover {
+    color: #21C2D2; }
+  .image-copy .button {
+    margin-top: 30px; }
+  .image-copy.imageRight .image {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2; }
+  .image-copy.imageRight .copy {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    padding-left: 0;
+    padding-right: 80px; }
+  .image-copy.theme-narrow-text-width .copy {
+    padding-left: 140px;
+    padding-right: 80px; }
+  .image-copy.theme-narrow-text-width.imageRight .copy {
+    padding-left: 80px;
+    padding-right: 140px; }
+  .image-copy.theme-wide-text-width .image {
+    width: 50%; }
+  .image-copy.theme-half-width {
+    float: left;
+    width: 50%;
+    padding-left: 40px;
+    padding-right: 40px; }
+    .image-copy.theme-half-width .copy {
+      padding: 40px; }
+
 .news-press {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -729,14 +828,20 @@ textarea {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap; }
+        flex-wrap: wrap;
+    position: relative;
+    top: -10px; }
   .news-press .title {
     width: 100%;
     font-size: 20px; }
+  .news-press .excerpt {
+    width: 100%;
+    margin-top: 0;
+    font-size: 16px; }
   .news-press .link {
     -ms-flex-item-align: end;
         align-self: flex-end;
-    margin-top: 30px;
+    margin-top: 40px;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 18px;

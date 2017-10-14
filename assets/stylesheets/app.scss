@@ -6,6 +6,10 @@
 @import "shared/global";
 @import "shared/typography";
 @import "shared/core";
+@import "shared/themes";
+
+// Block
+@import "block/image-copy";
 
 // Partial
 @import "partial/news-press";

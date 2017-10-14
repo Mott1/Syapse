@@ -41,6 +41,7 @@ return array(
         'environmentVariables' => array(
             'baseUrl' => 'http://localhost:8888/',
             'basePath' => '/Applications/MAMP/htdocs/syapse/public/',
+            'inlinPublicRoot' => '/Applications/MAMP/htdocs/syapse/public/',
         ),
 
     )

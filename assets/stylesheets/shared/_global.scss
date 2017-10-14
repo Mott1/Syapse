@@ -1,6 +1,7 @@
 //  Colors
 
 $defaultColor: #4A4A4A;
+$darkGray: #F4F5F6;
 $buttonBlue: #21C2D2;
 
 // Global
@@ -19,7 +20,7 @@ body {
 	color: $defaultColor;
 }
 
-.core-wrapper {
+.global-wrapper {
 	width: 100%;
 	max-width: 1280px;
 	margin-left: auto;

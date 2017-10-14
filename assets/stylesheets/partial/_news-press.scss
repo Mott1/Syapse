@@ -2,7 +2,7 @@
 
 	display: flex;
 	padding: 100px 80px;
-	background-color: #F4F5F6;
+	background-color: $darkGray;
 	
 	.news, 
 	.press {
@@ -32,6 +32,8 @@
 	.info {
 		display: flex;
 		flex-wrap: wrap;
+		position: relative;
+		top: -10px;
 	}
 
 	.title {
@@ -39,9 +41,15 @@
 		font-size: 20px;
 	}
 
+	.excerpt {
+		width: 100%;
+		margin-top: 0;
+		font-size: 16px;
+	}
+
 	.link {
 		align-self: flex-end;
-		margin-top: 30px;
+		margin-top: 40px;
 		-webkit-font-smoothing: subpixel-antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		font-size: 18px;

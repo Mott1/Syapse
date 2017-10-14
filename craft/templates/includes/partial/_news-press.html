@@ -1,13 +1,17 @@
 {% set latestNews = craft.entries.section('inTheNews').order('postDate desc').first() %}
 {% set newsParentUrl = latestNews.uri | split('/') | slice(0,2) | join('/') %}
-{% set newsThumbnailUrl = latestNews.thumbnail.first().url | default('http://via.placeholder.com/180x180') %}
+{% set newsThumbnail = latestNews.thumbnail.first() %}
+{% set newsThumbnailUrl = newsThumbnail.url | default('http://via.placeholder.com/180x180') %}
+{% set newsThumbnailAlt = newsThumbnail.alt | default('Example image ALT text') %}
 {% set newsTitle = latestNews.title | default('') %}
 {% set newsDescription = latestNews.description | default('') %}
 {% set newsUrl = latestNews.url | default('#') %}
 
 {% set latestPress = craft.entries.section('pressReleases').order('postDate desc').first() %}
 {% set pressParentUrl = latestPress.uri | split('/') | slice(0,2) | join('/') %}
-{% set pressThumbnailUrl = latestPress.thumbnail.first().url | default('http://via.placeholder.com/180x180') %}
+{% set pressThumbnail = latestPress.thumbnail.first() %}
+{% set pressThumbnailUrl = pressThumbnail.url | default('http://via.placeholder.com/180x180') %}
+{% set pressThumbnailAlt = pressThumbnail.alt | default('Example image ALT text') %}
 {% set pressTitle = latestPress.title | default('') %}
 {% set pressDescription = latestPress.description | default('') %}
 {% set pressUrl = latestPress.url | default('#') %}
@@ -32,6 +36,10 @@
 
 				<p class="title">
 					{{ newsTitle }}
+				</p>
+
+				<p class="excerpt">
+					{{ newsDescription | length > 90 ? newsDescription | striptags | slice(0, 90) ~ '…' : newsDescription | striptags }}
 				</p>
 
 				<a class="link" href="{{ newsUrl }}">
@@ -64,6 +72,10 @@
 
 				<p class="title">
 					{{ pressTitle }}
+				</p>
+
+				<p class="excerpt">
+					{{ pressDescription | length > 90 ? pressDescription | striptags | slice(0, 90) ~ '…' : pressDescription | striptags }}
 				</p>
 
 				<a class="link" href="{{ pressUrl }}">
