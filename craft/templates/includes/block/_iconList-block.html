@@ -1,0 +1,24 @@
+{% set heading = theBlock.heading | default("Icon List Block") %}
+
+<div class="logo-grid-block">
+
+	<div class="content reveal">
+
+		<h2 class="heading">
+			{{ heading }}
+		</h2>
+
+	</div>
+
+	<div class="logo-list">
+		[icon list elements]
+
+{# 		{% for logo in logos %}
+			{% set clientLogo = client.logo.first().url() | default('') %}
+			<div class="client reveal">
+				<img src="{{ clientLogo }}">
+			</div>
+		{% endfor %} #}
+	</div>
+
+</div>

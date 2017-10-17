@@ -1,0 +1,23 @@
+{# Inherits variables from pages/_router: #}
+{# @articles - the articles to output #}
+{# @sectionTitle - the title of the news section #}
+{# @isCategory - is this news section a category #}
+
+{% extends "layouts/_layout" %}
+
+{% block content %}
+
+    <div class="core-content">
+
+        {% if isCategory is defined and isCategory %}
+            <h3>Blog</h3>
+        {% endif %}
+
+        <h2>{{ sectionTitle }}</h2>
+
+        {% include 'includes/partial/_article-list' %}
+        {% include 'includes/partial/_sidebar' %}
+
+    </div>
+
+{% endblock %}

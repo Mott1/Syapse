@@ -1,0 +1,17 @@
+{% set heading = theBlock.heading | default("CTA Block") %}
+{% set ctaLink = "/" %}
+{% set ctaText = theBlock.ctaText | default("Click Me") %}
+
+<div class="cta-block">
+
+	<div class="content reveal">
+
+		<h2 class="heading">
+			{{ heading }}
+		</h2>
+
+		<a class="button" href="{{ ctaLink }}">{{ ctaText }}</a>
+
+	</div>
+
+</div>

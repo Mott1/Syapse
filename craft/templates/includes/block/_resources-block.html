@@ -1,0 +1,8 @@
+{% set resourceCount = theBlock.resources.count() | default (0) %}
+
+{% if theBlock.resources.count() <= 1 %}
+    {% include 'includes/block/resources/_single' %}
+
+{% else %}
+    {% include 'includes/block/resources/_multiple' %}
+{% endif %}

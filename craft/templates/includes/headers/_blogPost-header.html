@@ -1,0 +1,15 @@
+{% set category = entry.blogCategory.first().title | default("Default category") %}
+{% set title = entry.title | default("Blog post title") %}
+{% set author = entry.author | default("Author name") %}
+{% set authorPic = entry.author.photoUrl | default("http://via.placeholder.com/180x180") %}
+{% set date = entry.postDate | date("n/j/y") | default("06/02/2017") %}
+
+<div class="blog-post-header">
+
+    <h3>{{ category }}</h3>
+    <h2>{{ title }}</h2>
+    <img src="{{ authorPic }}" alt="">
+    <p>By {{ author }}</p>
+    <p>{{ date }}</p>
+
+</div>

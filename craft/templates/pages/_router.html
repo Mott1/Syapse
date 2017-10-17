@@ -1,18 +1,56 @@
-{% if entry.type.handle == "pages" %}
-	{% set switchType = entry.slug %}
+{% if entry is defined %}
+
+    {{ d(entry.type.handle) }}
+
+    {% switch entry.type.handle %}
+
+        {# News sections #}
+        {% case "newsListing" %}
+    
+            {% set articles = craft.entries.section(entry.slug | camel) %}
+            {% set title = craft.entries.section('pages').slug(entry.slug).first().title %}
+            {% include "pages/news-listing-page" with { articles: articles, sectionTitle: title } %}
+
+        {% case "blogPost" %}
+            {% include "pages/news-article-page" %}
+
+        {% case "pressRelease" %}
+            {% include "pages/news-article-page" %}
+        
+        {# Customer stories  #}
+        {% case "customerStoryListing" %}
+            {% include "pages/customer-story-listing-page" %}
+
+        {% case "customerStory" %}
+            {% include "pages/customer-story-page" %}
+
+        {# Customer listing / Health systems  #}
+        {% case "customerListing" %}
+            {% include "pages/customer-listing-page" %}
+
+        {# Provider listing  #}
+        {% case "providerListing" %}
+            {% include "pages/provider-listing-page" %}
+
+        {# Home #}
+        {% case "homepage" %}
+            {% include "pages/home-page" %}
+
+        {# Catchall #}
+        {% default %}
+            {% include "pages/default-page" %}
+
+    {% endswitch %}   
+
+{% elseif category is defined %}
+
+    {# Categories listing pages don't have acces to entry so force the appropriate template #}
+    {% set articles = craft.entries.section('blog').relatedTo(category) %}
+    {% include "pages/news-listing-page" with { articles: articles, sectionTitle: category.title, isCategory: true } %}
+
 {% else %}
-	{% set switchType = entry.type.handle %}
+
+    {% exit 404 %}
+
 {% endif %}
 
-{% switch switchType %}
-
-	{% case "inTheNews" %}
-		{% include "pages/news/in-the-news" %}
-
-	{% case "inTheNewsArticle" %}
-		{% include "pages/news/in-the-news-article" %}
-
-	{% default %}
-		{% include "pages/default-page" %}
-
-{% endswitch %}

@@ -1,0 +1,22 @@
+{% extends "layouts/_layout" %}
+
+{% block content %}
+
+	<div class="core-content">
+		  
+        {% if entry.type == "blogPost" %}
+            {% include 'includes/headers/_blogPost-header' %}
+        
+        {% elseif entry.type == "pressRelease" %}
+            <h3>Press Releases</h3>
+            <h2>{{ entry.title }}</h2>
+
+        {% endif %}
+
+        [article body] 
+
+        {% include 'includes/partial/_sidebar' %}        
+
+	</div>
+
+{% endblock %}
