@@ -1,6 +1,6 @@
 .image-copy {
 
-	padding: 100px 80px;
+	@include sectionPadding;
 	
 	.global-wrapper {
 		display: flex;

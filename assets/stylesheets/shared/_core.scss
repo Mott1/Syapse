@@ -42,6 +42,10 @@
 	.pages-li {
 		display: inline-block;
 		position: relative;
+		padding-left: 40px;
+	}
+
+	.pages-li:last-of-type {
 		margin-right: 40px;
 	}
 

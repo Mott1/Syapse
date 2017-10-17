@@ -1,24 +1,57 @@
 {# To-do: 
 	- Integrate CMS fields.
 	- Remove commented and default testing code.
+	- Create Image transform for thumbnail
 #}
 
 {% set themes = '' %}
 {% set layout = 'imageLeft' %}
 {% set heading = '' | default('Content Block Heading') %}
 {% set bio = '' | default('Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl arcu, vestibulum in tortor eget, mattis viverra leo.') %}
-{% set imageUrl = '' | default('http://via.placeholder.com/180x180') %}
-{% set videoUrl = '' | default('') %} {# YouTube or Vimeo #}
+{% set videoSource = '' | default('youtube') %}
+{% set videoId = '' | default('9WIN-Wvr944') %} {# YouTube or Vimeo #}
 {% set fullName = '' | default('Full Name') %}
 {% set assignment = '' | default('Assignment') %}
 {% set quote = '' | default('"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl arcu, vestibulum in tortor eget, mattis viverra leo."') %}
 
+{% set hasBio = bio|length %}
+{% set hasVideo = videoId|length %}
 
-<div class="quote-block">
+{% if hasVideo %}
+{% set imageUrlDefault = 'http://via.placeholder.com/1920x1080?text=16:9' %}
+{% else %}
+{% set imageUrlDefault = 'http://via.placeholder.com/180x180' %}
+{% endif %}
+
+{% set image = '' | default('') %}
+{% set imageUrl = '' | default(imageUrlDefault) %}
+
+{% set thumbnail = '' | default('') %}
+{% set thumbnailUrl = '' | default('http://via.placeholder.com/50x50') %}
+
+<div class="quote-block {% if hasBio %}hasBio{% endif %} {% if hasVideo %}hasVideo{% endif %}">
 
 	<div class="global-wrapper">
 
-		<div class="image" style="background-image: url('{{ imageUrl }}');"></div>
+		<div class="media" style="{% if not hasVideo %}background-image: url('{{ imageUrl }}');{% endif %}">
+			{% if hasVideo %}
+			<div class="video-container">
+
+				{# <video class="video" preload="auto" muted autoplay playsinline>
+					<source src="{{ videoId }}" type="video/mp4">
+				</video> #}
+
+				{% if videoSource == "youtube" %}
+				<iframe class="videoIframe" width="100%" src="https://www.youtube-nocookie.com/embed/{{ videoId }}?rel=0" frameborder="0" allowfullscreen></iframe>
+				{% endif %}
+
+				{% if videoSource == "vimeo" %}
+
+				{% endif %}
+
+			</div>
+			{% endif %}
+		</div>
 
 		<div class="info">
 
@@ -30,7 +63,7 @@
 
 			<div class="content">
 
-				{% if bio | length %}
+				{% if hasBio %}
 				<div class="bio">
 					{{ bio }}
 				</div>
@@ -43,12 +76,23 @@
 					</blockquote>
 
 					<div class="quotee">
-						<span class="full-name">
-							{{ fullName }}
-						</span>
-						<span class="assignment">
-							{{ assignment }}
-						</span>
+
+						{% if not hasVideo %}
+						<img class="thumbnail hide-on-desktop" src="{{ thumbnailUrl }}" alt="{{ fullName }}">
+						{% endif %}
+
+						<div class="quotee-info">
+
+							<span class="full-name">
+								{{ fullName }}
+							</span>
+
+							<span class="assignment">
+								{{ assignment }}
+							</span>
+
+						</div>
+
 					</div>
 
 				</div>
