@@ -2,12 +2,15 @@
 
 {% block content %}
 
-	<div class="core-content">
+    <div class="core-content">
 
         {% include 'includes/headers/_headers-matrix' %}
 
+        [provider listing goes here]
+        {# loop over quote blocks for all the providers #}
+
         {% include 'includes/block/_block-matrix' %}
 
-	</div>
+    </div>
 
 {% endblock %}

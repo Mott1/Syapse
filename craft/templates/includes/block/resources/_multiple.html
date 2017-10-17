@@ -1,0 +1,14 @@
+{# Has access to theBlock #}
+{% set heading = theBlock.heading | default("") %}
+
+<div class="resources-block-multiple">
+
+    {% if heading != "" %}
+        
+        <h2>{{ heading }}</h2>
+
+    {% endif %}
+    
+    [Multiple resources]
+    
+</div>

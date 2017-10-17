@@ -1,7 +1,10 @@
-{% set image = theBlock.image.first().url %}
-{% set imageFocalPoint = theBlock.image.first().focalPoint %}
+{% set image = 'http://via.placeholder.com/1440x566' %}
+{% set imageFocalPoint = "50% 50%" %}
 
-<div class="full-image">
+{# {% set image = theBlock.image.first().url %}
+{% set imageFocalPoint = theBlock.image.first().focalPoint %}
+ #}
+<div class="full-image-block">
 
 	<img class="reveal" src="{{ image }}" style="transform-origin: {{ imageFocalPoint }};">
 

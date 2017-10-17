@@ -1,14 +1,13 @@
-{% set theBlocks = entry.block %}
+{% set theBlocks = entry.contentBlocks %}
 
 {% if theBlocks is not null %}
 
 	<section class="blocks">
 
 		{% for theBlock in theBlocks %}
-			{% set theBlockHandle = theBlock.type.handle %}
-			{% set theBlockName =  theBlockHandle | kebab ~ "-block" %}
+			{% set theBlockName =  "_" ~ theBlock.type.handle ~ "-block" %}
 			{% set isFirst = loop.index == 1 %}
-			{% include "includes/block/_" ~ theBlockName ignore missing with {'theBlock': theBlock, "isFirst": isFirst} %}
+			{% include "includes/block/" ~ theBlockName ignore missing with {'theBlock': theBlock, "isFirst": isFirst} %}
 		{% endfor %}
 
 	</section>

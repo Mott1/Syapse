@@ -1,0 +1,41 @@
+{% extends "layouts/_layout" %}
+
+{% set articles = craft.entries.section('customerStories') %}
+
+{% block content %}
+
+    <div class="core-content">
+        
+        <div class="customer-stories-header">
+
+            {% for article in articles.limit(3) %}
+
+                <div class="article-item">
+
+                    {% if loop.index0  == 0%}
+                        {% set thumbnailUrl = 'http://via.placeholder.com/181x181' %}
+                        <p>Customers</p>
+
+                    {% else %}
+                        {% set thumbnailUrl = 'http://via.placeholder.com/110x110' %}
+                    {% endif %}
+                    
+                    <h4>{{ article.title }}</h4>
+                    <img src="{{ thumbnailUrl }}" alt="">
+
+                    {% if loop.index0 == 0%}
+                        <p>{{ article.body | striptags | slice(0, 100) | trim  ~ '...' }}</p>
+                    {% endif %}                    
+
+                    <a href="{{ article.url }}">Read</a>
+                </div>
+            {% endfor %}
+
+        </div>
+
+        {% include 'includes/partial/_article-list' with { articles: articles.offset(3) } %}
+        {% include 'includes/partial/_sidebar' %}
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+{% set theHeader = entry.header.first() %}
+
+{% if theHeader is not null %}
+
+    {% set theHeaderName =  "_" ~ theHeader.type.handle ~ "-header" %}
+
+    {% include "includes/headers/" ~ theHeaderName ignore missing with {'theHeader': theHeader} %}
+
+{% endif %}

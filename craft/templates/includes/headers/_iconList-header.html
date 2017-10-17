@@ -1,0 +1,11 @@
+{% set themes = '' %}
+{% set heading = theHeader.heading | default('Icon List Header Heading') %}
+{% set description = theHeader.body | default('Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl arcu, vestibulum in tortor eget, mattis viverra leo.') %}
+
+<div class="icon-list-header {{ themes }}">
+
+    <h1>{{ heading }}</h1>
+
+    <div>{{ description }}</div>
+
+</div>
