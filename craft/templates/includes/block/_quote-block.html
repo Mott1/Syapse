@@ -1,12 +1,62 @@
+{# To-do: 
+	- Integrate CMS fields.
+	- Remove commented and default testing code.
+#}
+
+{% set themes = '' %}
+{% set layout = 'imageLeft' %}
+{% set heading = '' | default('Content Block Heading') %}
+{% set bio = '' | default('Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl arcu, vestibulum in tortor eget, mattis viverra leo.') %}
+{% set imageUrl = '' | default('http://via.placeholder.com/180x180') %}
+{% set videoUrl = '' | default('') %} {# YouTube or Vimeo #}
+{% set fullName = '' | default('Full Name') %}
+{% set assignment = '' | default('Assignment') %}
+{% set quote = '' | default('"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl arcu, vestibulum in tortor eget, mattis viverra leo."') %}
+
 
 <div class="quote-block">
 
-    <div class="content reveal">
+	<div class="global-wrapper">
 
-        <h2 class="heading">
-            Quote Block
-        </h2>
+		<div class="image" style="background-image: url('{{ imageUrl }}');"></div>
 
-    </div>
+		<div class="info">
+
+			{% if heading | length %}
+			<h2 class="heading">
+				{{ heading }}
+			</h2>
+			{% endif %}
+
+			<div class="content">
+
+				{% if bio | length %}
+				<div class="bio">
+					{{ bio }}
+				</div>
+				{% endif %}
+
+				<div class="quote">
+
+					<blockquote>
+						{{ quote | typogrify }}
+					</blockquote>
+
+					<div class="quotee">
+						<span class="full-name">
+							{{ fullName }}
+						</span>
+						<span class="assignment">
+							{{ assignment }}
+						</span>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
 
 </div>

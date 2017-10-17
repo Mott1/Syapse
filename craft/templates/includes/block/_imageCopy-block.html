@@ -1,11 +1,11 @@
 {# To-do: 
 	- Setup internal & external link.
-	- Remove commented testing code.
+	- Remove commented and default testing code.
 #}
 
 {% set themes = '' %}
 {% set layout = 'imageLeft' %}
-{% set image = '' | default('http://via.placeholder.com/620x460') %}
+{% set imageUrl = '' | default('http://via.placeholder.com/620x460') %}
 {% set heading = '' | default('Content Block Heading') %}
 {% set description = '' | default('Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl arcu, vestibulum in tortor eget, mattis viverra leo.') %}
 {% set buttonUrl = '' | default('#') %}
@@ -16,7 +16,7 @@
 
 	<div class="global-wrapper">
 
-		<div class="image" style="background-image: url('{{ image }}');"></div>
+		<div class="image" style="background-image: url('{{ imageUrl }}');"></div>
 
 		<div class="copy">
 
