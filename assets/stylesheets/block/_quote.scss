@@ -35,12 +35,11 @@
 	}
 
 	.bio {
+		@include anti-alias;
 		width: 40%;
 		padding-right: 30px;
-		-webkit-font-smoothing: subpixel-antialiased;
-		-moz-osx-font-smoothing: grayscale;
 		font-size: 18px;
-		color: #4A4A4A;
+		color: $defaultColor;
 		line-height: 37px;
 	}
 
@@ -59,9 +58,8 @@
 	}
 
 	blockquote {
+		@include anti-alias;
 		margin: 0 0 20px;
-		-webkit-font-smoothing: subpixel-antialiased;
-		-moz-osx-font-smoothing: grayscale;
 		font-size: 20px;
 		font-weight: 300;
 		// font-style: italic;
@@ -96,9 +94,8 @@
 	}
 
 	.assignment {
+		@include anti-alias;
 		margin-left: 30px;
-		-webkit-font-smoothing: subpixel-antialiased;
-		-moz-osx-font-smoothing: grayscale;
 		font-size: 18px;
 		line-height: 36px;
 		color: #6D6D6D;
@@ -258,6 +255,22 @@
 			display: block;
 			width: 100%;
 			margin-left: 0;
+		}
+
+	}
+
+	@media screen and (max-width: 767px) {
+
+		blockquote {
+			font-size: 16px;
+		}
+
+		.full-name {
+			font-size: 16px;
+		}
+
+		.assignment {
+			font-size: 14px;
 		}
 
 	}

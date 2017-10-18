@@ -16,76 +16,80 @@
 {% set pressDescription = latestPress.body | default('') %}
 {% set pressUrl = latestPress.url | default('#') %}
 
-<div class="news-press">
+<div class="news">
 
-    <div class="news">
+	<div class="global-wrapper">
 
-        <h4 class="heading">
-            <a href="{{ newsParentUrl }}">
-                In the News
-            </a>
-        </h4>
+		<div class="left-article">
 
-        <div class="article">
+			<h4 class="heading">
+				<a href="{{ newsParentUrl }}">
+					In the News
+				</a>
+			</h4>
 
-            <a href="{{ newsUrl }}">
-                <img class="image" src="{{ newsThumbnailUrl }}">
-            </a>
+			<div class="article">
 
-            <div class="info">
+				<a href="{{ newsUrl }}">
+					<img class="image" src="{{ newsThumbnailUrl }}">
+				</a>
 
-                <p class="title">
-                    {{ newsTitle }}
-                </p>
+				<div class="info">
 
-                <p class="excerpt">
-                    {{ newsDescription | length > 90 ? newsDescription | striptags | slice(0, 90) ~ '…' : newsDescription | striptags }}
-                </p>
+					<p class="title">
+						{{ newsTitle }}
+					</p>
 
-                <a class="link" href="{{ newsUrl }}">
-                    Read
-                </a>
+					<p class="excerpt">
+						{{ newsDescription | length > 90 ? newsDescription | striptags | slice(0, 90) ~ '…' : newsDescription | striptags }}
+					</p>
 
-            </div>
+					<a class="link" href="{{ newsUrl }}">
+						Read
+					</a>
 
-        </div>
+				</div>
 
-    </div>
+			</div>
 
-    <div class="vertical-divider"></div>
+		</div>
 
-    <div class="press">
-        
-        <h4 class="heading">
-            <a href="{{ pressParentUrl }}">
-                Press
-            </a>
-        </h4>
+		<div class="vertical-divider"></div>
 
-        <div class="article">
+		<div class="right-article">
+			
+			<h4 class="heading">
+				<a href="{{ pressParentUrl }}">
+					Press
+				</a>
+			</h4>
 
-            <a href="{{ pressUrl }}">
-                <img class="image" src="{{ pressThumbnailUrl }}">
-            </a>
+			<div class="article">
 
-            <div class="info">
+				<a href="{{ pressUrl }}">
+					<img class="image" src="{{ pressThumbnailUrl }}">
+				</a>
 
-                <p class="title">
-                    {{ pressTitle }}
-                </p>
+				<div class="info">
 
-                <p class="excerpt">
-                    {{ pressDescription | length > 90 ? pressDescription | striptags | slice(0, 90) ~ '…' : pressDescription | striptags }}
-                </p>
+					<h5 class="title">
+						{{ pressTitle }}
+					</h5>
 
-                <a class="link" href="{{ pressUrl }}">
-                    Read
-                </a>
+					<p class="excerpt">
+						{{ pressDescription | length > 90 ? pressDescription | striptags | slice(0, 90) ~ '…' : pressDescription | striptags }}
+					</p>
 
-            </div>
+					<a class="link" href="{{ pressUrl }}">
+						Read
+					</a>
 
-        </div>
+				</div>
 
-    </div>
+			</div>
+
+		</div>
+
+	</div>
 
 </div>

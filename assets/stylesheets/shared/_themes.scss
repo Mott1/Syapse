@@ -1,4 +1,15 @@
 .theme-darker-background {
-	background-color: $darkGray;
+	background-color: $lightGray;
 }
 
+.theme-colored-button .button, 
+.theme-colored-button button {
+	background-color: $buttonBlue;
+	color: #fff;
+}
+
+.theme-colored-button .button:hover, 
+.theme-colored-button button:hover {
+	background-color: transparent;
+	color: $buttonBlue;
+}

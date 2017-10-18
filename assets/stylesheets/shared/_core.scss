@@ -55,10 +55,9 @@
 
 	.page-heading {
 
+		@include anti-alias;
 		cursor: default;
 		display: inline-block;
-		-webkit-font-smoothing: subpixel-antialiased;
-		-moz-osx-font-smoothing: grayscale;
 		font-size: 18px;
 		padding-bottom: 20px;
 
@@ -92,11 +91,18 @@
 	}
 
 	.subpage-link {
+		@include anti-alias;
 		display: block;
 		width: 100%;
-		-webkit-font-smoothing: subpixel-antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		color: #4a4a4a;
+		color: $defaultColor;
+	}
+
+	// Responsive
+
+	@media screen and (max-width: 767px) {
+
+		
+
 	}
 
 }
@@ -111,7 +117,7 @@
 .core-footer {
 
 	padding: 40px 80px 60px;
-	background-color: $darkGray;
+	background-color: $lightGray;
 
 	.content-wrapper {
 		@include clearfix;
@@ -126,10 +132,12 @@
 		border-bottom: 1px solid #DFE0E4;
 
 		label {
+			display: inline-block;
 			margin-right: 20px;
-			font-size: 24px;
+			font-size: 20px;
 			font-weight: 500;
-			color: $buttonBlue;
+			// line-height: em;
+			color: $darkGray;
 		}
 
 		input {
@@ -276,6 +284,117 @@
 	.privacy-policy {
 		margin-left: 30px;
 		color: $defaultColor;
+	}
+
+// Responsive
+
+	@media screen and (max-width: 1100px) {
+
+		.subscribe {
+			margin-bottom: 40px;
+		}
+
+		.company-info {
+			float: none;
+			width: 100%;
+			margin-bottom: 40px;
+			padding-right: 0;
+		}
+
+		.nav {
+			float: none;
+			width: 100%;
+		}
+
+	}
+
+	@media screen and (max-width: 960px) {
+
+		// Subscribe
+		.subscribe {
+
+			margin-bottom: 40px;
+			padding-bottom: 40px;
+
+			label {
+				width: 100%;
+				margin-bottom: 20px;
+			}
+
+			button {
+				top: 0;
+			}
+
+		}
+
+	}
+
+	@media screen and (max-width: 870px) {
+
+		.pages-li {
+			width: 25%;
+		}
+
+		.pages-li-group {
+			width: 100%;
+			margin-bottom: 0;
+		}
+
+		.copyright {
+			margin-top: 0;
+			text-align: left;
+		}
+
+		.privacy-policy {
+			display: inline-block;
+			margin-top: 5px;
+			margin-left: 0;
+		}
+
+	}
+
+	@media screen and (max-width: 767px) {
+
+		@include sectionPadding;
+
+		// Subscribe
+		.subscribe {
+
+			margin-bottom: 40px;
+			padding-bottom: 40px;
+
+			label {
+				margin-bottom: 20px;
+			}
+
+			button {
+				width: 100%;
+				max-width: 300px;
+				margin-top: 20px;
+			}
+
+		}
+
+		.slogan {
+			@include anti-alias;
+			font-size: 16px;
+			margin-top: 5px;
+		}
+
+		.page-heading {
+			font-size: 18px;
+			color: $darkGray;
+		}
+
+		.pages-li {
+			width: 50%;
+		}
+
+		.subpage-link, 
+		.copyright {
+			font-size: 12px;
+		}
+
 	}
 
 }

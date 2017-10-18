@@ -1,7 +1,8 @@
 //  Colors
 
 $defaultColor: #4A4A4A;
-$darkGray: #F4F5F6;
+$lightGray: #F4F5F6;
+$darkGray: #3F3F3F;
 $buttonBlue: #21C2D2;
 
 // Global
@@ -47,15 +48,31 @@ input {
 	background-color: transparent;
 }
 
-.button {
+button {
+	cursor: pointer;
+}
+
+.button, 
+button {
+
 	display: inline-block;
 	min-height: 36px;
 	padding: 9px 50px 10px;
 	border: 1px solid $buttonBlue;
 	border-radius: 6px;
+
+	background-color: transparent;
+
+	transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+
+	&:hover {
+		background-color: $buttonBlue;
+	}
+
 }
 
-.button[type="submit"] {
+.button[type="submit"], 
+button[type="submit"] {
 	padding: 9px 70px 6px;
 }
 
