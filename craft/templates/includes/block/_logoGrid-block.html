@@ -1,12 +1,22 @@
+{% set heading = '' | default('Logo Grid Block Title') %}
+{% set button = '' | default('') %}
+{% set buttonLabel = '' | default('Button') %}
+{% set buttonUrl = '' | default('#') %}
 {% set imageUrl = '' | default('http://via.placeholder.com/135x50') %}
 
 <div class="logo-grid">
 
 	<div class="global-wrapper">
 
-		<h2 class="heading">
-			Logo Grid Block Title
-		</h2>
+		<header>
+
+			<h2 class="heading">
+				{{ heading }}
+			</h2>
+
+			<a class="button hide-on-mobile" href="{{ buttonUrl }}">{{ buttonLabel }}</a>
+
+		</header>
 
 		<div class="logos-container">
 			<div class="logos">

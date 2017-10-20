@@ -4,9 +4,26 @@
 		@include sectionPadding;
 	}
 
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.heading {
+		margin-bottom: 0;
+	}
+
+	.logos-container {
+		margin-top: 40px;
+		padding-top: 40px;
+		border-top: 1px solid $hrColor;
+	}
+
 	.logos {
 		display: flex;
 		flex-wrap: wrap;
+		align-items: center;
 	}
 
 	.logo {
@@ -37,7 +54,9 @@
 		.logos-container {
 			overflow-y: hidden;
 			width: 100%;
-			height: 50px;
+			height: 90px;
+			margin-top: 20px;
+			padding-top: 20px;
 		}
 
 		.logos {

@@ -7,7 +7,13 @@
 	// 	left: 0;
 	// }
 
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
 	padding: 60px 80px;
+	background-color: rgba(255,255,255,0.98);
 
 	.core-wrapper {
 		display: flex;
@@ -227,6 +233,7 @@
 .core-content {
 	@include clearfix;
 	width: 100%;
+	padding-top: 88px;
 }
 
 // Core Footer
