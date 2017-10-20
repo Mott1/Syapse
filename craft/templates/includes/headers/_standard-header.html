@@ -1,11 +1,12 @@
 {% set themes = '' %}
 {% set heading = theHeader.heading | default('Standard Header Heading') %}
 {% set description = theHeader.body | default('Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl arcu, vestibulum in tortor eget, mattis viverra leo.') %}
+{% set preHeading = theHeader.subHeading | default(entry.parent.title) %}
 
 <div class="standard-header {{ themes }}">
 
+    <span>{{ preHeading }}</span>
     <h1>{{ heading }}</h1>
-
     <div>{{ description }}</div>
 
 </div>

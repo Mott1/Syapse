@@ -1,0 +1,12 @@
+{% macro ctaBuilder(params) %}
+    
+    {% set text = params.text %}
+    {% set internalLink = params.internalLink | default("") %}
+    {% set externalLink = params.externalLink | default("") %}
+    {% set url = internalLink | default(externalLink) %}    
+    
+    {% if url != "" %}
+        <a class="button" href="{{ url }}" target="">{{ text }}</a>
+    {% endif %}
+
+{% endmacro %}

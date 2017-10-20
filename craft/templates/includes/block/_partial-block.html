@@ -1,10 +1,9 @@
-<h2>Partial Block</h2>
-
-{% set partialSelector = theBlock.partial %}
-
-{% switch partialSelector %}
+{% switch theBlock.partial %}
 
 	{% case "contact" %}
 		{% include 'includes/partial/_letsTalk' %}
+
+    {% default %}
+        {# do nothing #}
 
 {% endswitch %}
