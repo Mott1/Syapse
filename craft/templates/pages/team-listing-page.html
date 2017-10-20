@@ -1,0 +1,31 @@
+{% extends "layouts/_layout" %}
+
+{% block content %}
+
+    {% set teamTypes = craft.entries.section('team').level(1).status('null') %}
+
+	<div class="core-content">
+
+        {% include 'includes/headers/_headers-matrix' %}
+
+        {% for type in teamTypes %}
+            
+            <h3>{{ type.title }}</h3>
+
+            {% for employee in type.getChildren() %}
+                
+                <div class="team-member">
+                    <p>{{ employee.title }}</p>
+                    <p>{{ employee.jobTitle }}</p>
+                </div>
+
+            {% endfor %}
+
+        {% endfor %}
+
+
+        {% include 'includes/block/_block-matrix' %}
+
+	</div>
+
+{% endblock %}

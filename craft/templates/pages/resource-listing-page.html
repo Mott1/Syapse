@@ -1,0 +1,22 @@
+{% extends "layouts/_layout" %}
+
+{% block content %}
+
+    {% set resources = craft.entries.section('resources') %}
+    {% set firstResource = resources.first() %}
+
+	<div class="core-content">
+
+        <div class="featured-resource">
+            
+            <h2>{{ firstResource.title }}</h2>
+            <p>{{ firstResource.body | striptags | slice(0, 100) | trim  ~ '...' }}</p>
+            <a href="{{ firstResource.url }}">Read</a>
+            
+        </div>
+
+        {% include 'includes/partial/_article-list' with { articles: resources.offset(1) } %}
+
+	</div>
+
+{% endblock %}
