@@ -1,0 +1,69 @@
+{% set heading = theBlock.heading %}
+{% set imageUrl = theBlock.image.first().getUrl | default('') %}
+{% set subHeading = theBlock.subHeading %}
+{% set body = theBlock.body %}
+
+{% set iconListHeading = theBlock.iconListHeading %}
+{% set iconListBody = theBlock.iconListBody %}
+{% set iconList = theBlock.iconList %}
+
+<div class="image-copy-small-icon-list">
+
+    <div class="global-wrapper">
+
+        <div class="left-content">
+            
+            <h2>{{ heading }}</h2>
+
+            {% if imageUrl != "" %}
+                <img src="{{ imageUrl }}" alt="">
+            {% endif %}
+
+            <h3>{{ subHeading }}</h3>
+            {{ theBlock.body }}
+
+            {% set ctaParams = {
+                text: theBlock.ctaText,
+                internalLink: theBlock.ctaInternalLink.first(),
+            } %}
+
+            {{ helpers.ctaBuilder(ctaParams) }}
+
+        </div>
+
+        <div class="right-content">
+
+            <h2>{{ iconListHeading }}</h2>
+
+            {{ iconListBody }}            
+            
+            <ul>
+
+                {% for item in iconList %}
+                    <li>
+                        
+                        <img src="{{ item.icon.first().getUrl() }}" alt="" />
+
+                        {% if item.heading != "" %}
+                            {{ item.heading }}
+                        {% endif %}
+
+                        <p>{{ item.title }}</p>
+                        
+                    </li>
+                {% endfor %}
+
+            </ul>
+
+            {% set iconListCtaParams = {
+                text: theBlock.iconListCtaText,
+                internalLink: theBlock.iconListCtaInternalLink.first(),
+            } %}    
+
+            {{ helpers.ctaBuilder(iconListCtaParams) }}
+
+        </div>
+
+    </div>
+
+</div>
