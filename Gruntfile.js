@@ -38,7 +38,7 @@ module.exports = function (grunt) {
 
             scripts: {
                 files: [
-                    'assets/javascripts/vendor/*.js',
+                    'assets/javascripts/vendor/*/*.js',
                     'assets/javascripts/app/**/*.js'],
                 tasks: ['clean:javascripts', 'babel', 'concat:dist', 'copy:javascripts'],
                 options: {
@@ -90,13 +90,13 @@ module.exports = function (grunt) {
 
         babel: {
             options: {
-                "sourceMap": true
+                "sourceMap": false
             },
             dist: {
                 files: [{
                     expand: true,
                     cwd: "assets/javascripts/app/",
-                    src: ["**/*.js"],
+                    src: ["*.js", "block/*.js"],
                     dest: "assets/javascripts/compiled/"
                 }]
             }
@@ -106,7 +106,7 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     'assets/javascripts/app.js': [
-                        "assets/javascripts/vendor/*.js", 
+                        "assets/javascripts/app/vendor/**/*.js", 
                         "assets/javascripts/compiled/**/*.js"
                     ]
                 }

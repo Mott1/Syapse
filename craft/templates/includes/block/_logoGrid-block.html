@@ -1,24 +1,30 @@
-{% set heading = theBlock.heading %}
+{% set imageUrl = '' | default('http://via.placeholder.com/135x50') %}
 
-<div class="logo-grid-block">
+<div class="logo-grid">
 
-	<div class="content reveal">
+	<div class="global-wrapper">
 
 		<h2 class="heading">
-			Logo Grid Block
+			Logo Grid Block Title
 		</h2>
 
-	</div>
-
-	<div class="logo-list">
-		[logo grid]
-
-{# 		{% for logo in logos %}
-			{% set clientLogo = client.logo.first().url() | default('') %}
-			<div class="client reveal">
-				<img src="{{ clientLogo }}">
+		<div class="logos-container">
+			<div class="logos">
+				<img class="logo" src="{{ imageUrl }}">
+				<img class="logo" src="{{ imageUrl }}">
+				<img class="logo" src="{{ imageUrl }}">
+				<img class="logo" src="{{ imageUrl }}">
+				<img class="logo" src="{{ imageUrl }}">
+				<img class="logo" src="{{ imageUrl }}">
+				<img class="logo" src="{{ imageUrl }}">
+				<img class="logo" src="{{ imageUrl }}">
+				<img class="logo" src="{{ imageUrl }}">
+				<img class="logo" src="{{ imageUrl }}">
+				<img class="logo" src="{{ imageUrl }}">
+				<img class="logo" src="{{ imageUrl }}">
 			</div>
-		{% endfor %} #}
+		</div>
+
 	</div>
 
 </div>

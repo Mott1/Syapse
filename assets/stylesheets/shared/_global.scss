@@ -53,7 +53,7 @@ button {
 }
 
 .button, 
-button {
+button:not([type="button"]) {
 
 	display: inline-block;
 	min-height: 36px;

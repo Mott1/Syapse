@@ -7,19 +7,17 @@
 	// 	left: 0;
 	// }
 
-	padding: 30px 80px;
+	padding: 60px 80px;
 
 	.core-wrapper {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		width: 100%;
-		min-height: 100px;
 	}
 
 	.logo {
 
-		margin-top: 8px;
 		margin-right: 40px;
 
 		svg {
@@ -30,8 +28,8 @@
 
 	}
 
-	.nav {
-		
+	.nav-button {
+		display: none;
 	}
 
 	ul {
@@ -49,8 +47,18 @@
 		margin-right: 40px;
 	}
 
-	.pages-li:hover > .subpages {
-		display: block;
+	.pages-li:hover {
+
+		color: $buttonBlue;
+
+		.page-heading svg path {
+			fill: $buttonBlue;
+		}
+
+		> .subpages {
+			display: block;
+		}
+
 	}
 
 	.page-heading {
@@ -60,11 +68,18 @@
 		display: inline-block;
 		font-size: 18px;
 		padding-bottom: 20px;
+		transition: color 0.15s ease-in-out;
 
 		svg {
+
 			position: relative;
 			top: -3px;
 			margin-left: 5px;
+
+			path {
+				transition: fill 0.15s ease-in-out;
+			}
+
 		}
 
 	}
@@ -77,8 +92,7 @@
 		z-index: 1;
 		width: 260px;
 		padding: 25px 35px 35px;
-		border: 1px solid #979797;
-		background-color: #fff;
+		background-color: $lightGray;
 	}
 
 	.subpages-li {
@@ -91,17 +105,119 @@
 	}
 
 	.subpage-link {
+
 		@include anti-alias;
 		display: block;
 		width: 100%;
+		font-size: 16px;
 		color: $defaultColor;
+		transition: color 0.15s ease-in-out;
+
+		&:hover {
+			color: $buttonBlue;
+		}
+
 	}
 
 	// Responsive
 
+	@media screen and (max-width: 1180px) {
+
+		.logo {
+			margin-right: 30px;
+		}
+
+		.pages-li {
+			padding-left: 20px;
+		}
+
+		.pages-li:last-of-type {
+			margin-right: 20px;
+		}
+
+		.page-heading {
+			font-size: 16px;
+		}
+
+	}
+
+	@media screen and (max-width: 1023px) {
+
+		.logo svg {
+			vertical-align: middle;
+		}
+
+		.nav {
+			display: none;
+		}
+
+		.nav-button {
+			position: relative;
+			cursor: pointer;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			padding-left: 15px;
+			padding-right: 15px;
+			width: 48px;
+			height: 48px;
+			border: none;
+			background-color: transparent;
+		}
+
+		.nav-button .line {
+			width: 18px;
+			height: 2px;
+			background: #727273;
+			transition: all 0.15s ease-in-out;
+		}
+
+		.nav-button .line.one {
+			margin-bottom: 3px;
+		}
+
+		.nav-button .line.two {
+			transform: scale(1);
+    		opacity: 1;
+		}
+
+		.nav-button .line.three {
+			margin-top: 3px;
+		}
+
+		.nav-button:hover .line {
+			background: $buttonBlue;
+		}
+
+		.nav-button.close .line.one {
+			position: absolute;
+			top: calc(50% - 1px);
+			left: calc(50% - 9px;
+			transform: rotate(45deg);
+		}
+
+		.nav-button.close .line.two {
+			opacity: 0;
+		}
+
+		.nav-button.close .line.three {
+			position: absolute;
+			top: calc(50% - 1px);
+			left: calc(50% - 9px;
+			margin-top: 0;
+			transform: rotate(-45deg);
+		}
+
+	}
+
 	@media screen and (max-width: 767px) {
 
-		
+		padding: 20px;
+
+		.logo {
+			max-width: 80px;
+		}
 
 	}
 

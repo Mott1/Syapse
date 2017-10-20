@@ -58,6 +58,7 @@
 		margin-top: 20px;
 		font-size: 16px;
 		color: $defaultColor;
+		transition: color 0.15s ease-in-out;
 	}
 
 	.link:after {
@@ -69,6 +70,15 @@
 		height: 2px;
 		border-radius: 2px;
 		background-color: $defaultColor;
+		transition: background-color 0.15s ease-in-out;
+	}
+
+	.link:hover {
+		color: $buttonBlue;
+	}
+
+	.link:hover:after {
+		background-color: $buttonBlue;
 	}
 
 	@media screen and (max-width: 1200px) {
@@ -85,10 +95,60 @@
 
 	}
 
+	@media screen and (max-width: 1023px) {
+
+		.global-wrapper {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+
+		.left-article, 
+		.right-article {
+			width: 100%;
+			max-width: 600px;
+		}
+
+		.right-article {
+			margin-top: 30px;
+		}
+
+		.vertical-divider {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+	}
+
 	@media screen and (max-width: 767px) {
 
 		.link {
 			font-size: 14px;
+		}
+
+	}
+
+	@media screen and (max-width: 767px) {
+
+		.right-article {
+			margin-top: 0;
+		}
+
+		.heading {
+			margin-bottom: 20px;
+		}
+
+		.image {
+			width: 80px;
+			min-width: 1px;
+			margin-right: 20px;
+		}
+
+		.excerpt {
+			display: none;
+		}
+
+		.link {
+			margin-top: 5px;
 		}
 
 	}

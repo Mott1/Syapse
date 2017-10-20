@@ -8,6 +8,7 @@ craft/storage/runtime/*
 craft/storage/backups/*
 craft/storage/logo/*
 craft/storage/userphotos/*
+assets/javascripts/compiled/*
  
 
 # OS or Editor files

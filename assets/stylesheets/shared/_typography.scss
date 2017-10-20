@@ -80,7 +80,7 @@ textarea {
 }
 
 .button, 
-button {
+button:not([type="button"]) {
 
 	font-family: "museo-sans", sans-serif;
 	font-size: 14px;
