@@ -65,7 +65,7 @@
 
 												{% set isCustomerSupport = subpage.slug == 'customer-support' %}
 
-												<a class="button" href="{{ subpage.slug }}" title="{% if isCustomerSupport %}Visit {% endif %}{{ subpage.title }}">
+												<a class="button" href="{{ subpage.url }}" title="{% if isCustomerSupport %}Visit {% endif %}{{ subpage.title }}">
 
 													{% if isCustomerSupport %}
 														Visit
