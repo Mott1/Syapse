@@ -1,8 +1,9 @@
+{% set themes = helpers.getThemes(theBlock.themes) | trim %}
 {% set heading = theBlock.heading | default("") %}
 {% set customers = theBlock.customers %}
 {% set logos = theBlock.logos %}
 
-<div class="logo-grid">
+<div class="logo-grid {{ themes }}">
 
 	<div class="global-wrapper">
 
