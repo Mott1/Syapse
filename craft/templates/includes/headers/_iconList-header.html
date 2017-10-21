@@ -2,6 +2,10 @@
 {% set heading = theHeader.heading | default('') %}
 {% set description = theHeader.body | default('') %}
 {% set preHeading = entry.parent.title | default('') %}
+{% set subHeading = theHeader.subHeading | default('') %}
+{% set listHeading = theHeader.listHeading | default('') %}
+{% set list = theHeader.list %}
+
 
 <style>
     .icon-list-header {
@@ -23,5 +27,23 @@
     {% if description != "" %}
         <div>{{ description }}</div>
     {% endif %}   
+
+    {% if subHeading != "" %}
+        <h2>{{ subHeading }}</h2>
+    {% endif %}   
+
+    {% if listHeading != "" %}
+        <h3>{{ listHeading }}</h3>
+    {% endif %}    
+
+    {% if list | length %}
+        <ul>
+            
+            {% for item in list %}
+                <li>{{ item.listItem }}</li>
+            {% endfor %}
+
+        </ul>
+    {% endif %}
 
 </div>
