@@ -1,8 +1,16 @@
-{% set themes = helpers.getThemes(theBlock.themes) | trim | default('') %}
 {% set heading = theBlock.heading | default('') %}
 {% set layout = theBlock.imageAlignment | default('imageLeft') %}
 {% set heading = theBlock.heading | default('') %}
-{% set testimonial = theBlock.testimonial.first() %}
+
+{# Check if it's a content block #}
+{% if theBlock.testimonial.getClassHandle() == "ElementCriteria" %}
+	{% set themes = helpers.getThemes(theBlock.themes) | trim  %}
+	{% set testimonial = theBlock.testimonial.first() %}
+{% else %}
+	{% set testimonial = theBlock.testimonial %}
+	{% set themes = theBlock.themes %}	
+{% endif %}
+
 {% set fullName = testimonial.title | default('') %}
 {% set quote = testimonial.quote | default('') %}
 {% set imageUrl = testimonial.headshot.first().getUrl('') | default('http://via.placeholder.com/180x180') %}

@@ -1,15 +1,31 @@
 {% extends "layouts/_layout" %}
 
+{% set providers = craft.entries.section('providers') %}
+
 {% block content %}
 
     <div class="core-content">
 
         {% include 'includes/headers/_headers-matrix' %}
 
-        [provider listing goes here]
-        {# loop over quote blocks for all the providers #}
-
         {% include 'includes/block/_block-matrix' %}
+
+        {% for provider in providers %}
+            
+            {% if loop.index % 2 %}
+                {% set themes = "theme-darker-background imageLeft" %}
+            {% else %}
+                {% set themes = "imageRight" %}
+            {% endif %}
+            
+            {% set theBlock = {
+                themes: themes,
+                testimonial: provider
+            } %}
+
+            {% include 'includes/block/_quote-block' with { theBlock: theBlock } %}
+
+        {% endfor %}
 
     </div>
 
