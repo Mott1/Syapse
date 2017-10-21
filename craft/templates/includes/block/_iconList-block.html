@@ -1,24 +1,49 @@
-{% set heading = theBlock.heading | default("Icon List Block") %}
+{% set themes = helpers.getThemes(theBlock.themes) | trim %}
+{% set heading = theBlock.heading | default("") %}
+{% set iconList = theBlock.list %}
 
-<div class="logo-grid-block">
+<div class="icon-list {{ themes }}">
 
-	<div class="content reveal">
+    <div class="global-wrapper">
 
-		<h2 class="heading">
-			{{ heading }}
-		</h2>
+		<div class="content reveal">
 
-	</div>
+			{% if heading != "" %}
 
-	<div class="logo-list">
-		[icon list elements]
+				<h2 class="heading">
+					{{ heading }}
+				</h2>
 
-{# 		{% for logo in logos %}
-			{% set clientLogo = client.logo.first().url() | default('') %}
-			<div class="client reveal">
-				<img src="{{ clientLogo }}">
+			{% endif %}
+
+		</div>
+
+		{% if iconList.count() %}
+
+			<div class="logo-list">
+
+		        <ul>
+
+		            {% for item in iconList %}
+		                <li>
+		                    
+		                    <img src="{{ item.icon.first().getUrl() }}" alt="" />
+
+		                    {% if item.heading != "" %}
+		                        {{ item.heading }}
+		                    {% endif %}
+
+		                    <p>{{ item.title }}</p>
+		                    
+		                </li>
+		            {% endfor %}
+
+		        </ul>
+
 			</div>
-		{% endfor %} #}
+
+		{% endif %}
+
 	</div>
 
 </div>

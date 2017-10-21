@@ -902,6 +902,18 @@ button:not([type="button"]) {
   background-color: transparent;
   color: #21C2D2; }
 
+.cta {
+  padding: 100px 80px; }
+  @media screen and (max-width: 767px) {
+    .cta {
+      padding: 40px 20px; } }
+
+.icon-list {
+  padding: 100px 80px; }
+  @media screen and (max-width: 767px) {
+    .icon-list {
+      padding: 40px 20px; } }
+
 .image-copy {
   padding: 100px 80px; }
   @media screen and (max-width: 767px) {
@@ -986,6 +998,12 @@ button:not([type="button"]) {
     padding-right: 40px; }
     .image-copy.theme-half-width .copy {
       padding: 40px; }
+
+.image-copy-small-icon-list {
+  padding: 100px 80px; }
+  @media screen and (max-width: 767px) {
+    .image-copy-small-icon-list {
+      padding: 40px 20px; } }
 
 .quote-block {
   padding: 100px 80px; }
@@ -1245,6 +1263,18 @@ button:not([type="button"]) {
     float: left;
     width: auto;
     min-width: 135px; } }
+
+.resources-single {
+  padding: 100px 80px; }
+  @media screen and (max-width: 767px) {
+    .resources-single {
+      padding: 40px 20px; } }
+
+.resources-multiple {
+  padding: 100px 80px; }
+  @media screen and (max-width: 767px) {
+    .resources-multiple {
+      padding: 40px 20px; } }
 
 .news {
   padding: 100px 80px; }

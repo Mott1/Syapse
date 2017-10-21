@@ -9,9 +9,14 @@
 @import "shared/themes";
 
 // Block
+@import "block/cta";
+@import "block/full-image";
+@import "block/icon-list";
 @import "block/image-copy";
+@import "block/image-copy-small-icon-list";
 @import "block/quote";
 @import "block/logo-grid";
+@import "block/resources";
 
 // Partial
 @import "partial/news";

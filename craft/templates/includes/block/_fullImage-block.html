@@ -3,14 +3,14 @@
 {% set themes = helpers.getThemes(theBlock.themes) | trim %}
 
 <style>
-    .full-image-block img {
+    .full-image img {
         width: 100%;
         max-width: 100%;
     }
 
 </style>
 
-<div class="full-image-block {{ themes }}">
+<div class="full-image {{ themes }}">
 
 	<img class="reveal" src="{{ image }}" style="transform-origin: {{ imageFocalPoint }};">
 
