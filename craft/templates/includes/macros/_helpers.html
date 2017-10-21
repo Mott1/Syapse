@@ -1,12 +1,41 @@
 {% macro ctaBuilder(params) %}
     
     {% set text = params.text %}
-    {% set internalLink = params.internalLink | default("") %}
+    {% set internalLink = params.internalLink.url | default("") %}
     {% set externalLink = params.externalLink | default("") %}
     {% set url = internalLink | default(externalLink) %}    
+    {% set classes = params.classes | default("") %}    
+
+    {% if externalLink != "" %}
+        {% set target = "_blank" %}
+    {% else %}
+        {% set target = "_self" %}            
+    {% endif %}
     
     {% if url != "" %}
-        <a class="button" href="{{ url }}" target="">{{ text }}</a>
+        <a class="button" href="{{ url }}" target="{{ target }}" classes="{{ classes }}">{{ text }}</a>
     {% endif %}
 
+{% endmacro %}
+
+{% macro getThemes(values, defaultValue) %}
+
+      {% if values != null %}
+
+        {% set themes = [] %}
+
+        {% for theme in values %}
+
+            {% set themes = themes| merge([theme.slug]) %}
+
+        {% endfor %}
+
+        {{- themes | join(" ") -}}
+
+      {% else %}
+        
+        {{- defaultValue | default("") | trim -}}
+
+      {% endif %}
+  
 {% endmacro %}

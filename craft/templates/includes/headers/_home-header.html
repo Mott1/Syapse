@@ -1,13 +1,36 @@
 {% set theHeader = entry.homeHeader.first() %}
+{% set heading = theHeader.heading | default('') %}
+{% set description = theHeader.body | default('') %}
+{% set iconList = theHeader.list %}
 
-{% set themes = '' %}
-{% set heading = theHeader.heading | default('Home Heading') %}
-{% set description = theHeader.body | default('Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl arcu, vestibulum in tortor eget, mattis viverra leo.') %}
+<style>
+    .home-header {
+        padding-top: 120px;
+    }
+</style>
 
-<div class="home-header {{ themes }}">
+<div class="home-header theme-darker-background">
 
-    <h1>{{ heading }}</h1>
+    {% if heading != "" %}
+        <h1>{{ heading }}</h1>
+    {% endif %}
+    
+    {% if description != "" %}
+        <div>{{ description }}</div>
+    {% endif %}    
 
-    <div>{{ description }}</div>
+    {% for item in iconList %}
+        <li>
+            
+            <img src="{{ item.icon.first().getUrl() }}" alt="" />
+
+            {% if item.heading != "" %}
+                {{ item.heading }}
+            {% endif %}
+
+            <p>{{ item.title }}</p>
+            
+        </li>
+    {% endfor %}
 
 </div>
