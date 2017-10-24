@@ -26,6 +26,15 @@
 		align-items: center;
 	}
 
+	@for $i from 1 through 5 {
+		.logos-count-#{$i} .logo {
+			width: calc(100% / #{$i} - 30px);
+		}
+		.customers-count-#{$i} .logo {
+			width: calc(100% / #{$i} - 30px);
+		}
+	}
+
 	.logo {
 		width: calc(16.66% - 30px);
 		margin: 0 15px 30px;

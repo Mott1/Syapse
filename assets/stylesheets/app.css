@@ -1238,6 +1238,36 @@ button:not([type="button"]) {
       -ms-flex-align: center;
           align-items: center; }
 
+.logo-grid .logos-count-1 .logo {
+  width: calc(100% / 1 - 30px); }
+
+.logo-grid .customers-count-1 .logo {
+  width: calc(100% / 1 - 30px); }
+
+.logo-grid .logos-count-2 .logo {
+  width: calc(100% / 2 - 30px); }
+
+.logo-grid .customers-count-2 .logo {
+  width: calc(100% / 2 - 30px); }
+
+.logo-grid .logos-count-3 .logo {
+  width: calc(100% / 3 - 30px); }
+
+.logo-grid .customers-count-3 .logo {
+  width: calc(100% / 3 - 30px); }
+
+.logo-grid .logos-count-4 .logo {
+  width: calc(100% / 4 - 30px); }
+
+.logo-grid .customers-count-4 .logo {
+  width: calc(100% / 4 - 30px); }
+
+.logo-grid .logos-count-5 .logo {
+  width: calc(100% / 5 - 30px); }
+
+.logo-grid .customers-count-5 .logo {
+  width: calc(100% / 5 - 30px); }
+
 .logo-grid .logo {
   width: calc(16.66% - 30px);
   margin: 0 15px 30px; }
