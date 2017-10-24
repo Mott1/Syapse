@@ -667,7 +667,7 @@ button:not([type="button"]) {
               transform: rotate(-45deg); } }
   @media screen and (max-width: 767px) {
     .core-header {
-      padding: 20px; }
+      padding: 0 20px; }
       .core-header .logo {
         max-width: 80px; } }
 
@@ -685,6 +685,9 @@ button:not([type="button"]) {
     visibility: hidden; }
   .core-content {
     *zoom: 1; }
+  @media screen and (max-width: 767px) {
+    .core-content {
+      padding-top: 68px; } }
 
 .core-footer {
   padding: 40px 80px 60px;
