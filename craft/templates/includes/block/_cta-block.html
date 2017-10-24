@@ -1,16 +1,25 @@
-{% set heading = theBlock.heading | default("CTA Block") %}
-{% set ctaLink = "/" %}
-{% set ctaText = theBlock.ctaText | default("Click Me") %}
+{% set themes = helpers.getThemes(theBlock.themes) | trim %}
+{% set heading = theBlock.heading | default("") %}
 
-<div class="cta-block">
+<div class="cta">
 
-	<div class="content reveal">
+    <div class="global-wrapper">
 
-		<h2 class="heading">
-			{{ heading }}
-		</h2>
+        {% if heading != "" %}
 
-		<a class="button" href="{{ ctaLink }}">{{ ctaText }}</a>
+            <h2 class="heading">
+                {{ heading }}
+            </h2>
+
+        {% endif %}
+
+        {% set ctaParams = {
+            text: theBlock.ctaText,
+            internalLink: theBlock.ctaInternalLink.first(),
+            externalLink: theBlock.ctaExternalLink,
+        } %}
+
+        {{ helpers.ctaBuilder(ctaParams) }}     
 
 	</div>
 

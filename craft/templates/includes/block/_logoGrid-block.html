@@ -1,10 +1,9 @@
-{% set heading = '' | default('Logo Grid Block Title') %}
-{% set button = '' | default('') %}
-{% set buttonLabel = '' | default('Button') %}
-{% set buttonUrl = '' | default('#') %}
-{% set imageUrl = '' | default('http://via.placeholder.com/135x50') %}
+{% set themes = helpers.getThemes(theBlock.themes) | trim %}
+{% set heading = theBlock.heading | default("") %}
+{% set customers = theBlock.customers %}
+{% set logos = theBlock.logos %}
 
-<div class="logo-grid">
+<div class="logo-grid {{ themes }}">
 
 	<div class="global-wrapper">
 
@@ -14,24 +13,28 @@
 				{{ heading }}
 			</h2>
 
-			<a class="button hide-on-mobile" href="{{ buttonUrl }}">{{ buttonLabel }}</a>
+            {% set ctaParams = {
+                text: theBlock.ctaText,
+                internalLink: theBlock.ctaInternalLink.first(),
+                externalLink: theBlock.ctaExternalLink,
+                classes: "hide-on-mobile"
+            } %}
+
+            {{ helpers.ctaBuilder(ctaParams) }}		
 
 		</header>
 
 		<div class="logos-container">
 			<div class="logos">
-				<img class="logo" src="{{ imageUrl }}">
-				<img class="logo" src="{{ imageUrl }}">
-				<img class="logo" src="{{ imageUrl }}">
-				<img class="logo" src="{{ imageUrl }}">
-				<img class="logo" src="{{ imageUrl }}">
-				<img class="logo" src="{{ imageUrl }}">
-				<img class="logo" src="{{ imageUrl }}">
-				<img class="logo" src="{{ imageUrl }}">
-				<img class="logo" src="{{ imageUrl }}">
-				<img class="logo" src="{{ imageUrl }}">
-				<img class="logo" src="{{ imageUrl }}">
-				<img class="logo" src="{{ imageUrl }}">
+				
+				{% for customer in customers if customers.count() %}
+					<img class="logo" src="{{ customer.logo.first().getUrl() }}">				
+				{% endfor %}
+
+				{% for logo in logos if logos.count() %}
+					<img class="logo" src="{{ logo.getUrl() }}">				
+				{% endfor %}
+
 			</div>
 		</div>
 

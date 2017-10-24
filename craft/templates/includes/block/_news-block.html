@@ -1,56 +1,15 @@
-{% set latestNews = craft.entries.section('inTheNews').order('postDate desc').first() %}
-{% set newsParentUrl = latestNews.uri | split('/') | slice(0,2) | join('/') %}
-{% set newsThumbnail = latestNews.thumbnail.first() %}
-{% set newsThumbnailUrl = newsThumbnail.url | default('http://via.placeholder.com/180x180') %}
-{% set newsThumbnailAlt = newsThumbnail.alt | default('Example image ALT text') %}
-{% set newsTitle = latestNews.title | default('') %}
-{% set newsDescription = latestNews.body | default('') %}
-{% set newsUrl = latestNews.url | default('#') %}
+{% set themes = helpers.getThemes(theBlock.themes) | trim  %}
 
-{% set latestPress = craft.entries.section('pressReleases').order('postDate desc').first() %}
-{% set pressParentUrl = latestPress.uri | split('/') | slice(0,2) | join('/') %}
-{% set pressThumbnail = latestPress.thumbnail.first() %}
-{% set pressThumbnailUrl = pressThumbnail.url | default('http://via.placeholder.com/180x180') %}
-{% set pressThumbnailAlt = pressThumbnail.alt | default('Example image ALT text') %}
-{% set pressTitle = latestPress.title | default('') %}
-{% set pressDescription = latestPress.body | default('') %}
-{% set pressUrl = latestPress.url | default('#') %}
+{% set leftNews = theBlock.news[0] | default(craft.entries.section('inTheNews').order('postDate desc').first()) %}
+{% set rightNews = theBlock.news[1] | default(craft.entries.section('blog').order('postDate desc').first()) %}
 
-<div class="news">
+<div class="news {{ themes }}">
 
 	<div class="global-wrapper">
 
 		<div class="left-article">
 
-			<h4 class="heading">
-				<a href="{{ newsParentUrl }}">
-					In the News
-				</a>
-			</h4>
-
-			<div class="article">
-
-				<a href="{{ newsUrl }}">
-					<img class="image" src="{{ newsThumbnailUrl }}">
-				</a>
-
-				<div class="info">
-
-					<h5 class="title">
-						{{ newsTitle }}
-					</h5>
-
-					<p class="excerpt">
-						{{ newsDescription | length > 90 ? newsDescription | striptags | slice(0, 90) ~ '…' : newsDescription | striptags }}
-					</p>
-
-					<a class="link" href="{{ newsUrl }}">
-						Read
-					</a>
-
-				</div>
-
-			</div>
+			{{ _self.article(leftNews) }}
 
 		</div>
 
@@ -58,38 +17,48 @@
 
 		<div class="right-article">
 			
-			<h4 class="heading">
-				<a href="{{ pressParentUrl }}">
-					Press
-				</a>
-			</h4>
-
-			<div class="article">
-
-				<a href="{{ pressUrl }}">
-					<img class="image" src="{{ pressThumbnailUrl }}">
-				</a>
-
-				<div class="info">
-
-					<h5 class="title">
-						{{ pressTitle }}
-					</h5>
-
-					<p class="excerpt">
-						{{ pressDescription | length > 90 ? pressDescription | striptags | slice(0, 90) ~ '…' : pressDescription | striptags }}
-					</p>
-
-					<a class="link" href="{{ pressUrl }}">
-						Read
-					</a>
-
-				</div>
-
-			</div>
+			{{ _self.article(rightNews) }}
 
 		</div>
 
 	</div>
 
 </div>
+
+{% macro article(post) %}
+
+	{% set parentURI = post.uri | split('/') | slice(0,2) | join('/') %}
+	{% set newsDescription = post.body | default('') %}
+	{% set newsThumbnailUrl = post.thumbnail.first().getUrl() | default('http://via.placeholder.com/180x180') %}
+
+	<h4 class="heading">
+		<a href="{{ url(parentURI) }}">
+			{{ post.type.name }}
+		</a>
+	</h4>
+
+	<div class="article">
+
+		<a href="{{ post.url }}">
+			<img class="image" src="{{ newsThumbnailUrl }}" alt="">
+		</a>
+
+		<div class="info">
+
+			<h5 class="title">
+				{{ post.title }}
+			</h5>
+
+			<p class="excerpt">
+				{{ newsDescription | length > 90 ? newsDescription | striptags | slice(0, 90) ~ '…' : newsDescription | striptags }}
+			</p>
+
+			<a class="link" href="{{ post.url }}">
+				Read
+			</a>
+
+		</div>
+
+	</div>
+	
+{% endmacro %}

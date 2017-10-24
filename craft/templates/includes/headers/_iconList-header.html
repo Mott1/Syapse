@@ -1,11 +1,49 @@
-{% set themes = '' %}
-{% set heading = theHeader.heading | default('Icon List Header Heading') %}
-{% set description = theHeader.body | default('Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl arcu, vestibulum in tortor eget, mattis viverra leo.') %}
+{% set themes = 'theme-darker-background' %}
+{% set heading = theHeader.heading | default('') %}
+{% set description = theHeader.body | default('') %}
+{% set preHeading = entry.parent.title | default('') %}
+{% set subHeading = theHeader.subHeading | default('') %}
+{% set listHeading = theHeader.listHeading | default('') %}
+{% set list = theHeader.list %}
+
+
+<style>
+    .icon-list-header {
+        padding-top: 180px;
+        padding-bottom: 120px;
+    }
+</style>
 
 <div class="icon-list-header {{ themes }}">
 
-    <h1>{{ heading }}</h1>
+    {% if preHeading != "" %}
+        <span>{{ preHeading }}</span>
+    {% endif %}
 
-    <div>{{ description }}</div>
+    {% if heading != "" %}
+        <h1>{{ heading }}</h1>
+    {% endif %}
+    
+    {% if description != "" %}
+        <div>{{ description }}</div>
+    {% endif %}   
+
+    {% if subHeading != "" %}
+        <h2>{{ subHeading }}</h2>
+    {% endif %}   
+
+    {% if listHeading != "" %}
+        <h3>{{ listHeading }}</h3>
+    {% endif %}    
+
+    {% if list | length %}
+        <ul>
+            
+            {% for item in list %}
+                <li>{{ item.listItem }}</li>
+            {% endfor %}
+
+        </ul>
+    {% endif %}
 
 </div>

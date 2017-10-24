@@ -1,15 +1,19 @@
-<div class="lets-talk">
+{% set heading = contactForm.heading | trim | default("Let's Talk") %}
+{% set description = contactForm.description | striptags | trim | default("If you’d like to learn more about Syapse, tell us a little about yourself and we will reach out as soon as possible.") %}
+{% set themes = helpers.getThemes(theBlock.themes) | trim  %}
+
+<div class="lets-talk {{ themes }}">
 
 	<div class="global-wrapper">
 
 		<div class="left-info">
 
 			<h2 class="heading">
-				Let's Talk
+				{{- heading -}}
 			</h2>
 
 			<p class="description">
-				If you'd like to learn more about Syapse, tell us a little about yourself and we will reach out as soon as possible.
+				{{- description -}}
 			</p>
 
 		</div>

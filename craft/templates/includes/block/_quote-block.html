@@ -1,72 +1,72 @@
-{# To-do: 
-	- Integrate CMS fields.
-	- Remove commented and default testing code.
-	- Create Image transform for thumbnail
-#}
+{% set heading = theBlock.heading | default('') %}
+{% set layout = theBlock.imageAlignment | default('imageLeft') %}
+{% set heading = theBlock.heading | default('') %}
 
-{% set themes = '' %}
-{% set layout = 'imageLeft' %}
-{% set heading = '' | default('Content Block Heading') %}
-{% set bio = '' | default('Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl arcu, vestibulum in tortor eget, mattis viverra leo.') %}
-{% set videoSource = '' | default('youtube') %}
-{% set videoId = '' | default('9WIN-Wvr944') %} {# YouTube or Vimeo #}
-{% set fullName = '' | default('Full Name') %}
-{% set assignment = '' | default('Assignment') %}
-{% set quote = '' | default('"Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl arcu, vestibulum in tortor eget, mattis viverra leo."') %}
-
-{% set hasBio = bio|length %}
-{% set hasVideo = videoId|length %}
-
-{% if hasVideo %}
-{% set imageUrlDefault = 'http://via.placeholder.com/1920x1080?text=16:9' %}
+{# Check if it's a content block #}
+{% if theBlock.testimonial.getClassHandle() == "ElementCriteria" %}
+	{% set themes = helpers.getThemes(theBlock.themes) | trim  %}
+	{% set testimonial = theBlock.testimonial.first() %}
 {% else %}
-{% set imageUrlDefault = 'http://via.placeholder.com/180x180' %}
+	{% set testimonial = theBlock.testimonial %}
+	{% set themes = theBlock.themes %}	
 {% endif %}
 
-{% set image = '' | default('') %}
-{% set imageUrl = '' | default(imageUrlDefault) %}
+{% set fullName = testimonial.title | default('') %}
+{% set quote = testimonial.quote | default('') %}
+{% set imageUrl = testimonial.headshot.first().getUrl('') | default('http://via.placeholder.com/180x180') %}
+{% set thumbnailUrl = testimonial.headshot.first().getUrl('thumbnail') | default('http://via.placeholder.com/50x50') %}
 
-{% set thumbnail = '' | default('') %}
-{% set thumbnailUrl = '' | default('http://via.placeholder.com/50x50') %}
+{% if testimonial.type == "employee" %}
+	{% set assignment = testimonial.jobTitle | default('') %}
+	{% set bio = testimonial.bio | default('') %}
+{% else %}
+	{% set assignment = testimonial.placeOfWork | default('') %}	
+	{% set videoSource = testimonial.videoSource | default('youtube') %}
+	{% set videoId = testimonial.videoEmbedCode | default('') %} {# YouTube or Vimeo #}
+{% endif %}
 
-<div class="quote-block {% if hasBio %}hasBio{% endif %} {% if hasVideo %}hasVideo{% endif %}">
+{% set hasBio = bio is defined and bio | length %}
+{% set hasVideo = videoId is defined and videoId | length%}
+
+<div class="quote-block {{ themes }} {{ layout }} {% if hasBio %}hasBio{% endif %} {% if hasVideo %}hasVideo{% endif %}">
 
 	<div class="global-wrapper">
 
 		<div class="media" style="{% if not hasVideo %}background-image: url('{{ imageUrl }}');{% endif %}">
+			
 			{% if hasVideo %}
-			<div class="video-container">
+				<div class="video-container">
 
-				{# <video class="video" preload="auto" muted autoplay playsinline>
-					<source src="{{ videoId }}" type="video/mp4">
-				</video> #}
+					{# <video class="video" preload="auto" muted autoplay playsinline>
+						<source src="{{ videoId }}" type="video/mp4">
+					</video> #}
 
-				{% if videoSource == "youtube" %}
-				<iframe class="videoIframe" width="100%" src="https://www.youtube-nocookie.com/embed/{{ videoId }}?rel=0" frameborder="0" allowfullscreen></iframe>
-				{% endif %}
+					{% if videoSource == "youtube" %}
+						<iframe class="videoIframe" width="100%" src="https://www.youtube-nocookie.com/embed/{{ videoId }}?rel=0" frameborder="0" allowfullscreen></iframe>
+					{% endif %}
 
-				{% if videoSource == "vimeo" %}
+					{% if videoSource == "vimeo" %}
 
-				{% endif %}
+					{% endif %}
 
-			</div>
+				</div>
 			{% endif %}
 		</div>
 
 		<div class="info">
 
 			{% if heading | length %}
-			<h2 class="heading">
-				{{ heading }}
-			</h2>
+				<h2 class="heading">
+					{{ heading }}
+				</h2>
 			{% endif %}
 
 			<div class="content">
 
 				{% if hasBio %}
-				<div class="bio">
-					{{ bio }}
-				</div>
+					<div class="bio">
+						{{ bio }}
+					</div>
 				{% endif %}
 
 				<div class="quote">
@@ -78,7 +78,7 @@
 					<div class="quotee">
 
 						{% if not hasVideo %}
-						<img class="thumbnail hide-on-desktop" src="{{ thumbnailUrl }}" alt="{{ fullName }}">
+							<img class="thumbnail hide-on-desktop" src="{{ thumbnailUrl }}" alt="{{ fullName }}">
 						{% endif %}
 
 						<div class="quotee-info">
