@@ -25,14 +25,15 @@
 	}
 
 	ul {
-		
 		padding-left: 0;
 		list-style-type: none;
 	}
 
 	ul li {
 
+		position: relative;
 		margin-top: 0;
+		padding-left: 20px;
 
 		&:not(:last-of-type) {
 			margin-bottom: 20px;
@@ -42,10 +43,11 @@
 
 	ul li:before {
 		content: '';
-		display: inline-block;
+		position: absolute;
+		top: 5px;
+		left: 0;
 		width: 10px;
 		height: 10px;
-		margin-right: 20px;
 		border-radius: 100%;
 		background-color: $buttonBlue;
 		vertical-align: middle;

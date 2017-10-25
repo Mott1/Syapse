@@ -16,25 +16,29 @@
 
 		{% if iconList.count() %}
 
-			<ul class="logo-list">
+			<ul class="list list-count-{{ iconList.count() }}">
 
-				{% for logo in iconList %}
+				{% for icon in iconList %}
 
-				{% set logoHeading = logo.heading %}
-				{% set logoTitle = logo.title %}
-				{% set logoAsset = logo.icon.first() %}
-				{% set logoAssetUrl = logoAsset.url() %}
-				{% set llogoAssetAlt = logoAsset.alt | default('') %}
+				{% set iconHeading = icon.heading %}
+				{% set iconTitle = icon.title %}
+				{% set iconAsset = icon.icon.first() %}
+				{% set iconAssetUrl = iconAsset.url() %}
+				{% set iconAssetAlt = iconAsset.alt | default('') %}
 
-				<li class="logo">
+				<li class="icon">
 
-					<img class="logo-image" src="{{ logoAssetUrl }}" alt="{{ llogoAssetAlt }}">
+					<img class="icon-image" src="{{ iconAssetUrl }}" alt="{{ iconAssetAlt }}">
 
-					{% if logoHeading != "" %}
-						{{ logoHeading }}
-					{% endif %}
+					<div class="info">
 
-					<h4 class="logo-title">{{ logoTitle }}</h4>
+						<h3 class="icon-title">{{ iconTitle }}</h3>
+
+						{% if iconHeading != "" %}
+							<p class="description">{{ iconHeading }}</p>
+						{% endif %}
+
+					</div>
 
 				</li>
 

@@ -7,7 +7,7 @@
 		margin-bottom: 30px;
 	}
 
-	.logo-list {
+	.list {
 		display: flex;
 		flex-wrap: wrap;
 		margin: 0;
@@ -15,37 +15,44 @@
 		list-style: none;
 	}
 
-	// @for $i from 1 through 5 {
-	// 	.logos-count-#{$i} .logo {
-	// 		width: calc(100% / #{$i} - 30px);
-	// 	}
-	// 	.customers-count-#{$i} .logo {
-	// 		width: calc(100% / #{$i} - 30px);
-	// 	}
-	// }
+	@for $i from 1 through 5 {
+		.list-count-#{$i} .icon {
+			width: calc(100% / #{$i} - 30px);
+		}
+		// .customers-count-#{$i} .icon {
+		// 	width: calc(100% / #{$i} - 30px);
+		// }
+	}
 
-	.logo {
+	.icon {
 		display: flex;
 		align-items: flex-start;
 		width: calc(25% - 30px);
 		margin: 0 15px 45px;
 	}
 
-	.logo-image {
+	.icon-image {
 		width: 72px;
 		margin-right: 35px;
 	}
 
-	.logo-title {
+	.info {
 		width: calc(100% - 107px);
+	}
+
+	.icon-title {
 		margin-bottom: 0;
+	}
+
+	.description {
+		margin-top: 20px;
 	}
 
 // Responsive
 
 	@media screen and (max-width: 1240px) {
 
-		.logo {
+		.icon {
 			width: calc(33.33% - 30px);
 		}
 
@@ -53,7 +60,7 @@
 
 	@media screen and (max-width: 1023px) {
 
-		.logo {
+		.icon {
 			width: calc(50% - 30px);
 		}
 
@@ -61,7 +68,7 @@
 
 	@media screen and (max-width: 580px) {
 
-		.logo {
+		.icon {
 			align-items: center;
 			width: 100%;
 			margin: 0 0 20px;
