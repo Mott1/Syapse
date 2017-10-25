@@ -19,8 +19,13 @@
                 <img class="image" src="{{ imageUrl }}" alt="">
             {% endif %}
 
-            <h3 class="title">{{ subHeading }}</h3>
-            {{ theBlock.body }}
+            {% if subHeading | length %}
+                <h3 class="title">{{ subHeading }}</h3>
+            {% endif %}
+
+            <div class="description">
+                {{ theBlock.body }}
+            </div>
 
             {% set ctaParams = {
                 text: theBlock.ctaText,

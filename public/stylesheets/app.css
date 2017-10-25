@@ -1137,6 +1137,8 @@ button:not([type="button"]) {
     .image-copy-small-icon-list .right-content .image {
       width: 75px;
       margin-right: 40px; }
+    .image-copy-small-icon-list .right-content .description {
+      margin-bottom: 30px; }
     .image-copy-small-icon-list .right-content .info {
       width: calc(100% - 115px); }
     .image-copy-small-icon-list .right-content .button {
