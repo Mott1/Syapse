@@ -52,7 +52,7 @@
 
 	@media screen and (max-width: 1240px) {
 
-		.icon {
+		.list .icon {
 			width: calc(33.33% - 30px);
 		}
 
@@ -60,7 +60,7 @@
 
 	@media screen and (max-width: 1023px) {
 
-		.icon {
+		.list .icon {
 			width: calc(50% - 30px);
 		}
 
@@ -68,8 +68,7 @@
 
 	@media screen and (max-width: 580px) {
 
-		.icon {
-			align-items: center;
+		.list .icon {
 			width: 100%;
 			margin: 0 0 20px;
 			margin-right: 0;

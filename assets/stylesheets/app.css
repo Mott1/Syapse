@@ -998,16 +998,13 @@ button:not([type="button"]) {
   .icon-list .description {
     margin-top: 20px; }
   @media screen and (max-width: 1240px) {
-    .icon-list .icon {
+    .icon-list .list .icon {
       width: calc(33.33% - 30px); } }
   @media screen and (max-width: 1023px) {
-    .icon-list .icon {
+    .icon-list .list .icon {
       width: calc(50% - 30px); } }
   @media screen and (max-width: 580px) {
-    .icon-list .icon {
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
+    .icon-list .list .icon {
       width: 100%;
       margin: 0 0 20px;
       margin-right: 0; } }
