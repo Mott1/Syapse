@@ -1,17 +1,8 @@
 {% set image = theBlock.image.first.getUrl('') | default('http://via.placeholder.com/1440x566') %}
-{% set imageFocalPoint = "50% 50%" %}
 {% set themes = helpers.getThemes(theBlock.themes) | trim %}
-
-<style>
-    .full-image img {
-        width: 100%;
-        max-width: 100%;
-    }
-
-</style>
 
 <div class="full-image {{ themes }}">
 
-	<img class="reveal" src="{{ image }}" style="transform-origin: {{ imageFocalPoint }};">
+	<img class="reveal" src="{{ image }}">
 
 </div>

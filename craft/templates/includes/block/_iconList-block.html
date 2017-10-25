@@ -6,41 +6,41 @@
 
     <div class="global-wrapper">
 
-		<div class="content reveal">
+		{% if heading != "" %}
 
-			{% if heading != "" %}
+			<h2 class="heading">
+				{{ heading }}
+			</h2>
 
-				<h2 class="heading">
-					{{ heading }}
-				</h2>
-
-			{% endif %}
-
-		</div>
+		{% endif %}
 
 		{% if iconList.count() %}
 
-			<div class="logo-list">
+			<ul class="logo-list">
 
-		        <ul>
+				{% for logo in iconList %}
 
-		            {% for item in iconList %}
-		                <li>
-		                    
-		                    <img src="{{ item.icon.first().getUrl() }}" alt="" />
+				{% set logoHeading = logo.heading %}
+				{% set logoTitle = logo.title %}
+				{% set logoAsset = logo.icon.first() %}
+				{% set logoAssetUrl = logoAsset.url() %}
+				{% set llogoAssetAlt = logoAsset.alt | default('') %}
 
-		                    {% if item.heading != "" %}
-		                        {{ item.heading }}
-		                    {% endif %}
+				<li class="logo">
 
-		                    <p>{{ item.title }}</p>
-		                    
-		                </li>
-		            {% endfor %}
+					<img class="logo-image" src="{{ logoAssetUrl }}" alt="{{ llogoAssetAlt }}">
 
-		        </ul>
+					{% if logoHeading != "" %}
+						{{ logoHeading }}
+					{% endif %}
 
-			</div>
+					<h4 class="logo-title">{{ logoTitle }}</h4>
+
+				</li>
+
+				{% endfor %}
+
+			</ul>
 
 		{% endif %}
 

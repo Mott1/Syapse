@@ -124,4 +124,36 @@
 
 	}
 
+// Responsive
+
+	@media screen and (max-width: 767px) {
+
+		.global-wrapper {
+			flex-wrap: wrap;
+		}
+
+		.image {
+			min-height: 65vw;
+		}
+
+		.copy {
+			margin-top: 30px;
+			padding: 0;
+		}
+
+		&.imageRight {
+
+			.image {
+				order: 1;
+			}
+
+			.copy {
+				order: 2;
+				padding: 0;
+			}
+
+		}
+
+	}
+
 }

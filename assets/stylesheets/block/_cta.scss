@@ -2,4 +2,41 @@
 
 	@include sectionPadding;
 
+	.global-wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.heading {
+		margin: 0 40px 0;
+		margin-bottom: 0;
+	}
+
+	.button {
+		margin: 0 40px 0;
+	}
+
+// Responsive
+
+	@media screen and (max-width: 767px) {
+
+		.global-wrapper {
+			flex-wrap: wrap;
+			justify-content: flex-start;
+		}
+
+		.heading {
+			width: 100%;
+			margin: 0 0 20px;
+		}
+
+		.button {
+			width: 100%;
+			max-width: 300px;
+			margin: 0;
+		}
+
+	}
+
 }

@@ -13,13 +13,13 @@
 
         <div class="left-content">
             
-            <h2>{{ heading }}</h2>
+            <h2 class="heading">{{ heading }}</h2>
 
             {% if imageUrl != "" %}
-                <img src="{{ imageUrl }}" alt="">
+                <img class="image" src="{{ imageUrl }}" alt="">
             {% endif %}
 
-            <h3>{{ subHeading }}</h3>
+            <h3 class="title">{{ subHeading }}</h3>
             {{ theBlock.body }}
 
             {% set ctaParams = {
@@ -33,34 +33,40 @@
 
         <div class="right-content">
 
-            <h2>{{ iconListHeading }}</h2>
+            <h2 class="heading">{{ iconListHeading }}</h2>
 
-            {{ iconListBody }}            
+            <div class="description">
+                {{ iconListBody }}
+            </div>
             
             <ul>
 
                 {% for item in iconList %}
                     <li>
                         
-                        <img src="{{ item.icon.first().getUrl() }}" alt="" />
+                        <img class="image" src="{{ item.icon.first().getUrl() }}" alt="" />
 
-                        {% if item.heading != "" %}
-                            {{ item.heading }}
-                        {% endif %}
+                        <div class="info">
 
-                        <p>{{ item.title }}</p>
+                            {% if item.heading != "" %}
+                                <h3 class="title">{{ item.heading }}</h3>
+                            {% endif %}
+
+                            <p class="description">{{ item.title }}</p>
+
+                            {% set iconListCtaParams = {
+                                text: theBlock.iconListCtaText,
+                                internalLink: theBlock.iconListCtaInternalLink.first(),
+                            } %}    
+
+                            {{ helpers.ctaBuilder(iconListCtaParams) }}
+
+                        </div>
                         
                     </li>
                 {% endfor %}
 
             </ul>
-
-            {% set iconListCtaParams = {
-                text: theBlock.iconListCtaText,
-                internalLink: theBlock.iconListCtaInternalLink.first(),
-            } %}    
-
-            {{ helpers.ctaBuilder(iconListCtaParams) }}
 
         </div>
 

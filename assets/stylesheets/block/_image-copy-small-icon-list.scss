@@ -2,4 +2,86 @@
 
 	@include sectionPadding;
 
+	.global-wrapper {
+		display: flex;
+	}
+
+	.left-content {
+		width: 50%;
+		margin-right: 40px;
+	}
+
+	.image {
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	.left-content {
+
+		.title {
+			margin-bottom: 30px;
+		}
+
+	}
+
+	.right-content {
+
+		width: 50%;
+
+		ul {
+			margin: 0;
+			padding-left: 0;
+			list-style: none;
+		}
+
+		li {
+			display: flex;
+			align-items: flex-start;
+		}
+
+		li:not(:last-of-type) {
+			margin-bottom: 30px;
+		}
+
+		.image {
+			width: 75px;
+			margin-right: 40px;
+		}
+
+		.info {
+			width: calc(100% - 115px);
+		}
+
+		.button {
+			margin-top: 40px;
+		}
+
+	}
+
+
+
+// Responsive
+
+	@media screen and (max-width: 920px) {
+
+		.global-wrapper {
+			flex-wrap: wrap;
+		}
+
+		.left-content, 
+		.right-content {
+			width: 100%;
+		}
+
+		.left-content {
+			margin-right: 0;
+			margin-bottom: 30px;
+		}
+
+		.right-content .image {
+			margin-right: 20px;
+		}
+
+	}
+
 }
