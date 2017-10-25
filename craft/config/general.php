@@ -34,6 +34,26 @@ return array(
 
     ),
 
+    'test.syapse.com' => array(
+
+        'environmentVariables' => array(
+            'baseUrl' => 'https://test.syapse.com/',
+            'basePath' => '/home/syapseadmin/webapps/test_syapse/public/',
+            'inlinPublicRoot' => '/home/syapseadmin/webapps/test_syapse/public/',
+        ),
+
+    ),
+
+    'stage.syapse.com' => array(
+
+        'environmentVariables' => array(
+            'baseUrl' => 'https://stage.syapse.com/',
+            'basePath' => '/home/syapseadmin/webapps/stage_syapse/public/',
+            'inlinPublicRoot' => '/home/syapseadmin/webapps/stage_syapse/public/',
+        ),
+
+    ),
+
     'localhost' => array(
 
         'devMode' => true,
