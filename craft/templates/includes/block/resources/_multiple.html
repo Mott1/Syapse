@@ -1,14 +1,24 @@
 {# Has access to theBlock #}
+{% set themes = helpers.getThemes(theBlock.themes) | trim %}
 {% set heading = theBlock.heading | default("") %}
+{% set resources = theBlock.resources %}
 
-<div class="resources-multiple">
+<div class="resources-multiple {{ themes }}">
 
     {% if heading != "" %}
         
         <h2>{{ heading }}</h2>
 
     {% endif %}
-    
-    [Multiple resources]
-    
+
+    <ul>
+
+        {% for resource in resources %}
+
+            <li><a href="{{ resource.url }}">{{ resource.title }}</a></li>
+            
+        {% endfor %}
+
+    </ul>
+
 </div>

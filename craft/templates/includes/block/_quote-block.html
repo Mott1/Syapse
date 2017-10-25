@@ -5,7 +5,7 @@
 {# Check if it's a content block #}
 {% if theBlock.testimonial.getClassHandle() == "ElementCriteria" %}
 	{% set themes = helpers.getThemes(theBlock.themes) | trim  %}
-	{% set testimonial = theBlock.testimonial.first() %}
+	{% set testimonial = theBlock.testimonial.first() | default(craft.entries.section('providers').first()) %}
 {% else %}
 	{% set testimonial = theBlock.testimonial %}
 	{% set themes = theBlock.themes %}	

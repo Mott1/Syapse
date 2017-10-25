@@ -1,8 +1,24 @@
 {# Has access to theBlock #}
-<div class="resources-single">
-    
-    <h2>Resource Block</h2>
+{% set themes = helpers.getThemes(theBlock.themes) | trim %}
+{% set heading = theBlock.title | default("") %}
+{% set resource = theBlock.resources.first() %}
 
-    [Single resource]
+{% set image = "" | default("http://via.placeholder.com/180x130") %}
+
+<div class="resources-single {{ themes }}">
+
+    {% if heading != "" %}
+        
+        <h2>{{ heading }}</h2>
+
+    {% endif %}
+    
+    <div class="resource">
+        
+        <img src="{{ image }}" alt="">
+        <h2>{{ resource.title }}</h2>
+        {{ resource.body }}
+
+    </div>
     
 </div>
