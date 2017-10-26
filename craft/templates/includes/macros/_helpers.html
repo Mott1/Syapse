@@ -39,3 +39,13 @@
       {% endif %}
   
 {% endmacro %}
+
+{% macro buildBackURL(params) %}
+    {% set entryType = params.entry.type.name %}
+
+    {# Build previous URL string from current #}
+    {% set lastSegment = craft.request.getLastSegment() %}
+    {% set previousRequestURI = craft.request.getSegments() | without(lastSegment) | join("/") %}
+    <a href="{{ url(previousRequestURI) }}"><- Back to {{ entryType }}</a>    
+{% endmacro %}
+

@@ -4,22 +4,40 @@
 
 {% block content %}
 
+    <style>
+        .customer-stories-header {
+            padding: 160px;
+            overflow: auto;
+        }   
+        .customer-stories-header-1 {
+            float: left;
+            width: 50%;
+        }    
+        .customer-stories-header-2 {
+            float: right;
+            width: 50%;
+        }    
+
+    </style>
+
     <div class="core-content">
         
-        <div class="customer-stories-header">
+        <div class="customer-stories-header theme-darker-background">
 
-            {% for article in articles.limit(3) %}
+            {% for article in articles.limit(2) %}
 
-                <div class="article-item">
+                {% set customerLogoURL = article.customer.first().logo.first().getUrl("") | default("") %}
+
+                <div class="customer-stories-header-{{ loop.index }}">
 
                     {% if loop.index0  == 0%}
                         {% set thumbnailUrl = 'http://via.placeholder.com/181x181' %}
-                        <p>Customers</p>
-
                     {% else %}
                         {% set thumbnailUrl = 'http://via.placeholder.com/110x110' %}
                     {% endif %}
                     
+                    <img src="{{ customerLogoURL }}" alt="">
+
                     <h4>{{ article.title }}</h4>
                     <img src="{{ thumbnailUrl }}" alt="">
 
@@ -28,12 +46,13 @@
                     {% endif %}                    
 
                     <a href="{{ article.url }}">Read</a>
+
                 </div>
             {% endfor %}
 
         </div>
 
-        {% include 'includes/partial/_article-list' with { articles: articles.offset(3) } %}
+        {% include 'includes/partial/_article-list' with { articles: articles.offset(2) } %}
         {% include 'includes/partial/_sidebar' %}
 
     </div>

@@ -6,17 +6,16 @@
 		  
         {% if entry.type == "blogPost" %}
             {% include 'includes/headers/_blogPost-header' %}
+
+        {% elseif entry.type == "customerStory" %}
+            {% include 'includes/headers/_customerStory-header' %}
+
         {% else %}
+            {% include 'includes/headers/_standard-news-hero' %}
 
-            {% set entryType = entry.type.name %}
 
-            {# Build previous URL string from current #}
-            {% set lastSegment = craft.request.getLastSegment() %}
-            {% set previousRequestURI = craft.request.getSegments() | without(lastSegment) | join("/") %}
-            <a href="{{ url(previousRequestURI) }}"><- Back to {{ entryType }}</a>
+        
 
-            <h3>{{ entryType }}</h3>
-            <h2>{{ entry.title }}</h2>
         {% endif %}
 
         <h3>{{ entry.subHeading }}</h3>
@@ -24,7 +23,6 @@
         {{ entry.body }}
 
         {# Add functionality for a resource link #}
-
         {% include 'includes/partial/_sidebar' %}        
 
 	</div>

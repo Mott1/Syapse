@@ -1,10 +1,49 @@
 {% set heading = theHeader.heading | default('Home Heading') %}
-{% set description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisl arcu, vestibulum in tortor eget, mattis viverra leo.' %}
+{% set body = entry.body | striptags | slice(0, 100) | trim  ~ '...' %}
+{% set imageURL = 'http://via.placeholder.com/600x600' %}
+{% set customerLogoURL = entry.customer.first().logo.first().getUrl("") | default("") %}
 
-<div class="customer-story-header">
+<style>
 
-    <h1>{{ heading }}</h1>
+    .customer-story-header {
+        padding: 160px;
+        overflow: auto;
+    }     
 
-    <div>{{ description }}</div>
+    .customer-story-header-left {
+        float: left;
+        width: 50%;
+    }
+
+    .customer-story-header-right {
+        float: left;
+        width: 50%;
+    }
+
+</style>
+
+<div class="customer-story-header theme-darker-background">
+
+    <div class="customer-story-header-left">
+
+        <div>
+            {{ helpers.buildBackURL({ entry: entry }) }}
+        </div>
+
+        <img src="{{ customerLogoURL }}" alt="">
+
+        <br><br>
+
+        <h1>{{ heading }}</h1>
+
+        <div>{{ body }}</div>        
+
+    </div>
+
+    <div class="customer-story-header-right">
+
+        <img src="{{ imageURL }}" alt="">
+
+    </div>
 
 </div>

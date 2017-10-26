@@ -9,7 +9,7 @@
             {% set title = craft.entries.section('pages').slug(entry.slug).first().title %}
             {% include "pages/news-listing-page" with { articles: articles, sectionTitle: title } %}
 
-        {% case "blogPost" or "resource" or "pressRelease" %}
+        {% case "blogPost" or "resource" or "pressRelease" or "customerStory"%}
             {% include "pages/news-article-page" %}
 
         {# Resource listing  #}
@@ -20,8 +20,6 @@
         {% case "customerStoryListing" %}
             {% include "pages/customer-story-listing-page" %}
 
-        {% case "customerStory" %}
-            {% include "pages/customer-story-page" %}
 
         {# Customer listing / Health systems  #}
         {% case "customerListing" %}

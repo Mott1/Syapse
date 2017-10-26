@@ -1,0 +1,23 @@
+<style>
+
+    .standard-news-hero {
+        padding: 160px;
+        overflow: auto;
+    }        
+
+</style>
+
+<div class="standard-news-hero theme-darker-background">
+
+    {% set entryType = entry.type.name %}
+
+    {# Build previous URL string from current #}
+    {% set lastSegment = craft.request.getLastSegment() %}
+    {% set previousRequestURI = craft.request.getSegments() | without(lastSegment) | join("/") %}
+    <a href="{{ url(previousRequestURI) }}"><- Back to {{ entryType }}</a>
+
+    <h3>{{ entryType }}</h3>
+    <h2>{{ entry.title }}</h2>    
+
+
+</div>

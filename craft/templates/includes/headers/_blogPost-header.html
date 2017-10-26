@@ -1,15 +1,62 @@
-{% set category = entry.blogCategory.first().title | default("Default category") %}
+{% set category = entry.blogCategory.first().title | default("") %}
 {% set title = entry.title | default("Blog post title") %}
 {% set author = entry.author | default("Author name") %}
-{% set authorPic = entry.author.photoUrl | default("http://via.placeholder.com/180x180") %}
-{% set date = entry.postDate | date("n/j/y") | default("06/02/2017") %}
+{% set authorPic = entry.author.photoUrl | default("http://via.placeholder.com/70x70") %}
+{% set date = entry.postDate | date("n/j/y") | default("") %}
+{% set imageURL = 'http://via.placeholder.com/600x600' %}
+{% set body = entry.body | striptags | slice(0, 100) | trim  ~ '...' %}
+{% set linkPostTitle = linkPostTitle | default(false) %}
 
-<div class="blog-post-header">
+<style>
+    .blog-post-header {
+        padding: 160px;
+        overflow: auto;
+    }        
 
-    <h3>{{ category }}</h3>
-    <h2>{{ title }}</h2>
-    <img src="{{ authorPic }}" alt="">
-    <p>By {{ author }}</p>
-    <p>{{ date }}</p>
+    .left-blog-hero {
+        float: left;
+        width: 50%;
+    }
+
+    .right-blog-hero {
+        float: left;
+        width: 50%;
+    }
+
+</style>
+
+<div class="blog-post-header theme-darker-background">
+
+    <div class="left-blog-hero">
+        
+        {% if craft.request.getSegments() | length > 2 %}
+            <div>
+                {{ helpers.buildBackURL({ entry: entry }) }}
+            </div>
+        {% endif %}
+
+        {% if category != "" %}
+            <h3><a href="{{ entry.blogCategory.first().url }}">{{ category }}</a></h3>
+        {% endif %}
+
+        {% if linkPostTitle %}
+            <h2><a href="{{ entry.url }}">{{ title }}</a></h2>
+        {% else %}
+            <h2>{{ title }}</h2>
+        {% endif %}
+
+        <div>{{ body }}</div>
+
+        <img src="{{ authorPic }}" alt="">
+        <p>By {{ author }}</p>
+        <p>{{ date }}</p>
+
+    </div>
+
+    <div class="right-blog-hero">
+
+        <img src="{{ imageURL }}" alt="">
+
+    </div>
 
 </div>
