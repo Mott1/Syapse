@@ -7,13 +7,6 @@
 
 {% block content %}
 
-    <style>
-        .news-hero {
-            padding: 160px 0;
-        }
-
-    </style>
-
     <div class="core-content">
 
         {% if entry is defined and entry.slug == "blog" %}
@@ -23,16 +16,20 @@
 
         {% else %}
 
-            <div class="news-hero theme-darker-background">
+            {% set heading = sectionTitle %}
+            {% set preHeading = "" %}
 
-                {# This happens if we're on a blog category page #}
-                {% if isCategory is defined and isCategory %}
-                    <h3>Blog</h3>
-                {% endif %}
+            {% if isCategory is defined and isCategory %}
+                {% set preHeading = "Blog" %}
+                {% set heading = sectionTitle %}            
+            {% endif %}
 
-                <h2>{{ sectionTitle }}</h2>
+            {% set params = {
+                heading: heading,
+                preHeading: preHeading
+            } %}
 
-            </div>            
+            {% include 'includes/headers/_standard-header' with params %}          
 
         {% endif %}
 
