@@ -1,0 +1,21 @@
+.standard-hero {
+
+	.global-wrapper {
+		@include sectionPadding;
+	}
+
+	.pre-heading {
+		font-size: 16px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+	.heading {
+		margin-bottom: 20px;
+		font-size: 72px;
+		background: -webkit-linear-gradient(45deg, $buttonBlue, #635FEB);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+}

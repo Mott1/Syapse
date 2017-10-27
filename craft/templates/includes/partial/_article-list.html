@@ -1,20 +1,35 @@
 {# Inherits variables from pages/_router: #}
 {# @articles - the articles to output #}
-{% set thumbnailUrl = 'http://via.placeholder.com/181x200' %}
+{% set thumbnailUrl = 'http://via.placeholder.com/180x200' %}
 
 <div class="article-list">
 
     {% if articles.count() %}
 
         {% for article in articles %}
+
             <div class="article-item">
 
-                <h4>{{ article.title }}</h4>
-                <img src="{{ thumbnailUrl }}" alt="">
-                <p>{{ article.body | striptags | slice(0, 100) | trim  ~ '...' }}</p>
+                <div class="image" style="background-image: url('{{ thumbnailUrl }}');"></div>
 
-                <a href="{{ article.url }}">Read</a>
+                <div class="info">
+
+                    <h3 class="heading">{{ article.title }}</h3>
+
+                    {% if article.author | length %}
+                        <p class="author">By {{ article.author | default('') }}</p>
+                    {% endif %}
+                    
+                    <p class="description">
+                        {{ article.body | striptags | slice(0, 100) | trim  ~ '...' }}
+                    </p>
+
+                    <a class="link" href="{{ article.url }}">Read</a>
+
+                </div>
+
             </div>
+
         {% endfor %}
 
     {% else %}

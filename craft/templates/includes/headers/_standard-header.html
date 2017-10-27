@@ -3,25 +3,22 @@
 {% set description = theHeader.body | default('') %}
 {% set preHeading = entry.parent.title | default('') %}
 
-<style>
-    .standard-header {
-        padding-top: 180px;
-        padding-bottom: 120px;
-    }
-</style>
+<div class="standard-hero {{ themes }}">
 
-<div class="standard-header {{ themes }}">
+    <div class="global-wrapper">
 
-    {% if preHeading != "" %}
-        <span>{{ preHeading }}</span>
-    {% endif %}
+        {% if preHeading != "" %}
+            <span class="pre-heading">{{ preHeading }}</span>
+        {% endif %}
 
-    {% if heading != "" %}
-        <h1>{{ heading }}</h1>
-    {% endif %}
-    
-    {% if description != "" %}
-        <div>{{ description }}</div>
-    {% endif %}   
+        {% if heading != "" %}
+            <h1 class="heading">{{ heading }}</h1>
+        {% endif %}
+
+        {% if description != "" %}
+            <div class="description">{{ description }}</div>
+        {% endif %}
+
+    </div>
 
 </div>

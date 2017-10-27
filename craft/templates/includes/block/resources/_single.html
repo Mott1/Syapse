@@ -2,23 +2,39 @@
 {% set themes = helpers.getThemes(theBlock.themes) | trim %}
 {% set heading = theBlock.title | default("") %}
 {% set resource = theBlock.resources.first() %}
+{% set title = resource.title | default('') %}
+{% set body = resource.body | default('') %}
+{% set link = resource.url | default('#') %}
 
 {% set image = "" | default("http://via.placeholder.com/180x130") %}
 
 <div class="resources-single {{ themes }}">
 
-    {% if heading != "" %}
-        
-        <h2>{{ heading }}</h2>
+	<div class="global-wrapper">
 
-    {% endif %}
-    
-    <div class="resource">
-        
-        <img src="{{ image }}" alt="">
-        <h2>{{ resource.title }}</h2>
-        {{ resource.body }}
+	    {% if heading != "" %}
+	        
+	        <h2>{{ heading }}</h2>
 
-    </div>
+	    {% endif %}
+	    
+	    <div class="resource">
+	        
+	        <div class="image" style="background-image: url('{{ image }}');"></div>
+
+	        <div class="info">
+		        <div class="title">{{ title }}</div>
+		        <div class="description">
+			        {{ body }}
+			    </div>
+			</div>
+
+			<div class="button-container">
+				<a class="button" href="{{ link }}">View</a>
+			</div>
+
+	    </div>
+
+	</div>
     
 </div>

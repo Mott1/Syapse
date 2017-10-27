@@ -52,8 +52,16 @@
 
         </div>
 
-        {% include 'includes/partial/_article-list' with { articles: articles.offset(2) } %}
-        {% include 'includes/partial/_sidebar' %}
+        <div class="listing-container">
+
+            <div class="global-wrapper">
+
+                {% include 'includes/partial/_article-list' with { articles: articles.offset(2) } %}
+                {% include 'includes/partial/_sidebar' %}
+
+            </div>
+
+        </div>
 
     </div>
 

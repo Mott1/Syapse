@@ -1,8 +1,72 @@
 .resources-single {
 
-	@include sectionPadding;
+	.global-wrapper {
+		@include sectionPadding;
+	}
 
+	.resource {
+		display: flex;
+		align-items: center;
+		background-color: #fff;
+	}
 
+	.image {
+		width: 100%;
+		max-width: 180px;
+		align-self: stretch;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	.info {
+		padding: 40px;
+	}
+
+	.title {
+		margin-bottom: 5px;
+		font-size: 20px;
+	}
+
+	.description p {
+		font-size: 16px;
+		line-height: 1.5em;
+	}
+
+	.button {
+		margin-right: 40px;
+	}
+
+// Responsive
+
+	@media screen and (max-width: 767px) {
+
+		.resource {
+			flex-wrap: wrap;
+			border: 1px solid $hrColor;
+		}
+
+		.image {
+			max-width: 100%;
+			height: calc(65vw - 40px);
+		}
+
+		.info {
+			padding: 30px;
+		}
+
+		.button-container {
+			width: 100%;
+			padding: 0 30px 30px;
+			text-align: center;
+		}
+
+		.button {
+			width: 100%;
+			max-width: 300px;
+		}
+
+	}
 
 }
 
@@ -10,6 +74,84 @@
 
 	@include sectionPadding;
 
-	
+	.resource-list {
+
+		@include clearfix;
+
+		margin: 0;
+		padding-left: 0;
+		list-style: none;
+
+	}
+
+	.resource-item {
+
+		display: flex;
+		align-items: center;
+		width: calc(50% - 20px);
+		min-height: 40px;
+		padding: 30px 0;
+		border-bottom: 1px solid $hrColor;
+
+		&:first-child, 
+		&:nth-child(2n) {
+			border-top: 1px solid $hrColor;
+		}
+
+		&:nth-child(odd) {
+			float: left;
+			margin-right: 40px;
+		}
+
+		&:nth-child(even) {
+			float: right;
+		}
+
+	}
+
+	.resource-link {
+
+		display: block;
+		position: relative;
+		width: 100%;
+		padding-left: 70px;
+		color: #282A50;
+		transition: color 0.15s ease-in-out;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+			width: 40px;
+			height: 40px;
+			border-radius: 100%;
+			background: url('http://via.placeholder.com/40x40') no-repeat center center;
+			background-size: cover;
+		}
+
+		&:hover {
+			color: $buttonBlue;
+		}
+
+	}
+
+// Responsive
+
+	@media screen and (max-width: 767px) {
+
+		.resource-item {
+
+			width: 100%;
+			float: none;
+
+			&:nth-child(2n) {
+				border-top: none;
+			}
+
+		}
+
+	}
 
 }

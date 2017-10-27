@@ -1,37 +1,50 @@
 {# Inherits variables from pages/_router: #}
 {# @articles - the articles to output #}
 {# @readMore - whether or not to output a readmore link #}
-{% set thumbnailUrl = 'http://via.placeholder.com/181x200' %}
+{% set thumbnailUrl = 'http://via.placeholder.com/180x200' %}
 
-<div class="article-list">
+<div class="article-list article-list-2-column">
 
-    {% if articles.count() %}
+    <div class="global-wrapper">
 
-        {% for article in articles %}
-            <div class="article-item">
+        {% if articles.count() %}
 
-                <h4>{{ article.title }}</h4>
-                <img src="{{ thumbnailUrl }}" alt="">
+            {% for article in articles %}
 
-                {% if readMore %}
-                    {% set description = article.body | striptags | slice(0, 100) | trim  ~ '...' %}
-                {% else %}
-                    {% set description = article.description | striptags %}
-                {% endif %}
+                <div class="article-item">
 
-                <p>{{ description }}</p>
+                    <div class="image" style="background-image: url('{{ thumbnailUrl }}');"></div>
 
-                {% if readMore %}
-                    <a href="{{ article.url }}">Read</a>
-                {% endif %}
-                
-            </div>
-        {% endfor %}
+                    <div class="info">
 
-    {% else %}
-        
-        <p>No articles available</p>
+                        <h3 class="heading">{{ article.title }}</h3>
+                        
+                        {% if readMore %}
+                            {% set description = article.body | striptags | slice(0, 100) | trim  ~ '...' %}
+                        {% else %}
+                            {% set description = article.description | striptags %}
+                        {% endif %}
 
-    {% endif %}
+                        <p class="description">
+                            {{ description }}
+                        </p>
+
+                        {% if readMore %}
+                            <a class="link" href="{{ article.url }}">Read</a>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+            
+            <h2>No articles available</h2>
+
+        {% endif %}
+
+    </div>
 
 </div>
