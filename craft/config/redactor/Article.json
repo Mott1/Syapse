@@ -1,0 +1,18 @@
+{
+	"buttons": ["format","bold","italic","lists","link","file","image"],
+	"plugins": ["source"],
+    "formatting": ["p","h3","h4","blockquote"],
+
+    "formattingAdd": {
+        "quote-attribution-add": {
+            "title": "Quote Attribution",
+            "args": ["span", "class", "quote-attribution"]
+        },
+        "quote-title-company-add": {
+            "title": "Quote Title/Company",
+            "args": ["span", "class", "quote-title-company"]
+        }            
+
+    }
+
+}
