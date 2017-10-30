@@ -16,20 +16,20 @@
 
         {% else %}
 
-            <div class="news-hero theme-darker-background">
+            {% set heading = sectionTitle %}
+            {% set preHeading = "" %}
 
-                <div class="global-wrapper">
+            {% if isCategory is defined and isCategory %}
+                {% set preHeading = "Blog" %}
+                {% set heading = sectionTitle %}            
+            {% endif %}
 
-                    {# This happens if we're on a blog category page #}
-                    {% if isCategory is defined and isCategory %}
-                        <h1 class="heading">Blog</h1>
-                    {% endif %}
+            {% set params = {
+                heading: heading,
+                preHeading: preHeading
+            } %}
 
-                    <h1 class="heading">{{ sectionTitle }}</h1>
-
-                </div>
-
-            </div>
+            {% include 'includes/headers/_standard-header' with params %}
 
         {% endif %}
 

@@ -1,7 +1,16 @@
 {% set themes = 'theme-darker-background' %}
-{% set heading = theHeader.heading | default('') %}
-{% set description = theHeader.body | default('') %}
-{% set preHeading = entry.parent.title | default('') %}
+
+{% if heading is not defined %}
+    {% set heading = theHeader.heading | default('') %}
+{% endif %}
+
+{% if description is not defined %}
+    {% set description = theHeader.body | default('') %}
+{% endif %}
+
+{% if preHeading is not defined %}
+    {% set preHeading = entry.parent.title | default('') %}
+{% endif %}
 
 <div class="standard-hero {{ themes }}">
 
