@@ -46,6 +46,6 @@
     {# Build previous URL string from current #}
     {% set lastSegment = craft.request.getLastSegment() %}
     {% set previousRequestURI = craft.request.getSegments() | without(lastSegment) | join("/") %}
-    <a href="{{ url(previousRequestURI) }}"><- Back to {{ entryType }}</a>    
+    <a href="{{ url(previousRequestURI) }}">Back to {{ entryType }}</a>    
 {% endmacro %}
 

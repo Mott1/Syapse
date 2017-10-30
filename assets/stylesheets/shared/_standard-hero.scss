@@ -1,4 +1,5 @@
-.standard-hero {
+.standard-hero, 
+.standard-news-hero {
 
 	.global-wrapper {
 		@include sectionPadding;
@@ -16,6 +17,30 @@
 		background: -webkit-linear-gradient(45deg, $buttonBlue, #635FEB);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
+	}
+
+	@media screen and (max-width: 767px) {
+
+		.heading {
+			font-size: 36px;
+		}
+
+	}
+
+}
+
+.standard-news-hero {
+
+	.global-wrapper {
+		padding-top: 150px;
+	}
+
+	// .pre-heading {
+	// 	margin-bottom: 30px;
+	// }
+
+	.heading {
+		font-size: 36px;
 	}
 
 }

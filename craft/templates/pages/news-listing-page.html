@@ -7,13 +7,6 @@
 
 {% block content %}
 
-    <style>
-        .news-hero {
-            padding: 160px 0;
-        }
-
-    </style>
-
     <div class="core-content">
 
         {% if entry is defined and entry.slug == "blog" %}
@@ -25,14 +18,18 @@
 
             <div class="news-hero theme-darker-background">
 
-                {# This happens if we're on a blog category page #}
-                {% if isCategory is defined and isCategory %}
-                    <h3>Blog</h3>
-                {% endif %}
+                <div class="global-wrapper">
 
-                <h2>{{ sectionTitle }}</h2>
+                    {# This happens if we're on a blog category page #}
+                    {% if isCategory is defined and isCategory %}
+                        <h1 class="heading">Blog</h1>
+                    {% endif %}
 
-            </div>            
+                    <h1 class="heading">{{ sectionTitle }}</h1>
+
+                </div>
+
+            </div>
 
         {% endif %}
 

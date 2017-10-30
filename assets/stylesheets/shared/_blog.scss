@@ -11,6 +11,227 @@
 
 }
 
+// Back
+
+.back-wrapper {
+
+	@include sectionPadding;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100%;
+	max-width: 1440px;
+
+	.back-link {
+
+		position: relative;
+
+		a {
+
+			padding-left: 26px;
+			font-size: 14px;
+			color: #bbb;
+			transition: color 0.15s ease-in-out;
+
+			&:hover {
+				color: #000;
+			}
+
+		}
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 3px;
+			left: 0;
+			width: 16px;
+			height: 16px;
+			background: url('/images/ui/icon-arrow-back.svg') no-repeat center center;
+			background-size: contain;
+		}
+
+	}
+
+}
+
+// Standard News Hero
+
+.standard-news-hero {
+
+	position: relative;
+
+}
+
+// News Header
+
+.news-hero {
+
+	.global-wrapper {
+		@include sectionPadding;
+	}
+
+	.heading {
+		margin-bottom: 20px;
+		font-size: 72px;
+		background: -webkit-linear-gradient(45deg, $buttonBlue, #635FEB);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	@media screen and (min-width: 850px) {
+		.heading {
+			padding: 0 100px;
+		}
+	}
+
+	@media screen and (max-width: 767px) {
+
+		.heading {
+			font-size: 36px;
+		}
+
+	}
+
+}
+
+// Blog Header
+
+.blog-post-header, 
+.customer-story-header {
+
+	position: relative;
+
+	.global-wrapper {
+		@include sectionPadding;
+		padding-top: 0;
+		padding-bottom: 0;
+		padding-right: 0;
+		display: flex;
+	}
+
+	.left-blog-hero {
+		@include sectionPadding;
+		order: 1;
+		width: 50%;
+		padding-left: 0;
+	}
+
+	&.blog-post-header .left-blog-hero {
+		padding-top: 200px;
+	}
+
+	.logo {
+		width: 100%;
+		max-width: 200px;
+		margin: 20px 0;
+	}
+
+	.category {
+
+		display: inline-block;
+		margin-bottom: 30px;
+		color: $defaultColor;
+		font-size: 16px;
+		font-weight: 700;
+		text-transform: uppercase;
+
+		transition: color 0.15s ease-in-out;
+
+		&:hover {
+			color: $buttonBlue;
+		}
+
+	}
+
+	.title a {
+		color: $buttonBlue;
+	}
+
+	.author-wrapper {
+		display: flex;
+		align-items: center;
+		margin-top: 40px;
+	}
+
+	.author-info {
+		margin-left: 30px;
+	}
+
+	.author-image {
+		border-radius: 100%;
+	}
+
+	.author-name, 
+	.date {
+		font-size: 16px;
+		font-weight: 300;
+	}
+
+	.author-name {
+		margin-bottom: 0;
+	}
+
+	.date {
+		margin-top: 5px;
+	}
+
+	.right-blog-hero {
+		order: 2;
+		width: 50%;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+// Responsive
+
+	@media screen and (max-width: 767px) {
+
+		.global-wrapper {
+			flex-wrap: wrap;
+			padding-top: 20px;
+		}
+
+		.left-blog-hero {
+			order: 2;
+			width: 100%;
+			padding-bottom: 0;
+		}
+
+		.category {
+			margin-bottom: 10px;
+		}
+
+		.title {
+			margin-bottom: 0;
+			font-size: 36px;
+		}
+
+		.description {
+			display: none;
+		}
+
+		.author-wrapper {
+			margin-top: 30px;
+		}
+
+		.author-info {
+			margin-left: 15px;
+		}
+
+		.right-blog-hero {
+			order: 1;
+			width: 100%;
+			min-height: 50vw;
+		}
+
+	}
+
+}
+
 // Article List
 
 .article-list {
@@ -184,6 +405,137 @@
 
 		.description {
 			display: none;
+		}
+
+	}
+
+}
+
+// Blog Article
+
+.article-body {
+
+	.global-wrapper {
+
+		@include sectionPadding;
+		display: flex;
+
+		@media screen and (max-width: 767px) {
+			flex-wrap: wrap;
+		}
+
+	}
+
+}
+
+.blog-article {
+
+	width: 70%;
+	margin-right: 40px;
+
+	@media screen and (max-width: 767px) {
+
+		width: 100%;
+		margin-right: 0;
+
+	}
+
+}
+
+.blog-body {
+
+	img {
+		margin: 20px auto;
+		max-width: 100%;
+	}
+
+	blockquote {
+		@include anti-alias;
+		float: left;
+		width: 100%;
+		max-width: 400px;
+		margin: 20px 40px 20px -40px;
+		padding: 40px;
+		background-color: $lightGray;
+		font-size: 20px;
+		font-weight: 300;
+		// font-style: italic;
+		line-height: 38px;
+	}
+
+	.dquo {
+
+		position: relative;
+		display: inline-block;
+		width: 0;
+		height: 0;
+		color: transparent;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 10px;
+			left: -26px;
+			width: 18px;
+			height: 12px;
+			background: url('/images/ui/quotation_mark-left.svg') no-repeat center center;
+			background-size: contain;
+		}
+
+	}
+
+	.quote-attribution:before {
+		content: '';
+		display: block;
+		margin-top: 20px;
+		margin-bottom: 15px;
+		width: 70px;
+		border: 2px solid $buttonBlue;
+		border-radius: 2px;
+	}
+
+	.quote-attribution {
+		font-size: 18px;
+		font-weight: 700;
+		color: #282A50;
+	}
+
+	.quote-title-company {
+		@include anti-alias;
+		display: block;
+		margin-top: -10px;
+		font-size: 18px;
+		line-height: 36px;
+		color: #6D6D6D;
+	}
+
+	@media screen and (max-width: 960px) {
+
+		blockquote {
+			float: none;
+			max-width: 100%;
+			margin-left: 0;
+		}
+
+	}
+
+	@media screen and (max-width: 767px) {
+
+		blockquote {
+			font-size: 16px;
+			line-height: 1.5em;
+		}
+
+		.dquo {
+			line-height: 2em;
+		}
+
+		.quote-attribution {
+			font-size: 16px;
+		}
+
+		.quote-title-company {
+			font-size: 14px;
 		}
 
 	}

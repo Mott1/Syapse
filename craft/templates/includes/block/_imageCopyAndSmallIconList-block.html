@@ -13,7 +13,9 @@
 
         <div class="left-content">
             
-            <h2 class="heading">{{ heading }}</h2>
+            {% if heading | length %}
+                <h2 class="heading">{{ heading }}</h2>
+            {% endif %}
 
             {% if imageUrl != "" %}
                 <img class="image" src="{{ imageUrl }}" alt="">
@@ -23,9 +25,11 @@
                 <h3 class="title">{{ subHeading }}</h3>
             {% endif %}
 
-            <div class="description">
-                {{ theBlock.body }}
-            </div>
+            {% if body | length %}
+                <div class="description">
+                    {{ body }}
+                </div>
+            {% endif %}
 
             {% set ctaParams = {
                 text: theBlock.ctaText,
@@ -38,11 +42,15 @@
 
         <div class="right-content">
 
-            <h2 class="heading">{{ iconListHeading }}</h2>
+            {% if iconListHeading | length %}
+                <h2 class="heading">{{ iconListHeading }}</h2>
+            {% endif %}
 
-            <div class="description">
-                {{ iconListBody }}
-            </div>
+            {% if iconListBody | length %}
+                <div class="description">
+                    {{ iconListBody }}
+                </div>
+            {% endif %}
             
             <ul>
 
@@ -53,11 +61,13 @@
 
                         <div class="info">
 
-                            {% if item.heading != "" %}
+                            {% if item.heading | length %}
                                 <h3 class="title">{{ item.heading }}</h3>
                             {% endif %}
 
-                            <p class="description">{{ item.title }}</p>
+                            {% if item.title | length %}
+                                <p class="description">{{ item.title }}</p>
+                            {% endif %}
 
                             {% set iconListCtaParams = {
                                 text: theBlock.iconListCtaText,

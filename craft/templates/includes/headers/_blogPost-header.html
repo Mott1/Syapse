@@ -2,64 +2,48 @@
 {% set title = entry.title | default("Blog post title") %}
 {% set author = entry.author | default("Author name") %}
 {% set authorPic = entry.author.photoUrl | default("http://via.placeholder.com/70x70") %}
-{% set date = entry.postDate | date("n/j/y") | default("") %}
+{% set date = entry.postDate | date("m/d/Y") | default("") %}
 {% set imageURL = 'http://via.placeholder.com/600x600' %}
 {% set body = entry.body | striptags | slice(0, 100) | trim  ~ '...' %}
 {% set linkPostTitle = linkPostTitle | default(false) %}
 
-<style>
-    .blog-post-header {
-        padding: 160px;
-        overflow: auto;
-    }        
-
-    .left-blog-hero {
-        float: left;
-        width: 50%;
-    }
-
-    .right-blog-hero {
-        float: left;
-        width: 50%;
-    }
-
-    .right-blog-hero img {
-        width: 100%;
-    }
-
-</style>
-
 <div class="blog-post-header theme-darker-background">
 
-    <div class="left-blog-hero">
-        
-        {% if craft.request.getSegments() | length > 2 %}
-            <div>
+    {% if craft.request.getSegments() | length > 2 %}
+        <div class="back-wrapper theme-hide-on-mobile">
+            <div class="back-link">
                 {{ helpers.buildBackURL({ entry: entry }) }}
             </div>
-        {% endif %}
+        </div>
+    {% endif %}
 
-        {% if category != "" %}
-            <h3><a href="{{ entry.blogCategory.first().url }}">{{ category }}</a></h3>
-        {% endif %}
+    <div class="global-wrapper">
 
-        {% if linkPostTitle %}
-            <h2><a href="{{ entry.url }}">{{ title }}</a></h2>
-        {% else %}
-            <h2>{{ title }}</h2>
-        {% endif %}
+        <div class="left-blog-hero">
 
-        <div>{{ body }}</div>
+            {% if category != "" %}
+                <a class="category" href="{{ entry.blogCategory.first().url }}">{{ category }}</a>
+            {% endif %}
 
-        <img src="{{ authorPic }}" alt="">
-        <p>By {{ author }}</p>
-        <p>{{ date }}</p>
+            {% if linkPostTitle %}
+                <h2 class="title"><a href="{{ entry.url }}">{{ title }}</a></h2>
+            {% else %}
+                <h2 class="title">{{ title }}</h2>
+            {% endif %}
 
-    </div>
+            <p class="description">{{ body }}</p>
 
-    <div class="right-blog-hero">
+            <div class="author-wrapper">
+                <img class="author-image" src="{{ authorPic }}" alt="{{ author }}">
+                <div class="author-info">
+                    <p class="author-name">By {{ author }}</p>
+                    <p class="date">{{ date }}</p>
+                </div>
+            </div>
 
-        <img src="{{ imageURL }}" alt="">
+        </div>
+
+        <div class="right-blog-hero" style="background-image: url('{{ imageURL }}');"></div>
 
     </div>
 
