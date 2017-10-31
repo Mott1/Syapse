@@ -1,12 +1,12 @@
 {# Inherits variables from pages/_router: #}
 {# @articles - the articles to output #}
-{% set thumbnailUrl = 'http://via.placeholder.com/180x200' %}
-
 <div class="article-list">
 
     {% if articles.count() %}
 
         {% for article in articles %}
+
+            {% set thumbnailUrl = article.heroImage.first().getUrl() | default('http://via.placeholder.com/180x200') %}
 
             <div class="article-item {% if loop.index == 1 %}isFirst{% endif %}">
 

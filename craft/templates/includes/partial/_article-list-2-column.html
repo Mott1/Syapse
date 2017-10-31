@@ -1,7 +1,6 @@
 {# Inherits variables from pages/_router: #}
 {# @articles - the articles to output #}
 {# @readMore - whether or not to output a readmore link #}
-{% set thumbnailUrl = 'http://via.placeholder.com/180x200' %}
 
 <div class="article-list article-list-2-column">
 
@@ -10,6 +9,15 @@
         {% if articles.count() %}
 
             {% for article in articles %}
+
+                {% if article.type.handle == "resource" %}
+                    {# get the resource icon #}
+                    {% set thumbnailUrl = 'http://via.placeholder.com/180x200' %}
+                {% elseif article.type.handle == "customer" %}
+                    {% set thumbnailUrl = article.logo.first().getUrl() | default('http://via.placeholder.com/180x200') %}                   
+                {% else %}
+                    {% set thumbnailUrl = article.heroImage.first().getUrl() | default('http://via.placeholder.com/180x200') %}
+                {% endif %}
 
                 <div class="article-item">
 

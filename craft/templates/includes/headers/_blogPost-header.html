@@ -3,7 +3,7 @@
 {% set author = entry.author | default("Author name") %}
 {% set authorPic = entry.author.photoUrl | default("http://via.placeholder.com/70x70") %}
 {% set date = entry.postDate | date("m/d/Y") | default("") %}
-{% set imageURL = 'http://via.placeholder.com/600x600' %}
+{% set imageURL = entry.heroImage.first().getUrl() | default('http://via.placeholder.com/600x600') %}
 {% set body = entry.body | striptags | slice(0, 100) | trim  ~ '...' %}
 {% set linkPostTitle = linkPostTitle | default(false) %}
 
