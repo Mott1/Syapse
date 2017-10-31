@@ -9,7 +9,6 @@
 @import "shared/themes";
 @import "shared/standard-hero";
 @import "shared/blog";
-@import "shared/customer-stories-header";
 
 // Block
 @import "block/cta";
@@ -24,3 +23,7 @@
 // Partial
 @import "partial/news";
 @import "partial/lets-talk";
+
+// Pages
+@import "pages/team";
+@import "pages/customer-stories-header";

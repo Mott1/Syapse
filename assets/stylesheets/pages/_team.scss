@@ -1,0 +1,107 @@
+.team-listing {
+
+	.global-wrapper {
+		@include sectionPadding;
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+
+	.team-group:nth-child(even) {
+		background-color: $lightGray;
+	}
+
+	.title {
+		margin-bottom: 50px;
+	}
+	
+	.members {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.team-member {
+
+		cursor: pointer;
+		position: relative;
+		width: calc(25% - 30px);
+		margin-bottom: 40px;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+
+		.headshot {
+			width: 100%;
+			max-width: 290px;
+			margin-bottom: 10px;
+		}
+
+		.name {
+			margin-bottom: 0;
+		}
+
+	}
+
+	@media screen and (min-width: 1024px) {
+
+		.team-member:not(:nth-child(4n)) {
+			margin-right: 40px;
+		}
+
+	}
+
+	@media screen and (max-width: 1023px) and (min-width: 540px) {
+
+		.team-member {
+			width: calc(33.3% - 30px);
+		}
+
+		.team-member:not(:nth-child(3n)) {
+			margin-right: 40px;
+		}
+
+	}
+
+	@media screen and (max-width: 539px) and (min-width: 420px) {
+
+		.team-member {
+			width: calc(50% - 30px);
+		}
+
+		.team-member:not(:nth-child(2n)) {
+			margin-right: 40px;
+		}
+
+	}
+
+	@media screen and (max-width: 419px) {
+
+		.members {
+			justify-content: center;
+		}
+
+		.team-member {
+			width: 100%;
+			max-width: 290px;
+		}
+
+	}
+
+}
+
+.modal {
+
+	.name {
+		margin-bottom: 0;
+	}
+
+	.bio {
+		font-size: 20px;
+	}
+
+}

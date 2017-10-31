@@ -10642,6 +10642,9 @@ var revealCollection = document.querySelectorAll('.reveal');
 // Header
 var header = document.querySelector('.core-header');
 
+// Modal
+var modal = document.querySelector('.modal');
+
 // Logo Grid
 var logoGridCollection = [];
 var logoGrids = document.querySelectorAll('.logo-grid');
@@ -10659,6 +10662,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 	initReveal();
 	// initResize();
+
+	initModal();
 });
 
 function initResize() {
@@ -10763,6 +10768,13 @@ function initNav() {
 
 	if (header !== null) {
 		header = new Header();
+	}
+}
+
+function initModal() {
+
+	if (modal !== null) {
+		modal = new Modal();
 	}
 }
 
@@ -11018,4 +11030,111 @@ var Header = function () {
 	}]);
 
 	return Header;
+}();
+
+'use strict';
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+// Modal
+
+var Modal = function () {
+	function Modal() {
+		_classCallCheck(this, Modal);
+
+		this.initVars();
+		this.initEvents();
+	}
+
+	_createClass(Modal, [{
+		key: 'initVars',
+		value: function initVars() {
+
+			this.modal = document.querySelector('.modal');
+			this.modalLinks = document.querySelectorAll('.modal-link');
+			this.modalClose = document.querySelector('.modal-close');
+			this.openModalRef = this.openModal.bind(this);
+			this.closeModalRef = this.closeModal.bind(this);
+		}
+	}, {
+		key: 'initEvents',
+		value: function initEvents() {
+
+			var _this = this;
+
+			this.modalClose.addEventListener('click', _this.closeModalRef, false);
+
+			for (var i = 0, len = this.modalLinks.length; i < len; i++) {
+				_this.modalLinks[i].addEventListener('click', _this.openModalRef, false);
+			}
+		}
+	}, {
+		key: 'stopEvents',
+		value: function stopEvents() {
+
+			var _this = this;
+
+			this.modalClose.removeEventListener('click', _this.closeModalRef, false);
+
+			for (var i = 0, len = this.modalLinks.length; i < len; i++) {
+				_this.modalLinks[i].removeEventListener('click', _this.openModalRef, false);
+			}
+		}
+	}, {
+		key: 'openModal',
+		value: function openModal(e) {
+
+			e.preventDefault();
+
+			if (document.body.classList.contains('modal-open')) {
+				return;
+			}
+
+			var target = e.target;
+
+			var modalType = target.getAttribute('data-modal-type');
+
+			if (modalType == 'team') {
+
+				var name = target.getAttribute('data-name');
+				var jobTitle = target.getAttribute('data-job-title');
+				var bio = target.getAttribute('data-bio');
+
+				var modalName = this.modal.querySelector('.name');
+				var modalJobTitle = this.modal.querySelector('.job-title');
+				var modalBio = this.modal.querySelector('.bio');
+
+				modalName.innerHTML = name;
+				modalJobTitle.innerHTML = jobTitle;
+				modalBio.innerHTML = bio;
+			}
+
+			document.body.classList.add('modal-open');
+		}
+	}, {
+		key: 'closeModal',
+		value: function closeModal(e) {
+
+			e.preventDefault();
+
+			var modalType = e.target.getAttribute('data-modal-type');
+
+			if (modalType == 'team') {
+
+				var modalName = this.modal.querySelector('.name');
+				var modalJobTitle = this.modal.querySelector('.job-title');
+				var modalBio = this.modal.querySelector('.bio');
+
+				modalName.innerHTML = "";
+				modalJobTitle.innerHTML = "";
+				modalBio.innerHTML = "";
+			}
+
+			document.body.classList.remove('modal-open');
+		}
+	}]);
+
+	return Modal;
 }();

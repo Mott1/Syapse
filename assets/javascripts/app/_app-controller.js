@@ -13,6 +13,9 @@ let revealCollection = document.querySelectorAll('.reveal');
 // Header
 let header = document.querySelector('.core-header');
 
+// Modal
+let modal = document.querySelector('.modal');
+
 // Logo Grid
 let logoGridCollection = [];
 let logoGrids = document.querySelectorAll('.logo-grid');
@@ -31,6 +34,8 @@ document.addEventListener("DOMContentLoaded", e => {
 
 	initReveal();
 	// initResize();
+
+	initModal();
 
 });
 
@@ -140,6 +145,14 @@ function initNav() {
 
 	if (header !== null) {
 		header = new Header();
+	}
+
+}
+
+function initModal() {
+
+	if (modal !== null) {
+		modal = new Modal();
 	}
 
 }
