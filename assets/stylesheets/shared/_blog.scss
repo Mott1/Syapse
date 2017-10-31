@@ -259,6 +259,19 @@
 
 		}
 
+		.image {
+
+			// border: 1px solid #EFEFEF;
+			// border-right: none;
+			background-color: $lightGray;
+
+			// @media screen and (max-width: 480px) {
+			// 	border: 1px solid #EFEFEF;
+			// 	border-bottom: none;
+			// }
+
+		}
+
 		.description {
 			font-size: 16px;
 		}
@@ -443,6 +456,10 @@
 }
 
 .blog-body {
+
+	a {
+		color: $buttonBlue;
+	}
 
 	img {
 		margin: 20px auto;

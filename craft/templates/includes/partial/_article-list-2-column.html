@@ -21,7 +21,7 @@
 
                 <div class="article-item">
 
-                    <div class="image" style="background-image: url('{{ thumbnailUrl }}');"></div>
+                    <div class="image" style="background-image: url('{{ thumbnailUrl }}'); {% if article.type.handle == 'customer'%}background-size: 80% auto;{% endif %}"></div>
 
                     <div class="info">
 

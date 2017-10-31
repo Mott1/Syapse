@@ -1202,6 +1202,8 @@ div.theme-reduce-top-spacing {
       width: calc(50% - 20px); }
       .article-list.article-list-2-column .article-item:nth-child(odd) {
         margin-right: 40px; }
+    .article-list.article-list-2-column .image {
+      background-color: #F4F5F6; }
     .article-list.article-list-2-column .description {
       font-size: 16px; }
     @media screen and (max-width: 1200px) and (min-width: 1024px) {
@@ -1306,6 +1308,9 @@ div.theme-reduce-top-spacing {
     .blog-article {
       width: 100%;
       margin-right: 0; } }
+
+.blog-body a {
+  color: #21C2D2; }
 
 .blog-body img {
   margin: 20px auto;
