@@ -17,9 +17,9 @@
                     <div class="customer-stories-header-{{ loop.index }}">
 
                         {% if loop.index0 == 0%}
-                            {% set thumbnailUrl = 'http://via.placeholder.com/180x180' %}
+                            {% set thumbnailUrl = article.heroImage.first().getUrl() | default("http://via.placeholder.com/180x180") %}
                         {% else %}
-                            {% set thumbnailUrl = 'http://via.placeholder.com/110x110' %}
+                            {% set thumbnailUrl = article.heroImage.first().getUrl() | default("http://via.placeholder.com/110x110") %}
                         {% endif %}
                         
                         <div class="background" style="background-image: url('{{ thumbnailUrl }}');"></div>

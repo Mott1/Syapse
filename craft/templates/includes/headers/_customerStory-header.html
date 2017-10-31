@@ -1,9 +1,8 @@
 {% set heading = theHeader.heading | default('Home Heading') %}
 {% set body = entry.body | striptags | slice(0, 100) | trim  ~ '...' %}
-{% set imageURL = 'http://via.placeholder.com/600x600' %}
+{% set imageURL = entry.heroImage.first().getUrl() | default('http://via.placeholder.com/600x600') %}
 {% set customerLogo = entry.customer.first().logo.first() | default("") %}
 {% set customerLogoAlt = customerLogo.alt | default("logo") %}
-
 
 <div class="customer-story-header theme-darker-background">
 
