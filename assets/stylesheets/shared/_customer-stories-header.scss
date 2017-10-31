@@ -1,0 +1,146 @@
+@media screen and (min-width: 961px) {
+
+	.customer-stories .article-item.isFirst {
+		display: none;
+	}
+
+}
+
+.customer-stories-header {
+	
+	.global-wrapper {
+		@include sectionPadding;
+		display: flex;
+		// padding-top: 0;
+		// padding-bottom: 80px;
+	}
+
+	.customer-stories-header-1 {
+		display: flex;
+		width: 70%;
+		padding-right: 40px;
+	}
+
+	.customer-stories-header-2 {
+
+		display: flex;
+		flex-wrap: wrap;
+		width: 30%;
+
+		.background, 
+		.info {
+			width: 100%;
+		}
+
+		.background {
+			min-height: 16vw;
+		}
+
+	}
+
+	.background {
+		width: 47%;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	.info {
+		display: flex;
+		flex-wrap: wrap;
+		align-content: center;
+		width: 53%;
+		padding: 40px;
+		background-color: #fff;
+	}
+
+	.logo {
+		width: 100%;
+		max-width: 200px;
+		margin-bottom: 20px;
+	}
+
+	.customer-stories-header-2 .logo {
+		max-width: 150px;
+	}
+
+	.link-wrapper {
+		width: 100%;
+	}
+
+	.link {
+		position: relative;
+		display: inline-block;
+		margin-top: 20px;
+		font-size: 16px;
+		color: $defaultColor;
+		transition: color 0.15s ease-in-out;
+	}
+
+	.link:after {
+		content: '';
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		border-radius: 2px;
+		background-color: $defaultColor;
+		transition: background-color 0.15s ease-in-out;
+	}
+
+	.link:hover {
+		color: $buttonBlue;
+	}
+
+	.link:hover:after {
+		background-color: $buttonBlue;
+	}
+
+	@media screen and (max-width: 960px) {
+
+		.global-wrapper {
+			flex-wrap: wrap;
+		}
+
+		.customer-stories-header-1 {
+			width: 100%;
+			padding-right: 0;
+		}
+
+		.customer-stories-header-2 {
+			display: none;
+		}
+
+		.background {
+			min-height: 50vw;
+		}
+
+	}
+
+	@media screen and (max-width: 480px) {
+
+		.customer-stories-header-1 {
+			flex-wrap: wrap;
+		}
+
+		.background, 
+		.info {
+			width: 100%;
+			padding-left: 0;
+			padding-right: 0;
+			padding-bottom: 0;
+			background-color: transparent;
+		}
+
+		.logo {
+			width: 150px;
+		}
+
+		.title {
+			width: 100%;
+		}
+
+	}
+
+}

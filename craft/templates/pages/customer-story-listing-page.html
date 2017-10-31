@@ -4,51 +4,51 @@
 
 {% block content %}
 
-    <style>
-        .customer-stories-header {
-            padding: 160px;
-            overflow: auto;
-        }   
-        .customer-stories-header-1 {
-            float: left;
-            width: 50%;
-        }    
-        .customer-stories-header-2 {
-            float: right;
-            width: 50%;
-        }    
-
-    </style>
-
     <div class="core-content">
         
         <div class="customer-stories-header theme-darker-background">
 
-            {% for article in articles.limit(2) %}
+            <div class="global-wrapper">
 
-                {% set customerLogoURL = article.customer.first().logo.first().getUrl("") | default("") %}
+                {% for article in articles.limit(2) %}
 
-                <div class="customer-stories-header-{{ loop.index }}">
+                    {% set customerLogoURL = article.customer.first().logo.first().getUrl("") | default("") %}
 
-                    {% if loop.index0  == 0%}
-                        {% set thumbnailUrl = 'http://via.placeholder.com/181x181' %}
-                    {% else %}
-                        {% set thumbnailUrl = 'http://via.placeholder.com/110x110' %}
-                    {% endif %}
-                    
-                    <img src="{{ customerLogoURL }}" alt="">
+                    <div class="customer-stories-header-{{ loop.index }}">
 
-                    <h4>{{ article.title }}</h4>
-                    <img src="{{ thumbnailUrl }}" alt="">
+                        {% if loop.index0 == 0%}
+                            {% set thumbnailUrl = 'http://via.placeholder.com/180x180' %}
+                        {% else %}
+                            {% set thumbnailUrl = 'http://via.placeholder.com/110x110' %}
+                        {% endif %}
+                        
+                        <div class="background" style="background-image: url('{{ thumbnailUrl }}');"></div>
 
-                    {% if loop.index0 == 0%}
-                        <p>{{ article.body | striptags | slice(0, 100) | trim  ~ '...' }}</p>
-                    {% endif %}                    
+                        <div class="info">
 
-                    <a href="{{ article.url }}">Read</a>
+                            <img class="logo" src="{{ customerLogoURL }}" alt="">
 
-                </div>
-            {% endfor %}
+                            {% if loop.index0 == 0%}
+                                <h2 class="title">{{ article.title }}</h2>
+                            {% else %}
+                                <h3 class="title">{{ article.title }}</h3>
+                            {% endif %}
+
+                            {% if loop.index0 == 0%}
+                                <p class="description">{{ article.body | striptags | slice(0, 100) | trim  ~ '...' }}</p>
+                            {% endif %}                    
+
+                            <div class="link-wrapper">
+                                <a class="link" href="{{ article.url }}">Read</a>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
 
         </div>
 
@@ -56,7 +56,7 @@
 
             <div class="global-wrapper">
 
-                {% include 'includes/partial/_article-list' with { articles: articles.offset(2) } %}
+                {% include 'includes/partial/_article-list' with { articles: articles.offset(1) } %}
                 {% include 'includes/partial/_sidebar' %}
 
             </div>
