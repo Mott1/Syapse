@@ -1,19 +1,20 @@
-{% set section = entry.section | lower %}
-{% set color = entry.color.getHex() %}
+{% set themes = helpers.getThemes(theBlock.themes) | trim %}
+{% set copy = theBlock.body %}
 
-<div class="copy-block reveal" style="{% if isFirst and section == 'work' %}background-color: {{ color }};{% endif %}
-">
+<div class="image-copy {{ themes }}">
 
-	<div class="content">
+    <div class="global-wrapper">
 
-		<h2 class="heading">
-			{{ theBlock.heading }}
-		</h2>
-		
-		<div class="description">
-			{{ theBlock.description }}
-		</div>
+        <div class="copy">
+            
+            {% if copy != "" %}
+                <div class="description">
+                    {{ copy }}
+                </div>
+            {% endif %}      
 
-	</div>
+        </div>
+
+    </div>
 
 </div>

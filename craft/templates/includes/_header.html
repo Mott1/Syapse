@@ -18,56 +18,58 @@
 		<nav class="nav">
 
 			<ul class="pages">
+				
+				{% for section in navigationMain.navigation %}
 
-			{% for page in mainNavPages %}
+					{% switch section.type %}
+					
+						{% case "group" %}
 
-				{% if page.slug == 'support' %}
+							{% set subpages = section.pages %}
 
-					<a class="button" href="{{ supportIndex.url }}" title="{{ supportIndex.title }}">
-						{{ supportIndex.title }}
-					</a>
+							<li class="pages-li">
 
-				{% else %}
+								<div class="page-heading">
+									
+									{{ section.heading }}
 
-					<li class="pages-li">
+									{% if subpages | length %}
+										{{ craft.inlin.er('/images/ui/icon-triangle-down.svg') | raw }}
+									{% endif %}
+									
+								</div>
 
-						<div class="page-heading">
+								{% if subpages | length %}
+
+									<ul class="subpages">
+
+									{% for subpage in subpages %}
+
+										<li class="subpages-li">
+											<a class="subpage-link subpage-{{ loop.index }}" href="{{ subpage.url }}">{{ subpage.title }}</a>
+										</li>
+
+									{% endfor %}
+
+									</ul>
+
+								{% endif %}						
+
+							</li>
+					
+						{% case "button" %}
+
+							{% set page = section.page.first() %}
 							
-							{{ page.title }}
-
-							{% if page.hasDescendants() %}
-								{{ craft.inlin.er('/images/ui/icon-triangle-down.svg') | raw }}
-							{% endif %}
-							
-						</div>
-
-						{% set subpages = page.children() %}
-
-						{% if subpages | length %}
-
-							<ul class="subpages">
-
-							{% for subpage in subpages %}
-
-								{% if subpage.slug != 'resources' and subpage.slug != 'partners' %}
-							
-									<li class="subpages-li">
-										<a class="subpage-link subpage-{{ loop.index }}" href="{{ subpage.url }}">{{ subpage.title }}</a>
-									</li>
-
-								{% endif %}
-
-							{% endfor %}
-
-							</ul>
-
-						{% endif %}
-
-					</li>
-
-				{% endif %}
-
-			{% endfor %}
+							<a class="button" href="{{ page.url }}" title="{{ page.title }}">
+								{{ page.title }}
+							</a>						
+					
+						{% default %}
+					
+					{% endswitch %}
+					
+				{% endfor %}
 
 			</ul>
 
