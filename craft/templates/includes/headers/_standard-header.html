@@ -12,13 +12,17 @@
     {% set preHeading = entry.parent.title | default('') %}
 {% endif %}
 
+{% if iconURL is not defined %}
+    {% set iconURL = theHeader.icon.first().getUrl('') | default(siteUrl ~ 'images/ui/temp-hero-icon.svg') %}
+{% endif %}
+
 <div class="standard-hero {{ themes }} {% if description == "" %}hero-short{% endif %}">
 
     <div class="global-wrapper">
 
-        <img class="hero-line-left" src="/images/ui/hero-line-left.png" alt="hero-line-left">
+        <img class="hero-line-left" src="{{ siteUrl }}images/ui/hero-line-left.png" alt="hero-line-left">
 
-        <img class="hero-line-top" src="/images/ui/hero-line-top.png" alt="hero-line-top">
+        <img class="hero-line-top" src="{{ siteUrl }}images/ui/hero-line-top.png" alt="hero-line-top">
 
         <div class="hero-line-vertical"></div>
 
@@ -39,14 +43,14 @@
         </div>
 
         <div class="hero-line-bottom-container">
-            <img class="hero-line-bottom" src="/images/ui/hero-line-bottom.png" alt="hero-line-bottom">
+            <img class="hero-line-bottom" src="{{ siteUrl }}images/ui/hero-line-bottom.png" alt="hero-line-bottom">
         </div>
 
         <div class="hero-line-horizontal-container">
-            <img class="hero-line-horizontal" src="/images/ui/hero-line-horizontal.png" alt="hero-line-horizontal">
+            <img class="hero-line-horizontal" src="{{ siteUrl }}images/ui/hero-line-horizontal.png" alt="hero-line-horizontal">
         </div>
 
-        <img class="hero-icon" src="/images/ui/temp-hero-icon.svg" alt="temp-hero-icon">
+        <img class="hero-icon" src="{{ iconURL }}" alt="temp-hero-icon">
 
     </div>
 
