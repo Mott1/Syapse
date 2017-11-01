@@ -12,21 +12,41 @@
     {% set preHeading = entry.parent.title | default('') %}
 {% endif %}
 
-<div class="standard-hero {{ themes }}">
+<div class="standard-hero {{ themes }} {% if description == "" %}hero-short{% endif %}">
 
     <div class="global-wrapper">
 
-        {% if preHeading != "" %}
-            <span class="pre-heading">{{ preHeading }}</span>
-        {% endif %}
+        <img class="hero-line-left" src="/images/ui/hero-line-left.png" alt="hero-line-left">
 
-        {% if heading != "" %}
-            <h1 class="heading">{{ heading }}</h1>
-        {% endif %}
+        <img class="hero-line-top" src="/images/ui/hero-line-top.png" alt="hero-line-top">
 
-        {% if description != "" %}
-            <div class="description">{{ description }}</div>
-        {% endif %}
+        <div class="hero-line-vertical"></div>
+
+        <div class="hero-info">
+
+            {% if preHeading != "" %}
+                <span class="pre-heading">{{ preHeading }}</span>
+            {% endif %}
+
+            {% if heading != "" %}
+                <h1 class="heading">{{ heading }}</h1>
+            {% endif %}
+
+            {% if description != "" %}
+                <div class="description">{{ description }}</div>
+            {% endif %}
+
+        </div>
+
+        <div class="hero-line-bottom-container">
+            <img class="hero-line-bottom" src="/images/ui/hero-line-bottom.png" alt="hero-line-bottom">
+        </div>
+
+        <div class="hero-line-horizontal-container">
+            <img class="hero-line-horizontal" src="/images/ui/hero-line-horizontal.png" alt="hero-line-horizontal">
+        </div>
+
+        <img class="hero-icon" src="/images/ui/temp-hero-icon.svg" alt="temp-hero-icon">
 
     </div>
 
