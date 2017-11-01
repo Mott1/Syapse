@@ -7,6 +7,11 @@
         {% for article in articles %}
 
             {% set thumbnailUrl = article.heroImage.first().getUrl() | default('http://via.placeholder.com/180x200') %}
+            {% set readMore = article.url | default("") %}
+
+            {% if article.type.handle == "inTheNewsArticle" %}
+                {% set readMore = article.externalLink | default("") %}
+            {% endif %}
 
             <div class="article-item {% if loop.index == 1 %}isFirst{% endif %}">
 
@@ -24,7 +29,9 @@
                         {{ article.body | striptags | slice(0, 100) | trim  ~ '...' }}
                     </p>
 
-                    <a class="link" href="{{ article.url }}">Read</a>
+                    {% if readMore != "" %}
+                        <a class="link" href="{{ readMore }}">Read</a>
+                    {% endif %}
 
                 </div>
 

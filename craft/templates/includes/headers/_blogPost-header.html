@@ -31,8 +31,10 @@
                 <h2 class="title">{{ title }}</h2>
             {% endif %}
 
-            <p class="description">{{ body }}</p>
-
+            {% if craft.request.getSegments() | length <=2  %}
+                <p class="description">{{ body }}</p>
+            {% endif %}
+            
             <div class="author-wrapper">
                 <img class="author-image" src="{{ authorPic }}" alt="{{ author }}">
                 <div class="author-info">

@@ -26,8 +26,9 @@
 						{% case "group" %}
 
 							{% set subpages = section.pages %}
+							{% set pageSection = section.pages.first().uri | split("/")[0] %}
 
-							<li class="pages-li">
+							<li class="pages-li {% if craft.request.getFirstSegment() == pageSection %}active{% endif %}">
 
 								<div class="page-heading">
 									

@@ -30,6 +30,11 @@
 	{% set parentURI = post.uri | split('/') | slice(0,2) | join('/') %}
 	{% set newsDescription = post.body | default('') %}
 	{% set newsThumbnailUrl = post.thumbnail.first().getUrl() | default('http://via.placeholder.com/180x180') %}
+    {% set readMore = post.url | default("#") %}
+
+    {% if post.type.handle == "inTheNewsArticle" %}
+        {% set readMore = post.externalLink | default("#") %}
+    {% endif %}
 
 	<h4 class="heading">
 		<a href="{{ url(parentURI) }}">
@@ -39,7 +44,7 @@
 
 	<div class="article">
 
-		<a href="{{ post.url }}">
+		<a href="{{ readMore }}">
 			<img class="image" src="{{ newsThumbnailUrl }}" alt="">
 		</a>
 
@@ -50,12 +55,10 @@
 			</h5>
 
 			<p class="excerpt">
-				{{ newsDescription | length > 90 ? newsDescription | striptags | slice(0, 90) ~ '…' : newsDescription | striptags }}
+				{{ newsDescription | length > 100 ? newsDescription | striptags | slice(0, 100) | trim ~ '…' : newsDescription | striptags }}
 			</p>
 
-			<a class="link" href="{{ post.url }}">
-				Read
-			</a>
+            <a class="link" href="{{ readMore }}">Read</a>
 
 		</div>
 
