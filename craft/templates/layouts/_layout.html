@@ -21,6 +21,12 @@
 	<script src="https://use.typekit.net/saf2tbh.js"></script>
 	<script>try{Typekit.load({ async: true });}catch(e){}</script>
 
+    {# Entry Meta #}
+    {% set seomaticPlugin = craft.plugins.getPlugin('seomatic') %}
+    {% if seomaticPlugin and seomaticPlugin.isEnabled() %}
+        {% hook 'seomaticRender' %}
+    {% endif %}
+
 {% if craft.config.devMode %}
 	<link rel="stylesheet" type="text/css" href="{{ siteUrl }}stylesheets/app.css">
 {% else %}
