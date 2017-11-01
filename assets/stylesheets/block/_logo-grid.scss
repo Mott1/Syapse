@@ -30,10 +30,7 @@
 	}
 
 	@for $i from 1 through 5 {
-		.logos-count-#{$i} .logo {
-			width: calc(100% / #{$i} - 30px);
-		}
-		.customers-count-#{$i} .logo {
+		.count-#{$i} .logo {
 			width: calc(100% / #{$i} - 30px);
 		}
 	}
