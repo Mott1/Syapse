@@ -29,121 +29,117 @@
 
 				<ul class="pages">
 
-				{% for page in mainNavPages %}
+				{% for section in navigationFooter.navigation %}
 
-					{% set isSupport = page.slug == 'support' %}
+					{% switch section.type %}
+					
+						{% case "group" %}
 
-					{% if isSupport %}
-						<div class="pages-li-group">
-					{% endif %}
+							{% set subpages = section.pages %}
 
-					{% if page.slug != 'partners' %}
+							<li class="pages-li">
 
-						<li class="pages-li">
+								<div class="page-heading">
+									
+									{{ section.heading }}
+									
+								</div>
 
-							<div class="page-heading">
-								{% if page.slug == 'product' %}
-									Technology
-								{% else %}
-									{{ page.title }}
-								{% endif %}
-							</div>
+								{% if subpages | length %}
 
-							{% set subpages = page.children() %}
+									<ul class="subpages">
 
-							{% if subpages | length %}
-
-								<ul class="subpages">
-
-								{% for subpage in subpages %}
-
-									{% if subpage.slug != 'contact' %}
+									{% for subpage in subpages %}
 								
 										<li class="subpages-li">
 
-											{% if isSupport %}
-
-												{% set isCustomerSupport = subpage.slug == 'customer-support' %}
-
-												<a class="button" href="{{ subpage.url }}" title="{% if isCustomerSupport %}Visit {% endif %}{{ subpage.title }}">
-
-													{% if isCustomerSupport %}
-														Visit
-													{% endif %}
-
-													{{ subpage.title }}
-
-												</a>
-
-											{% else %}
-												
-												<a class="subpage-link subpage-{{ loop.index }}" href="{% if subpage.slug == 'partners' %}{{ partnersIndexUrl }}{% else %}{{ subpage.url }}{% endif %}">{{ subpage.title }}</a>
-
-											{% endif %}
+											<a class="subpage-link subpage-{{ loop.index }}" href="{{ subpage.url }}" title="{{ subpage.title }}">{{ subpage.title }}</a>
 											
 										</li>
 
+									{% endfor %}
+
+									</ul>
+
+								{% endif %}
+
+							</li>
+					
+							{% case "button" %}
+							
+								{% set page = section.page.first() %}
+		
+								<div class="pages-li-group">
+
+									<li class="pages-li-group">
+
+										<div class="page-heading">
+											{{ section.heading }}
+										</div>
+
+										<ul class="subpages">
+											<li class="subpages-li">
+												<a class="button" href="{{ page.url }}" title="{{ page.title }}">
+													{{ section.buttonText }}
+												</a>				
+											</li>
+										</ul>
+								
+									</li>		
+
+									{% if section.showSocialIcons %}
+
+										<li class="pages-li social">
+
+											<div class="page-heading">
+												Social
+											</div>
+
+											<ul class="subpages">
+											
+											{% if facebookUrl | length %}
+											
+												<li class="subpages-li">
+													<a class="subpage-link" href="{{ facebookUrl }}" title="Facebook">
+														{{ craft.inlin.er('/images/logos/facebook.svg') | raw }}
+													</a>
+												</li>
+
+											{% endif %}
+
+											{% if twitterUrl | length %}
+
+												<li class="subpages-li">
+													<a class="subpage-link" href="{{ twitterUrl }}" title="Twitter">
+														{{ craft.inlin.er('/images/logos/twitter.svg') | raw }}
+													</a>
+												</li>
+
+											{% endif %}
+
+											{% if linkedInUrl | length %}
+
+												<li class="subpages-li">
+													<a class="subpage-link" href="{{ linkedInUrl }}" title="LinkedIn">
+														{{ craft.inlin.er('/images/logos/linkedin.svg') | raw }}
+													</a>
+												</li>
+
+											{% endif %}
+
+											</ul>
+
+										</li>	
+
 									{% endif %}
 
-								{% endfor %}
-
-								</ul>
-
-							{% endif %}
-
-						</li>
-
-					{% endif %}
-
-					{% if isSupport %}
-
-						<li class="pages-li social">
-
-							<div class="page-heading">
-								Social
-							</div>
-
-							<ul class="subpages">
-							
-							{% if facebookUrl | length %}
-							
-								<li class="subpages-li">
-									<a class="subpage-link" href="{{ facebookUrl }}" title="Facebook">
-										{{ craft.inlin.er('/images/logos/facebook.svg') | raw }}
-									</a>
-								</li>
-
-							{% endif %}
-
-							{% if twitterUrl | length %}
-
-								<li class="subpages-li">
-									<a class="subpage-link" href="{{ twitterUrl }}" title="Twitter">
-										{{ craft.inlin.er('/images/logos/twitter.svg') | raw }}
-									</a>
-								</li>
-
-							{% endif %}
-
-							{% if linkedInUrl | length %}
-
-								<li class="subpages-li">
-									<a class="subpage-link" href="{{ linkedInUrl }}" title="LinkedIn">
-										{{ craft.inlin.er('/images/logos/linkedin.svg') | raw }}
-									</a>
-								</li>
-
-							{% endif %}
-
-							</ul>
-
-						</li>
-
-						</div>
-
-					{% endif %}
-
-				{% endfor %}
+								</div>											
+								
+						{% default %}
+					
+					{% endswitch %}
+					
+				{% endfor %}						
 
 				</ul>
 
@@ -153,7 +149,7 @@
 
 		<div class="copyright">
 			Copyright &copy; {{ now|date('Y') }} {{ siteName }}, Inc. All rights reserved.
-			<a class="privacy-policy" href="#">[Privacy Policy]</a>
+			<a class="privacy-policy" href="{{ url('privacy-policy') }}">Privacy Policy</a>
 		</div>
 
 	</div>
