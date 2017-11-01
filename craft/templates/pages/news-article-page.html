@@ -27,6 +27,22 @@
                         {{ entry.body | typogrify }}
                     </div>
 
+                    {% if entry.type.handle == "resource" %}
+                        
+                        {% if entry.download.count() %}
+                            {% set resourceUrl = entry.download.first().getUrl() | default("") %}
+                            {% set buttonText = "Download" %}
+                        {% else %}
+                            {% set resourceUrl = entry.externalLink | default("") %}
+                            {% set buttonText = "View more" %}
+                        {% endif %}
+                                        
+                        {% if resourceUrl != "" %}
+                            <a href="{{ resourceUrl }}" class="button">{{ buttonText }}</a>
+                        {% endif %}
+                        
+                    {% endif %}
+                    
                 </div>
 
                 {# Add functionality for a resource link #}
