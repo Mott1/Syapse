@@ -2,8 +2,8 @@
 {% set partnersIndexUrl = craft.entries.section('pages').slug('partners').status('all').first().children()[0].url %}
 {% set companySlogan = footer.companySlogan | default('#') %}
 {% set facebookUrl = footer.socialFacebook | default('#') %}
-{% set twitterUrl = footer.socialFacebook | default('#') %}
-{% set linkedInUrl = footer.socialFacebook | default('#') %}
+{% set twitterUrl = footer.socialTwitter | default('#') %}
+{% set linkedInUrl = footer.socialLinkedin | default('#') %}
 
 <footer class="core-footer">
 
@@ -69,7 +69,7 @@
 							
 								{% set page = section.page.first() %}
 		
-								<div class="pages-li-group">
+								<div class="pages-li-group theme-hide-on-mobile">
 
 									<li class="pages-li-group">
 
