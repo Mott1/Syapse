@@ -38,8 +38,10 @@
                                 
                                 <div class="team-member modal-link" data-modal-type="team" data-name="{{ employee.title }}" data-job-title="{{ employee.jobTitle }}" data-bio="{{ employee.bio }}">
                                     <img class="headshot" src="{{ employee.headshot.first().url | default('/images/ui/team-member-default.png') }}">
-                                    <h3 class="name">{{ employee.title }}</h3>
-                                    <p class="job-title">{{ employee.jobTitle }}</p>
+                                    {% if type.title != "Investors" %}
+                                        <h3 class="name">{{ employee.title }}</h3>
+                                        <p class="job-title">{{ employee.jobTitle }}</p>
+                                    {% endif %}
                                 </div>
 
                             {% endfor %}

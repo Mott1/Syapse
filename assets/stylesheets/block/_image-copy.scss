@@ -8,7 +8,7 @@
 
 	.image {
 		order: 1;
-		width: 100%;
+		width: 50%;
 		min-height: 460px;
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -20,6 +20,7 @@
 		flex-wrap: wrap;
 		align-content: center;
 		order: 2;
+		width: 50%;
 		padding: 80px;
 		padding-right: 0;
 	}

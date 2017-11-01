@@ -1622,7 +1622,7 @@ div.theme-reduce-top-spacing {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
-    width: 100%;
+    width: 50%;
     min-height: 460px;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1638,6 +1638,7 @@ div.theme-reduce-top-spacing {
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
+    width: 50%;
     padding: 80px;
     padding-right: 0; }
   .image-copy ul {
