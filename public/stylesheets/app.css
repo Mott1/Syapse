@@ -457,6 +457,7 @@ textarea {
   -webkit-transform: translate3d(-50%, -50%, 0);
           transform: translate3d(-50%, -50%, 0);
   min-width: 300px;
+  max-width: 660px;
   padding: 60px;
   background-color: #F9FAFB;
   box-shadow: 0 0 54px 0 rgba(40, 42, 80, 0.12); }
