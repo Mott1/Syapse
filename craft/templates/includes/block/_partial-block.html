@@ -1,7 +1,10 @@
 {% switch theBlock.partial %}
 
-	{% case "contact" %}
-		{% include 'includes/partial/_letsTalk' %}
+    {% case "contact" %}
+        {% include 'includes/partial/_letsTalk' %}	
+
+    {% case "jobOpenings" %}
+		{% include 'includes/partial/_jobOpenings' %}
 
     {% default %}
         {# do nothing #}
