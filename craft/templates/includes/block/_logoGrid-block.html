@@ -2,8 +2,9 @@
 {% set heading = theBlock.heading | default("") %}
 {% set customers = theBlock.customers %}
 {% set logos = theBlock.logos %}
-{% set customersCount = customers.count() %}
-{% set logosCount = logos.count() %}
+{% set customersCount = customers.count() | default(0) %}
+{% set logosCount = logos.count() | default(0) %}
+{% set totalCount = customersCount + logosCount %}
 
 <div class="logo-grid {{ themes }}">
 
@@ -27,8 +28,7 @@
 		</header>
 
 		<div class="logos-container">
-			<div class="logos {% if customersCount %}customers-count-{{ customersCount }}{% endif %} {% if logosCount %}logos-count-{{ logosCount }}{% endif %}
-			">
+			<div class="logos count-{{ totalCount }}">
 				
 				{% for customer in customers if customersCount %}
 					<img class="logo" src="{{ customer.logo.first().getUrl() }}">				

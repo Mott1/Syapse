@@ -1,20 +1,14 @@
 {% set themes = helpers.getThemes(theBlock.themes) | trim %}
 {% set copy = theBlock.body %}
 
-<div class="image-copy {{ themes }}">
+<div class="copy-block {{ themes }}">
 
-    <div class="global-wrapper">
-
-        <div class="copy">
+	<div class="global-wrapper">
             
-            {% if copy != "" %}
-                <div class="description">
-                    {{ copy }}
-                </div>
-            {% endif %}      
+	    {% if copy != "" %}
+	        {{ copy }}
+	    {% endif %}
 
-        </div>
-
-    </div>
+	</div>
 
 </div>

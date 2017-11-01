@@ -2005,34 +2005,19 @@ div.theme-reduce-top-spacing {
       -ms-flex-align: center;
           align-items: center; }
 
-.logo-grid .logos-count-1 .logo {
+.logo-grid .count-1 .logo {
   width: calc(100% / 1 - 30px); }
 
-.logo-grid .customers-count-1 .logo {
-  width: calc(100% / 1 - 30px); }
-
-.logo-grid .logos-count-2 .logo {
+.logo-grid .count-2 .logo {
   width: calc(100% / 2 - 30px); }
 
-.logo-grid .customers-count-2 .logo {
-  width: calc(100% / 2 - 30px); }
-
-.logo-grid .logos-count-3 .logo {
+.logo-grid .count-3 .logo {
   width: calc(100% / 3 - 30px); }
 
-.logo-grid .customers-count-3 .logo {
-  width: calc(100% / 3 - 30px); }
-
-.logo-grid .logos-count-4 .logo {
+.logo-grid .count-4 .logo {
   width: calc(100% / 4 - 30px); }
 
-.logo-grid .customers-count-4 .logo {
-  width: calc(100% / 4 - 30px); }
-
-.logo-grid .logos-count-5 .logo {
-  width: calc(100% / 5 - 30px); }
-
-.logo-grid .customers-count-5 .logo {
+.logo-grid .count-5 .logo {
   width: calc(100% / 5 - 30px); }
 
 .logo-grid .logo {
@@ -2196,6 +2181,53 @@ div.theme-reduce-top-spacing {
       float: none; }
       .resources-multiple .resource-item:nth-child(2n) {
         border-top: none; } }
+
+.copy-block .global-wrapper {
+  padding: 100px 80px;
+  max-width: 890px; }
+  @media screen and (max-width: 767px) {
+    .copy-block .global-wrapper {
+      padding: 40px 20px; } }
+
+.copy-block ul {
+  padding-left: 0;
+  list-style-type: none; }
+
+.copy-block ul li {
+  position: relative;
+  margin-top: 0;
+  padding-left: 20px; }
+  .copy-block ul li:not(:last-of-type) {
+    margin-bottom: 20px; }
+
+.copy-block ul li:before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #21C2D2;
+  vertical-align: middle; }
+
+.copy-block p + h2, .copy-block p + h3, .copy-block p + h4, .copy-block p + h5, .copy-block p + h6 {
+  margin-top: 40px; }
+
+.copy-block p + h3 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #3F3F3F; }
+
+.copy-block a:not(.button) {
+  color: #4A4A4A;
+  transition: color 0.15s ease-in-out; }
+
+.copy-block a:not(.button):hover {
+  color: #21C2D2; }
+
+.copy-block .button {
+  margin-top: 30px; }
 
 .news {
   padding: 100px 80px; }

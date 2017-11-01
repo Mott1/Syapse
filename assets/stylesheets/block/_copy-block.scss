@@ -1,0 +1,72 @@
+.copy-block {
+
+	.global-wrapper {
+		@include sectionPadding;
+		max-width: 890px;
+	}
+
+	ul {
+		padding-left: 0;
+		list-style-type: none;
+	}
+
+	ul li {
+
+		position: relative;
+		margin-top: 0;
+		padding-left: 20px;
+
+		&:not(:last-of-type) {
+			margin-bottom: 20px;
+		}
+
+	}
+
+	ul li:before {
+		content: '';
+		position: absolute;
+		top: 5px;
+		left: 0;
+		width: 10px;
+		height: 10px;
+		border-radius: 100%;
+		background-color: $buttonBlue;
+		vertical-align: middle;
+	}
+
+	p + {
+
+		h2, h3, h4, h5, h6 {
+			margin-top: 40px;
+		}
+
+	}
+
+	p + h3 {
+		font-size: 24px;
+		font-weight: 500;
+		color: #3F3F3F;
+	}
+
+	a:not(.button) {
+		color: $defaultColor;
+		transition: color 0.15s ease-in-out;
+	}
+
+	a:not(.button):hover {
+		color: $buttonBlue;
+	}
+
+	.button {
+		margin-top: 30px;
+	}
+
+// Responsive
+
+	@media screen and (max-width: 767px) {
+
+		
+
+	}
+
+}
