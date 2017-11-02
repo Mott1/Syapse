@@ -3,35 +3,66 @@
 {% set description = theHeader.body | default('') %}
 {% set iconList = theHeader.list %}
 
-<style>
-    .home-header {
-        padding-top: 180px;
-        padding-bottom: 120px;
-    }
-</style>
-
 <div class="home-header theme-darker-background">
 
-    {% if heading != "" %}
-        <h1>{{ heading }}</h1>
-    {% endif %}
-    
-    {% if description != "" %}
-        <div>{{ description }}</div>
-    {% endif %}    
+    <div class="global-wrapper">
 
-    {% for item in iconList %}
-        <li>
+        <img class="hero-line-left" src="{{ siteUrl }}images/ui/hero-line-left.png" alt="hero-line-left">
+
+        <img class="hero-line-top" src="{{ siteUrl }}images/ui/hero-line-top.png" alt="hero-line-top">
+
+        <div class="hero-line-vertical"></div>
+
+        <div class="hero-info">
+
+            {% if heading != "" %}
+                <h1 class="heading">{{ heading }}</h1>
+            {% endif %}
             
-            <img src="{{ item.icon.first().getUrl() }}" alt="" />
-
-            {% if item.heading != "" %}
-                {{ item.heading }}
+            {% if description != "" %}
+                <div class="description">{{ description }}</div>
             {% endif %}
 
-            <p>{{ item.title }}</p>
+        </div>
+
+        <div class="hero-line-bottom-container">
+            <img class="hero-line-bottom" src="{{ siteUrl }}images/ui/hero-line-bottom.png" alt="hero-line-bottom">
+        </div>
+
+        <div class="hero-line-horizontal-container">
+            <img class="hero-line-horizontal" src="{{ siteUrl }}images/ui/hero-line-horizontal.png" alt="hero-line-horizontal">
+        </div>
+
+    </div>
+
+    <div class="hero-cta-container">
+
+        <div class="cta-line-vertical"></div>
+
+        {% for item in iconList %}
+
+            <div class="hero-cta hero-cta-{{ loop.index }}">
+                
+                {# <img class="icon" src="{{ item.icon.first().getUrl() }}" alt="icon" /> #}
+
+                <img class="icon-line" src="/images/ui/hero-home-line-cta-{{ loop.index }}.png" alt="icon-line">
+
+                <img class="icon" src="/images/ui/icon-people.svg" alt="icon" />
+
+                <div class="cta-info">
+
+                    <h4 class="cta-title">{{ item.title }}</h4>
+
+                    <p class="cta-description">{{ item.description | striptags | slice(0, 71) | trim  ~ '...' }}</p>
+
+                    <a class="link theme-hide-on-mobile" href="/customers/health-systems">Learn how</a>
+
+                </div>
+
+            </div>
             
-        </li>
-    {% endfor %}
+        {% endfor %}
+
+    </div>
 
 </div>

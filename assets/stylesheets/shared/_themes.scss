@@ -20,12 +20,12 @@ div.theme-reduce-top-spacing {
 
 @media screen and (min-width: 768px) {
 	.theme-hide-on-desktop {
-		display: none;
+		display: none !important;
 	}
 }
 
 @media screen and (max-width: 767px) {
 	.theme-hide-on-mobile {
-		display: none;
+		display: none !important;
 	}
 }
