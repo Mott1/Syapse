@@ -12,18 +12,18 @@ var Header = function () {
 
 		this.initVars();
 		this.initEvents();
-		// this.onScroll();
+		this.onScroll();
 	}
 
 	_createClass(Header, [{
 		key: 'initVars',
 		value: function initVars() {
 
-			// this.coreHeader = document.querySelector('.core-header');
+			this.coreHeader = document.querySelector('.core-header');
 			this.coreNavButton = document.querySelector('.core-header .nav-button');
 			this.toggleNavRef = this.toggleNav.bind(this);
-			// this.lastScrollY = 0;
-			// this.ticking = false;
+			this.lastScrollY = 0;
+			this.ticking = false;
 		}
 	}, {
 		key: 'initEvents',
@@ -31,7 +31,7 @@ var Header = function () {
 
 			var _this = this;
 
-			// window.addEventListener('scroll', _this.onScroll.bind(this), false);
+			window.addEventListener('scroll', _this.onScroll.bind(this), false);
 
 			this.coreNavButton.addEventListener('click', _this.toggleNavRef, false);
 		}
@@ -51,39 +51,38 @@ var Header = function () {
 			this.coreNavButton.classList.toggle('close');
 			document.body.classList.toggle('nav-open');
 		}
+	}, {
+		key: 'onScroll',
+		value: function onScroll() {
 
-		// onScroll() {
+			this.lastScrollY = window.scrollY;
+			this.requestTick(this);
+		}
+	}, {
+		key: 'requestTick',
+		value: function requestTick(_this) {
 
-		// this.lastScrollY = window.scrollY;
-		// this.requestTick(this);
+			if (!_this.ticking) {
+				requestAnimationFrame(_this.update.bind(_this));
+				_this.ticking = true;
+			}
+		}
+	}, {
+		key: 'update',
+		value: function update() {
 
-		// }
+			var _this = this;
 
-		// requestTick(_this) {
+			// let isMobile = document.documentElement.clientWidth < 768;
 
-		// if (!_this.ticking) {
-		// 		requestAnimationFrame(_this.update.bind(_this));
-		// 		_this.ticking = true;
-		// }
+			if (_this.lastScrollY > _this.coreHeader.clientHeight) {
+				_this.coreHeader.classList.add('sticky');
+			} else {
+				_this.coreHeader.classList.remove('sticky');
+			}
 
-		// }
-
-		// update() {
-
-		// const _this = this;
-
-		// let isMobile = document.documentElement.clientWidth < 768;
-
-		// if (_this.lastScrollY > _this.coreHeader.clientHeight) {
-		// 		_this.coreHeader.classList.add('sticky');
-		// } else {
-		// 		_this.coreHeader.classList.remove('sticky');
-		// }
-
-		// _this.ticking = false;
-
-		// }
-
+			_this.ticking = false;
+		}
 	}]);
 
 	return Header;

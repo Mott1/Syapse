@@ -1,11 +1,35 @@
 // Core Header
 .core-header {
 
-	// &.sticky {
-	// 	position: fixed;
-	// 	top: 0;
-	// 	left: 0;
-	// }
+	&.sticky {
+		background-color: rgba(255,255,255,0.98);
+	}
+
+	@media screen and (min-width: 768px) {
+
+		&.sticky {
+
+			padding-top: 15px;
+			padding-bottom: 5px;
+
+			.logo svg {
+				max-width: 96px;
+			}
+
+			.page-heading {
+				font-size: 16px;
+			}
+
+			.nav .button {
+				min-height: 32px;
+				padding-top: 8px;
+				padding-bottom: 8px;
+				font-size: 12px;
+			}
+
+		}
+
+	}
 
 	position: fixed;
 	top: 0;
@@ -13,7 +37,8 @@
 	z-index: 2;
 	width: 100%;
 	padding: 30px 80px 20px;
-	background-color: rgba(255,255,255,0.98);
+	background-color: $superLightGray;
+	transition: background-color 1s ease-in-out, padding 0.3s ease-in-out;
 
 	.core-wrapper {
 		display: flex;
@@ -33,6 +58,7 @@
 			width: 100%;
 			max-width: 116px;
 			height: auto;
+			transition: max-width 0.3s ease-in-out;
 		}
 
 	}
@@ -122,8 +148,8 @@
 		z-index: 1;
 		width: 260px;
 		padding: 25px 35px 35px;
-		background-color: $superLightGray;
-		box-shadow: 0 2px 10px 0 rgba(40,42,80,0.04);
+		background-color: $lightGray;
+		// box-shadow: 0 2px 10px 0 rgba(40,42,80,0.04);
 	}
 
 	.subpages-li {
