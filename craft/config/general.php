@@ -14,6 +14,12 @@ return array(
         // Base site URL
         'siteUrl' => null,
 
+        // Fuzzy search
+        'defaultSearchTermOptions' => array(
+            'subLeft' => true,
+            'subRight' => true,
+        ),        
+
         // Environment-specific variables (see https://craftcms.com/docs/multi-environment-configs#environment-specific-variables)
         'environmentVariables' => array(),
 

@@ -4,6 +4,10 @@
     "formatting": ["p","h3","h4","blockquote"],
 
     "formattingAdd": {
+        "quote-larger-add": {
+            "title": "Larger Quote",
+            "args": ["span", "class", "dquo"]
+        },        
         "quote-attribution-add": {
             "title": "Quote Attribution",
             "args": ["span", "class", "quote-attribution"]
