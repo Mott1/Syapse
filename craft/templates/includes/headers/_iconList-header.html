@@ -6,44 +6,75 @@
 {% set listHeading = theHeader.listHeading | default('') %}
 {% set list = theHeader.list %}
 
-
-<style>
-    .icon-list-header {
-        padding-top: 180px;
-        padding-bottom: 120px;
-    }
-</style>
+{% if iconURL is not defined %}
+    {% set iconURL = theHeader.icon.first().getUrl('') | default(siteUrl ~ 'images/ui/temp-hero-icon.svg') %}
+{% endif %}
 
 <div class="icon-list-header {{ themes }}">
 
-    {% if preHeading != "" %}
-        <span>{{ preHeading }}</span>
-    {% endif %}
+    <div class="global-wrapper">
 
-    {% if heading != "" %}
-        <h1>{{ heading }}</h1>
-    {% endif %}
-    
-    {% if description != "" %}
-        <div>{{ description }}</div>
-    {% endif %}   
+        <img class="hero-line-left" src="{{ siteUrl }}images/ui/hero-line-left.png" alt="hero-line-left">
 
-    {% if subHeading != "" %}
-        <h2>{{ subHeading }}</h2>
-    {% endif %}   
+        <img class="hero-line-top" src="{{ siteUrl }}images/ui/hero-line-top.png" alt="hero-line-top">
 
-    {% if listHeading != "" %}
-        <h3>{{ listHeading }}</h3>
-    {% endif %}    
+        <div class="hero-line-vertical"></div>
 
-    {% if list | length %}
-        <ul>
+        <div class="hero-info">
+
+            {% if preHeading != "" %}
+                <span class="pre-heading">{{ preHeading }}</span>
+            {% endif %}
+
+            {% if heading != "" %}
+                <h1 class="heading">{{ heading }}</h1>
+            {% endif %}
             
-            {% for item in list %}
-                <li>{{ item.listItem }}</li>
-            {% endfor %}
+            {% if description != "" %}
+                <div class="description">{{ description }}</div>
+            {% endif %}
 
-        </ul>
-    {% endif %}
+        </div>
+
+        <div class="hero-line-bottom-container">
+            <img class="hero-line-bottom" src="{{ siteUrl }}images/ui/hero-line-bottom.png" alt="hero-line-bottom">
+        </div>
+
+        <div class="hero-line-horizontal-container">
+            <img class="hero-line-horizontal" src="{{ siteUrl }}images/ui/hero-line-horizontal.png" alt="hero-line-horizontal">
+        </div>
+
+        <img class="hero-icon" src="{{ iconURL }}" alt="temp-hero-icon">
+
+    </div>
+
+    <div class="global-wrapper list-container-wrapper">
+
+        <div class="list-container">
+
+            {% if subHeading != "" %}
+                <h2>{{ subHeading }}</h2>
+            {% endif %}
+
+            <hr>
+
+            {% if listHeading != "" %}
+                <h3>{{ listHeading }}</h3>
+            {% endif %}
+
+            {% if list | length %}
+                <div class="list-item-container">
+                    {% for item in list %}
+                        <div class="list-item">
+                            <img class="icon" src="/images/ui/icon-circle-checkmark.svg" alt="icon circle checkmark">
+                            {{ item.listItem }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+        </div>
+
+    </div>
 
 </div>

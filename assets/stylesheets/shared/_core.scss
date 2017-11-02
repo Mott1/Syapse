@@ -70,6 +70,27 @@
 
 	}
 
+	.pages-li.active {
+
+		position: relative;
+		color: $buttonBlue;
+
+		.page-heading:after {
+			content: '';
+			position: absolute;
+			right: 18px;
+			bottom: 15px;
+			width: calc(100% - 58px);
+			height: 2px;
+			background-color: $buttonBlue;
+		}
+
+		.page-heading svg path {
+			fill: $buttonBlue;
+		}
+
+	}
+
 	.page-heading {
 
 		@include anti-alias;
@@ -352,8 +373,15 @@
 	}
 
 	.subpage-link {
+
 		font-size: 14px;
 		color: $defaultColor;
+		transition: color 0.15s ease-in-out;
+
+		&:hover {
+			color: $buttonBlue;
+		}
+
 	}
 
 	.subpages .button {
@@ -418,8 +446,15 @@
 	}
 
 	.privacy-policy {
+
 		margin-left: 30px;
 		color: $defaultColor;
+		transition: color 0.15s ease-in-out;
+
+		&:hover {
+			color: $buttonBlue;
+		}
+
 	}
 
 // Responsive
@@ -539,7 +574,7 @@
 			padding-left: 0;
 			padding-right: 0;
 		}
-		
+
 	}
 
 }

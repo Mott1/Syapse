@@ -1,0 +1,160 @@
+.icon-list-header {
+
+	.global-wrapper {
+		@include sectionPadding;
+		position: relative;
+	}
+
+	.pre-heading {
+		font-size: 16px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+	.heading {
+		margin-bottom: 20px;
+		font-size: 72px;
+		background: -webkit-linear-gradient(45deg, $buttonBlue, #635FEB);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	// List
+
+	.list-container-wrapper {
+		max-width: 1400px;
+		padding-top: 40px;
+	}
+
+	.list-container {
+		background-color: $superLightGray;
+		border: 1px solid $buttonBlue;
+		padding: 60px 100px;
+	}
+
+	hr {
+		margin: 2em 0;
+	}
+
+	.list-item-container {
+		display: flex;
+		margin-top: 40px;
+	}
+
+	.list-item {
+
+		@include anti-alias;
+		position: relative;
+		width: calc(33.3% - 53px);
+		padding-left: 53px;
+		font-size: 16px;
+		line-height: 1.5em;
+
+		&:not(:last-of-type) {
+			margin-right: 80px;
+		}
+
+		.icon {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 36px;
+		}
+
+	}
+
+	@media screen and (max-width: 1200px) {
+
+		.list-item {
+
+			width: calc(33.3% - 26px);
+
+			&:not(:last-of-type) {
+			    margin-right: 40px;
+			}
+
+		}
+
+	}
+
+	@media screen and (max-width: 1060px) {
+
+		.list-container {
+			padding: 40px 60px;
+		}
+
+	}
+
+	@media screen and (max-width: 1023px) {
+
+		.heading {
+			font-size: 36px;
+		}
+
+	}
+
+	@media screen and (max-width: 960px) and (min-width: 701px) {
+
+		.list-item {
+			padding-top: 53px;
+			padding-left: 0;
+		}
+
+	}
+
+	@media screen and (max-width: 700px) {
+
+		.list-container-wrapper {
+			padding-top: 0;
+		}
+
+		.list-container {
+			padding: 40px 20px;
+		}
+
+		hr {
+			margin: 1em 0;
+		}
+
+		.list-item-container {
+			flex-wrap: wrap;
+			margin-top: 20px;
+		}
+
+		.list-item {
+
+			width: 100%;
+			padding-left: 40px;
+			font-size: 14px;
+
+			&:not(:last-of-type) {
+			    margin-right: 0;
+			    margin-bottom: 20px;
+			}
+
+			.icon {
+				top: 2px;
+				width: 20px;
+			}
+
+		}
+
+	}
+
+	@media screen and (max-width: 480px) {
+
+		.heading {
+			font-size: 36px;
+		}
+
+	}
+
+	@media screen and (max-width: 413px) {
+
+		.heading {
+			font-size: 26px;
+		}
+
+	}
+
+}

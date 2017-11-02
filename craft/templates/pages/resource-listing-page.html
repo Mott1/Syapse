@@ -5,20 +5,22 @@
     {% set resources = craft.entries.section('resources') %}
     {% set firstResource = resources.first() %}
 
-    <style>
-        .featured-resource {
-            padding: 160px;
-        }        
-    </style>
+	<div class="core-content resource-listing">
 
-	<div class="core-content">
+        <div class="global-wrapper resource-listing-wrapper">
 
-        <div class="featured-resource theme-darker-background theme-colored-button">
-            
-            <h2>{{ firstResource.title }}</h2>
-            <p>{{ firstResource.body | striptags | slice(0, 100) | trim  ~ '...' }}</p>
-            <a class="button" href="{{ firstResource.url }}">Read</a>
-            
+            <div class="featured-resource theme-colored-button">
+                
+                <img class="image" src="{{ firstResource.heroImage.first().getUrl() | default('http://via.placeholder.com/290x250') }}">
+
+                <div class="info">
+                    <h2>{{ firstResource.title }}</h2>
+                    <p>{{ firstResource.body | striptags | slice(0, 100) | trim  ~ '...' }}</p>
+                    <a class="button" href="{{ firstResource.url }}">Read</a>
+                </div>
+                
+            </div>
+
         </div>
         
         {% include 'includes/partial/_article-list-2-column' with { articles: resources.offset(1), readMore: true } %}

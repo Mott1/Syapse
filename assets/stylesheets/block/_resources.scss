@@ -37,6 +37,10 @@
 		margin-right: 40px;
 	}
 
+	a {
+		color: $buttonBlue;
+	}
+
 // Responsive
 
 	@media screen and (max-width: 767px) {

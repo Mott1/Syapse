@@ -1,0 +1,50 @@
+.resource-listing {
+
+	.global-wrapper {
+		@include sectionPadding;
+	}
+
+	.resource-listing-wrapper {
+		background-color: $lightGray;
+	}
+	
+	.featured-resource {
+
+		display: flex;
+
+		.image {
+			width: 290px;
+		}
+
+		.info {
+			width: calc(100% - 290px);
+			padding-left: 40px;
+		}
+
+		.button {
+			margin-top: 20px;
+		}
+
+	}
+
+	@media screen and (max-width: 620px) {
+
+		.featured-resource {
+
+			flex-wrap: wrap;
+
+			.image {
+				width: 100%;
+			}
+
+			.info {
+				width: 100%;
+				margin-top: 40px;
+				padding-left: 0;
+			}
+
+		}
+
+	}
+
+}
