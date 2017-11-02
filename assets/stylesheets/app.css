@@ -1702,8 +1702,10 @@ div.theme-reduce-top-spacing {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap; }
     .image-copy .image {
+      width: 100%;
       min-height: 65vw; }
     .image-copy .copy {
+      width: 100%;
       margin-top: 30px;
       padding: 0; }
     .image-copy.imageRight .image {
@@ -2402,7 +2404,6 @@ div.theme-reduce-top-spacing {
       flex-wrap: wrap; }
 
 .team-listing .team-member {
-  cursor: pointer;
   position: relative;
   width: calc(25% - 30px);
   margin-bottom: 40px; }
@@ -2419,6 +2420,11 @@ div.theme-reduce-top-spacing {
     margin-bottom: 10px; }
   .team-listing .team-member .name {
     margin-bottom: 0; }
+  .team-listing .team-member .job-title {
+    line-height: 1.3em; }
+
+.team-listing .team-member.modal-link {
+  cursor: pointer; }
 
 @media screen and (min-width: 1024px) {
   .team-listing .team-member:not(:nth-child(4n)) {

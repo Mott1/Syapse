@@ -36,7 +36,7 @@
 
                             {% for employee in type.getChildren() %}
                                 
-                                <div class="team-member modal-link" data-modal-type="team" data-name="{{ employee.title }}" data-job-title="{{ employee.jobTitle }}" data-bio="{{ employee.bio }}">
+                                <div class="team-member {% if type.title != "Investors" %}modal-link{% endif %}" data-modal-type="team" {% if type.title != "Investors" %}data-name="{{ employee.title }}" data-job-title="{{ employee.jobTitle }}" data-bio="{{ employee.bio }}"{% endif %}>
                                     <img class="headshot" src="{{ employee.headshot.first().url | default('/images/ui/team-member-default.png') }}">
                                     {% if type.title != "Investors" %}
                                         <h3 class="name">{{ employee.title }}</h3>

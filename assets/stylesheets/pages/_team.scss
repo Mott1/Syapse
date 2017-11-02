@@ -21,7 +21,6 @@
 
 	.team-member {
 
-		cursor: pointer;
 		position: relative;
 		width: calc(25% - 30px);
 		margin-bottom: 40px;
@@ -45,6 +44,14 @@
 			margin-bottom: 0;
 		}
 
+		.job-title {
+			line-height: 1.3em;
+		}
+
+	}
+
+	.team-member.modal-link {
+		cursor: pointer;
 	}
 
 	@media screen and (min-width: 1024px) {
