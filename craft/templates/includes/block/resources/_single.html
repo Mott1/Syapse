@@ -3,7 +3,6 @@
 {% set heading = theBlock.title | default("") %}
 {% set resource = theBlock.resources.first() %}
 {% set title = resource.title | default('') %}
-{% set body = resource.body | default('') %}
 {% set link = resource.url | default('#') %}
 
 {% set image = "" | default("http://via.placeholder.com/180x130") %}
@@ -24,13 +23,10 @@
 
 	        <div class="info">
 		        <div class="title">{{ title }}</div>
-		        <div class="description">
-			        {{ body }}
-			    </div>
 			</div>
 
 			<div class="button-container">
-				<a class="button" href="{{ link }}">View</a>
+				<a class="button modal-link" href="{{ link }}" data-modal-type="resource" data-iframe="">View</a>
 			</div>
 
 	    </div>

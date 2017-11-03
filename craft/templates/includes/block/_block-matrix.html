@@ -1,15 +1,38 @@
 {% set theBlocks = entry.contentBlocks %}
+{% set hasResource = false %}
 
 {% if theBlocks is not null %}
 
 	<section class="blocks">
 
 		{% for theBlock in theBlocks %}
+
+			{% if theBlock.type.handle == "resources" %}
+				{% set hasResource = true %}
+			{% endif %}
+		
 			{% set theBlockName =  "_" ~ theBlock.type.handle ~ "-block" %}
 			{% set isFirst = loop.index == 1 %}
 			{% include "includes/block/" ~ theBlockName ignore missing with {'theBlock': theBlock, "isFirst": isFirst} %}
+
 		{% endfor %}
 
 	</section>
+
+	{% if hasResource %}
+
+		<div class="modal">
+
+            <div class="modal-close" data-modal-type="resource">
+                <img src="/images/ui/icon-close.svg" alt="close">
+            </div>
+
+            <div class="modal-info">
+                {# Embed #}
+            </div>
+
+        </div>
+
+	{% endif %}
 
 {% endif %}

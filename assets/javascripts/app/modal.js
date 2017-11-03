@@ -56,6 +56,19 @@ class Modal {
 
 		let modalType = target.getAttribute('data-modal-type');
 
+		// Resource
+
+		if (modalType == 'resource') {
+
+			let iframe = target.getAttribute('data-iframe');
+			let modalInfo = this.modal.querySelector('.modal-info');
+
+			modalInfo.innerHTML = iframe;
+
+		}
+
+		// Team
+
 		if (modalType == 'team') {
 
 			let name = target.getAttribute('data-name');
@@ -81,6 +94,18 @@ class Modal {
 		e.preventDefault();
 
 		let modalType = e.target.getAttribute('data-modal-type');
+
+		// Resource
+
+		if (modalType == 'resource') {
+
+			let modalInfo = this.modal.querySelector('.modal-info');
+
+			modalInfo.innerHTML = "";
+
+		}
+
+		// Team
 
 		if (modalType == 'team') {
 

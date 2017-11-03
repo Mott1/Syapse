@@ -4,6 +4,20 @@
 
 <div class="article-list article-list-2-column">
 
+    {% if entry.type.handle == "resourceListing" %}
+        <div class="modal">
+
+            <div class="modal-close" data-modal-type="resource">
+                <img src="/images/ui/icon-close.svg" alt="close">
+            </div>
+
+            <div class="modal-info">
+                {# Embed #}
+            </div>
+
+        </div>
+    {% endif %}
+    
     <div class="global-wrapper">
 
         {% if articles.count() %}

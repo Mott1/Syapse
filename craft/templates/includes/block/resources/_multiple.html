@@ -5,26 +5,42 @@
 
 <div class="resources-multiple {{ themes }}">
 
-    {% if heading != "" %}
-        
-        <h2>{{ heading }}</h2>
+    <div class="global-wrapper">
 
-    {% endif %}
-
-    <ul class="resource-list">
-
-        {% for resource in resources %}
-
-            {% set title = resource.title | default('') %}
-
-            <li class="resource-item">
-            	<a class="resource-link" href="{{ resource.url }}">
-            		{{ title }}
-            	</a>
-            </li>
+        {% if heading != "" %}
             
-        {% endfor %}
+            <h2>{{ heading }}</h2>
 
-    </ul>
+        {% endif %}
+
+        <ul class="resource-list">
+
+            {% for resource in resources %}
+
+                {% set title = resource.title | default('') %}
+                {% set link = resource.url | default('#') %}
+                {% set image = "" | default("http://via.placeholder.com/40x40") %}
+
+                <li class="resource">
+                
+                    <div class="image" style="background-image: url('{{ image }}');"></div>
+
+                    <div class="info">
+
+                        <div class="title">{{ title }}</div>
+
+                        <div class="button-container">
+                            <a class="button modal-link" href="{{ link }}" data-modal-type="resource" data-iframe="">View</a>
+                        </div>
+
+                    </div>
+
+                </li>
+                
+            {% endfor %}
+
+        </ul>
+
+    </div>
 
 </div>

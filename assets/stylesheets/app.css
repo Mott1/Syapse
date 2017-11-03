@@ -2297,15 +2297,8 @@ div.theme-reduce-top-spacing {
   margin-bottom: 5px;
   font-size: 20px; }
 
-.resources-single .description p {
-  font-size: 16px;
-  line-height: 1.5em; }
-
 .resources-single .button {
   margin-right: 40px; }
-
-.resources-single a {
-  color: #21C2D2; }
 
 @media screen and (max-width: 767px) {
   .resources-single .resource {
@@ -2325,71 +2318,70 @@ div.theme-reduce-top-spacing {
     width: 100%;
     max-width: 300px; } }
 
-.resources-multiple {
+.resources-multiple .global-wrapper {
   padding: 100px 80px; }
   @media screen and (max-width: 767px) {
-    .resources-multiple {
+    .resources-multiple .global-wrapper {
       padding: 40px 20px; } }
-  .resources-multiple .resource-list {
-    margin: 0;
-    padding-left: 0;
-    list-style: none; }
-    .resources-multiple .resource-list:before, .resources-multiple .resource-list:after {
-      content: " ";
-      display: table; }
-    .resources-multiple .resource-list:after {
-      display: block;
-      clear: both;
-      height: 1px;
-      margin-top: -1px;
-      visibility: hidden; }
-    .resources-multiple .resource-list {
-      *zoom: 1; }
-  .resources-multiple .resource-item {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: calc(50% - 20px);
-    min-height: 40px;
-    padding: 30px 0;
+
+.resources-multiple .resource-list {
+  margin: 0;
+  padding-left: 0;
+  list-style: none; }
+
+.resources-multiple .resource {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 30px 0; }
+  .resources-multiple .resource:not(:last-of-type) {
     border-bottom: 1px solid #EFEFEF; }
-    .resources-multiple .resource-item:first-child, .resources-multiple .resource-item:nth-child(2n) {
-      border-top: 1px solid #EFEFEF; }
-    .resources-multiple .resource-item:nth-child(odd) {
-      float: left;
-      margin-right: 40px; }
-    .resources-multiple .resource-item:nth-child(even) {
-      float: right; }
-  .resources-multiple .resource-link {
-    display: block;
-    position: relative;
+
+.resources-multiple .image {
+  width: 40px;
+  height: 40px;
+  margin-right: 40px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.resources-multiple .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: calc(100% - 80px); }
+
+.resources-multiple .title {
+  margin-bottom: 5px;
+  font-size: 20px; }
+
+.resources-multiple .button {
+  margin-left: 40px; }
+
+@media screen and (max-width: 500px) {
+  .resources-multiple .resource {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start; }
+  .resources-multiple .info {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+  .resources-multiple .title {
     width: 100%;
-    padding-left: 70px;
-    color: #282A50;
-    transition: color 0.15s ease-in-out; }
-    .resources-multiple .resource-link:before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 0;
-      -webkit-transform: translateY(-50%);
-              transform: translateY(-50%);
-      width: 40px;
-      height: 40px;
-      border-radius: 100%;
-      background: url("http://via.placeholder.com/40x40") no-repeat center center;
-      background-size: cover; }
-    .resources-multiple .resource-link:hover {
-      color: #21C2D2; }
-  @media screen and (max-width: 767px) {
-    .resources-multiple .resource-item {
-      width: 100%;
-      float: none; }
-      .resources-multiple .resource-item:nth-child(2n) {
-        border-top: none; } }
+    font-size: 18px; }
+  .resources-multiple .button {
+    margin-top: 20px;
+    margin-left: 0; } }
 
 .copy-block .global-wrapper {
   padding: 100px 80px;

@@ -28,17 +28,8 @@
 		font-size: 20px;
 	}
 
-	.description p {
-		font-size: 16px;
-		line-height: 1.5em;
-	}
-
 	.button {
 		margin-right: 40px;
-	}
-
-	a {
-		color: $buttonBlue;
 	}
 
 // Responsive
@@ -76,84 +67,74 @@
 
 .resources-multiple {
 
-	@include sectionPadding;
+	.global-wrapper {
+		@include sectionPadding;
+	}
 
 	.resource-list {
-
-		@include clearfix;
-
 		margin: 0;
 		padding-left: 0;
 		list-style: none;
-
 	}
 
-	.resource-item {
+	.resource {
 
 		display: flex;
 		align-items: center;
-		width: calc(50% - 20px);
-		min-height: 40px;
+		width: 100%;
 		padding: 30px 0;
-		border-bottom: 1px solid $hrColor;
 
-		&:first-child, 
-		&:nth-child(2n) {
-			border-top: 1px solid $hrColor;
-		}
-
-		&:nth-child(odd) {
-			float: left;
-			margin-right: 40px;
-		}
-
-		&:nth-child(even) {
-			float: right;
+		&:not(:last-of-type) {
+			border-bottom: 1px solid $hrColor;
 		}
 
 	}
 
-	.resource-link {
+	.image {
+		width: 40px;
+		height: 40px;
+		margin-right: 40px;
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
 
-		display: block;
-		position: relative;
-		width: 100%;
-		padding-left: 70px;
-		color: #282A50;
-		transition: color 0.15s ease-in-out;
+	.info {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: calc(100% - 80px);
+	}
 
-		&:before {
-			content: '';
-			position: absolute;
-			top: 50%;
-			left: 0;
-			transform: translateY(-50%);
-			width: 40px;
-			height: 40px;
-			border-radius: 100%;
-			background: url('http://via.placeholder.com/40x40') no-repeat center center;
-			background-size: cover;
-		}
+	.title {
+		margin-bottom: 5px;
+		font-size: 20px;
+	}
 
-		&:hover {
-			color: $buttonBlue;
-		}
-
+	.button {
+		margin-left: 40px;
 	}
 
 // Responsive
 
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 500px) {
 
-		.resource-item {
+		.resource {
+			align-items: flex-start;
+		}
 
+		.info {
+			flex-wrap: wrap;
+		}
+
+		.title {
 			width: 100%;
-			float: none;
+			font-size: 18px;
+		}
 
-			&:nth-child(2n) {
-				border-top: none;
-			}
-
+		.button {
+			margin-top: 20px;
+			margin-left: 0;
 		}
 
 	}

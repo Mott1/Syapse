@@ -11095,6 +11095,18 @@ var Modal = function () {
 
 			var modalType = target.getAttribute('data-modal-type');
 
+			// Resource
+
+			if (modalType == 'resource') {
+
+				var iframe = target.getAttribute('data-iframe');
+				var modalInfo = this.modal.querySelector('.modal-info');
+
+				modalInfo.innerHTML = iframe;
+			}
+
+			// Team
+
 			if (modalType == 'team') {
 
 				var name = target.getAttribute('data-name');
@@ -11119,6 +11131,17 @@ var Modal = function () {
 			e.preventDefault();
 
 			var modalType = e.target.getAttribute('data-modal-type');
+
+			// Resource
+
+			if (modalType == 'resource') {
+
+				var modalInfo = this.modal.querySelector('.modal-info');
+
+				modalInfo.innerHTML = "";
+			}
+
+			// Team
 
 			if (modalType == 'team') {
 
