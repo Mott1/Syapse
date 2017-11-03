@@ -1,7 +1,8 @@
 {% set theHeader = entry.homeHeader.first() %}
 {% set heading = theHeader.heading | default('') %}
 {% set description = theHeader.body | default('') %}
-{% set iconList = theHeader.list %}
+{% set ctas = theHeader.ctas %}
+{% set icons = theHeader.icons.find() %}
 
 <div class="home-header theme-darker-background">
 
@@ -39,23 +40,21 @@
 
         <div class="cta-line-vertical"></div>
 
-        {% for item in iconList %}
+        {% for cta in ctas %}
 
             <div class="hero-cta hero-cta-{{ loop.index }}">
                 
-                {# <img class="icon" src="{{ item.icon.first().getUrl() }}" alt="icon" /> #}
-
                 <img class="icon-line" src="/images/ui/hero-home-line-cta-{{ loop.index }}.png" alt="icon-line">
 
-                <img class="icon" src="/images/ui/icon-people.svg" alt="icon" />
+                <img class="icon" src="{{ icons[loop.index0].getUrl() }}" alt="icon" />
 
                 <div class="cta-info">
 
-                    <h4 class="cta-title">{{ item.title }}</h4>
+                    <h4 class="cta-title">{{ cta.heading }}</h4>
 
-                    <p class="cta-description">{{ item.description | striptags | slice(0, 71) | trim  ~ '...' }}</p>
+                    <p class="cta-description">{{ cta.description | striptags }}</p>
 
-                    <a class="link theme-hide-on-mobile" href="/customers/health-systems">Learn how</a>
+                    <a class="link theme-hide-on-mobile" href="{{ url(cta.linkUrl) }}">{{ cta.linkText }}</a>
 
                 </div>
 
