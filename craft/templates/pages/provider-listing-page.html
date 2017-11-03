@@ -1,6 +1,6 @@
 {% extends "layouts/_layout" %}
 
-{% set providers = craft.entries.section('providers') %}
+{% set providers = craft.entries.section('providers').level(1) %}
 
 {% block content %}
 
