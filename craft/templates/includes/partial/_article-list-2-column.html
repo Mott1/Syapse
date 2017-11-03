@@ -19,6 +19,8 @@
                     {% set thumbnailUrl = article.heroImage.first().getUrl() | default('http://via.placeholder.com/180x200') %}
                 {% endif %}
 
+                {% set description = article.description | striptags %}
+
                 <div class="article-item">
 
                     <div class="image" style="background-image: url('{{ thumbnailUrl }}'); {% if article.type.handle == 'customer'%}background-size: 80% auto;{% endif %}"></div>
@@ -26,19 +28,15 @@
                     <div class="info">
 
                         <h3 class="heading">{{ article.title }}</h3>
+
+                        {% if description is defined %}
+                            <p class="description">
+                                {{ description }}
+                            </p>
+                        {% endif %}
                         
                         {% if readMore %}
-                            {% set description = article.body | striptags | slice(0, 100) | trim  ~ '...' %}
-                        {% else %}
-                            {% set description = article.description | striptags %}
-                        {% endif %}
-
-                        <p class="description">
-                            {{ description }}
-                        </p>
-
-                        {% if readMore %}
-                            <a class="link" href="{{ article.url }}">Read</a>
+                            <a class="button" href="{{ article.url }}">Read</a>
                         {% endif %}
 
                     </div>
