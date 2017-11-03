@@ -19,6 +19,8 @@
                     {% set thumbnailUrl = article.heroImage.first().getUrl() | default('http://via.placeholder.com/180x200') %}
                 {% endif %}
 
+                {% set description = article.description | striptags %}
+
                 <div class="article-item">
 
                     <div class="image" style="background-image: url('{{ thumbnailUrl }}'); {% if article.type.handle == 'customer'%}background-size: 80% auto;{% endif %}"></div>
@@ -26,19 +28,48 @@
                     <div class="info">
 
                         <h3 class="heading">{{ article.title }}</h3>
+
+                        {% if description is defined %}
+                            <p class="description">
+                                {{ description }}
+                            </p>
+                        {% endif %}
                         
                         {% if readMore %}
-                            {% set description = article.body | striptags | slice(0, 100) | trim  ~ '...' %}
-                        {% else %}
-                            {% set description = article.description | striptags %}
-                        {% endif %}
 
-                        <p class="description">
-                            {{ description }}
-                        </p>
+                            {% set readMoreText = "Download" %}
+                            {% set readMoreLink = "#" %}
+                            {% set readMoreClasses = "" %}
+                            {% set iframe = "" %}
 
-                        {% if readMore %}
-                            <a class="link" href="{{ article.url }}">Read</a>
+                            {% if article.externalLink != "" %}
+                                {% set readMoreText = "Visit" %}
+                                {% set readMoreLink = article.externalLink %}                                
+                            {% endif %}                               
+
+                            {% if article.download.count() %}
+                                {% set readMoreText = "Download" %}
+                                {% set readMoreLink = article.download.first().getUrl() | default("") %}    
+                                {% set readMoreClasses = "" %}
+                                {% set iframe = article.iframe %}
+                            {% endif %}                            
+
+                            {% if article.videoEmbed != "" %}
+                                {% set readMoreText = "Watch Video" %}
+                                {% set readMoreLink = "#" %}
+                                {% set readMoreClasses = "modal-link" %}
+                                {% set iframe = article.videoEmbed %}                                
+                            {% endif %}    
+
+                            {% if article.iframe !="" %}
+                                {% set readMoreText = "Download" %}
+                                {% set readMoreLink = "#" %}    
+                                {% set readMoreClasses = "modal-link" %}
+                                {% set iframe = article.iframe %}
+                            {% endif %}
+                                                                    
+                            <a class="button {{ readMoreClasses }}" data-iframe='{{ iframe }}' href="{{ readMoreLink }}">{{ readMoreText }}</a>
+
                         {% endif %}
 
                     </div>
