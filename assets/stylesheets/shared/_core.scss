@@ -38,7 +38,7 @@
 	width: 100%;
 	padding: 30px 80px 20px;
 	background-color: $superLightGray;
-	transition: background-color 1s ease-in-out, padding 0.3s ease-in-out;
+	transition: background-color 0.15s ease-in-out, padding 0.15s ease-in-out;
 
 	.core-wrapper {
 		display: flex;
@@ -58,7 +58,7 @@
 			width: 100%;
 			max-width: 116px;
 			height: auto;
-			transition: max-width 0.3s ease-in-out;
+			transition: max-width 0.15s ease-in-out;
 		}
 
 	}
@@ -284,7 +284,7 @@
 .core-content {
 	@include clearfix;
 	width: 100%;
-	padding-top: 97px;
+	padding-top: 96px;
 
 // Responsive
 
