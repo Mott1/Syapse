@@ -11097,8 +11097,6 @@ var Modal = function () {
 
 			// Resource
 
-			console.log(target);
-
 			if (modalType == 'resource') {
 
 				var iframe = target.getAttribute('data-iframe');

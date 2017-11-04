@@ -1733,8 +1733,7 @@ div.theme-reduce-top-spacing {
       padding: 40px 20px; } }
 
 .icon-list .heading {
-  width: 100%;
-  margin-bottom: 30px; }
+  width: 100%; }
 
 .icon-list .list {
   display: -webkit-box;
@@ -1769,7 +1768,7 @@ div.theme-reduce-top-spacing {
       -ms-flex-align: start;
           align-items: flex-start;
   width: calc(25% - 30px);
-  margin: 0 15px; }
+  margin: 30px 15px 0; }
 
 .icon-list .icon-image {
   width: 72px;
