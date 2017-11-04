@@ -58,6 +58,8 @@ class Modal {
 
 		// Resource
 
+		console.log(target);
+
 		if (modalType == 'resource') {
 
 			let iframe = target.getAttribute('data-iframe');
