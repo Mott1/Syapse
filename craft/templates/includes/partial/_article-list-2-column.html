@@ -51,38 +51,7 @@
                         
                         {% if readMore %}
 
-                            {% set readMoreText = "Download" %}
-                            {% set readMoreLink = "#" %}
-                            {% set readMoreClasses = "" %}
-                            {% set iframe = "" %}
-
-                            {% if article.externalLink != "" %}
-                                {% set readMoreText = "Visit" %}
-                                {% set readMoreLink = article.externalLink %}                                
-                            {% endif %}                               
-
-                            {% if article.download.count() %}
-                                {% set readMoreText = "Download" %}
-                                {% set readMoreLink = article.download.first().getUrl() | default("") %}    
-                                {% set readMoreClasses = "" %}
-                                {% set iframe = article.iframe %}
-                            {% endif %}                            
-
-                            {% if article.videoEmbed != "" %}
-                                {% set readMoreText = "Watch Video" %}
-                                {% set readMoreLink = "#" %}
-                                {% set readMoreClasses = "modal-link" %}
-                                {% set iframe = article.videoEmbed %}                                
-                            {% endif %}    
-
-                            {% if article.iframe !="" %}
-                                {% set readMoreText = "Download" %}
-                                {% set readMoreLink = "#" %}    
-                                {% set readMoreClasses = "modal-link" %}
-                                {% set iframe = article.iframe %}
-                            {% endif %}
-                                                                    
-                            <a class="button {{ readMoreClasses }}" data-modal-type="resource" data-iframe='{{ iframe }}' href="{{ readMoreLink }}">{{ readMoreText }}</a>
+                            {{ helpers.buildResourceButton( { article: article } ) }}
 
                         {% endif %}
 

@@ -26,7 +26,9 @@
 			</div>
 
 			<div class="button-container">
-				<a class="button modal-link" href="{{ link }}" data-modal-type="resource" data-iframe="">View</a>
+
+				{{ helpers.buildResourceButton( { article: resource } ) }}
+
 			</div>
 
 	    </div>
