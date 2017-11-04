@@ -53,7 +53,7 @@
 
     {% set article = params.article %}
 
-    {% set readMoreText = "Download" %}
+    {% set readMoreText = "" %}
     {% set readMoreLink = "#" %}
     {% set readMoreClasses = "" %}
     {% set iframe = "" %}
@@ -83,7 +83,9 @@
         {% set readMoreClasses = "modal-link" %}
         {% set iframe = article.iframe %}
     {% endif %}
-                                            
-    <a class="button {{ readMoreClasses }}" data-modal-type="resource" data-iframe='{{ iframe }}' href="{{ readMoreLink }}">{{ readMoreText }}</a>
+
+    {% if readMoreText != "" %}
+        <a class="button {{ readMoreClasses }}" data-modal-type="resource" data-iframe='{{ iframe }}' href="{{ readMoreLink }}">{{ readMoreText }}</a>
+    {% endif %}
 
 {% endmacro %}
