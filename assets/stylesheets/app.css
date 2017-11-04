@@ -2309,6 +2309,7 @@ div.theme-reduce-top-spacing {
   font-size: 20px; }
 
 .resources-single .button {
+  min-width: 183px;
   margin-right: 40px; }
 
 @media screen and (max-width: 767px) {
