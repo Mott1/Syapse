@@ -1,8 +1,7 @@
 .cta {
 
-	@include sectionPadding;
-
 	.global-wrapper {
+		@include sectionPadding;
 		display: flex;
 		justify-content: center;
 		align-items: center;

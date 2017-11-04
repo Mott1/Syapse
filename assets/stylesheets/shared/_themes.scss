@@ -1,5 +1,11 @@
 .theme-darker-background {
+
 	background-color: $superLightGray;
+
+	.global-wrapper {
+		background-color: $superLightGray;
+	}
+
 }
 
 .theme-colored-button .button, 
@@ -15,7 +21,13 @@
 }
 
 div.theme-reduce-top-spacing {
+
 	padding-top: 0;
+
+	.global-wrapper {
+		padding-top: 0;
+	}
+	
 }
 
 @media screen and (min-width: 768px) {

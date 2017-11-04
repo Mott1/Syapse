@@ -1,8 +1,7 @@
 .image-copy {
-
-	@include sectionPadding;
 	
 	.global-wrapper {
+		@include sectionPadding;
 		display: flex;
 	}
 

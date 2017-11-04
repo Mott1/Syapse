@@ -1,7 +1,7 @@
 {% set themes = helpers.getThemes(theBlock.themes) | trim %}
 {% set heading = theBlock.heading | default("") %}
 
-<div class="cta">
+<div class="cta {{ themes }}">
 
     <div class="global-wrapper">
 
