@@ -8,11 +8,11 @@
 
             {% set thumbnailUrl = article.heroImage.first().getUrl() | default('http://via.placeholder.com/180x200') %}
             {% set readMore = article.url | default("") %}
-            {% set body = article.body | striptags | slice(0, 100) | trim  ~ '...' %}
+            {% set body = article.body | striptags | slice(0, 140) | trim  ~ '...' | convert_encoding('UTF-8', 'HTML-ENTITIES') %}
 
             {% if article.type.handle == "inTheNewsArticle" %}
                 {% set readMore = article.externalLink | default("") %}
-                {% set body = article.body | striptags %}
+                {% set body = article.body | striptags | convert_encoding('UTF-8', 'HTML-ENTITIES') %}
 
             {% endif %}
 
@@ -27,7 +27,11 @@
                     {% if article.author | length and article.type.handle == "blogPost" %}
                         <p class="author">By {{ article.author.fullName | default('Syapse') }}</p>
                     {% endif %}
-                    
+            
+ {#                    {% if article.type.handle == "inTheNewsArticle" %}
+                        <p class="author">{{ entry.postDate | date("m/d/Y") }}</p>                    
+                    {% endif %} #}
+
                     <p class="description">
                         {{ body }}
                     </p>
