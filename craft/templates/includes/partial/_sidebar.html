@@ -20,40 +20,49 @@
 			{% case "quote" %}
 
 				{# Quote #}
-				{% set person = item.person.first() %}
+				{% if item.person.count() %}
 
-				<div class="quote module">
-					<blockquote>
-						{{ person.quote | typogrify }}
-					</blockquote>
+					{% set person = item.person.first() %}
 
-					<div class="quotee">
-						
-						<div class="quotee-info">
+					<div class="quote module">
+						<blockquote>
+							{{ person.quote | typogrify }}
+						</blockquote>
 
-							<span class="full-name">
-								{{ person.title }}
-							</span>
+						<div class="quotee">
+							
+							<div class="quotee-info">
 
-							<span class="assignment">
-								{{ person.placeOfWork }}
-							</span>
+								<span class="full-name">
+									{{ person.title }}
+								</span>
+
+								<span class="assignment">
+									{{ person.placeOfWork }}
+								</span>
+
+							</div>
 
 						</div>
-
+									
 					</div>
-								
-				</div>
+
+				{% endif %}
+
 		
 			{% case "resource" %}
 
 				{# Resource #}
-				{% set resource = item.resource.first() %}
+				{% if item.resource.count() %}
 
-				<div class="resource module">
-					<h4>{{ resource.title }}</h4>
-					{{ helpers.buildResourceButton( { article: resource } ) }}
-				</div>
+					{% set resource = item.resource.first() %}
+
+					<div class="resource module">
+						<h4>{{ resource.title }}</h4>
+						{{ helpers.buildResourceButton( { article: resource } ) }}
+					</div>
+					
+				{% endif %}
 		
 			{% default %}
 			
