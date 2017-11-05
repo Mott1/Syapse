@@ -12,7 +12,7 @@ return array(
     '*' => array(
 
         // Base site URL
-        'siteUrl' => null,
+        'siteUrl' => 'https://www.syapse.com/',
 
         // Fuzzy search
         'defaultSearchTermOptions' => array(
