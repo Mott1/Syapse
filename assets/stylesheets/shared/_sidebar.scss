@@ -1,0 +1,107 @@
+.sidebar {
+
+	width: 35%;
+
+	.module {
+		margin-bottom: 40px;
+		padding: 35px 30px;
+		background-color: $superLightGray;
+	}
+	
+	.resource {
+
+		padding: 35px 30px;
+		background-color: $superLightGray;
+
+		p {
+			font-size: 14px;
+			line-height: 1.3em;
+		}
+
+		.button {
+			margin-top: 20px;
+		}
+
+	}
+
+	.newsletter-signup {
+		label {
+			display: block;
+			margin-bottom: 20px;
+		}
+	}
+
+	.quote {
+
+		blockquote {
+			@include anti-alias;
+			width: 100%;
+			margin: 0 0 20px 30px;
+			padding-right: 30px;
+			font-size: 20px;
+			font-weight: 300;
+			// font-style: italic;
+			line-height: 38px;
+		}
+
+		.dquo {
+
+			position: relative;
+			display: inline-block;
+			width: 0;
+			height: 0;
+			color: transparent;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 10px;
+				left: -26px;
+				width: 18px;
+				height: 12px;
+				background: url('/images/ui/quotation_mark-left.svg') no-repeat center center;
+				background-size: contain;
+			}
+
+		}
+
+		.quotee {
+			padding-left: 30px;
+		}
+
+		.quotee:before {
+			content: '';
+			display: block;
+			margin-bottom: 15px;
+			width: 70px;
+			border: 2px solid $buttonBlue;
+			border-radius: 2px;
+		}
+
+		.full-name {
+			display: block;
+			font-size: 18px;
+			font-weight: 700;
+			color: #282A50;
+		}
+
+		.assignment {
+			@include anti-alias;
+			display: block;
+			font-size: 18px;
+			line-height: 1.3em;
+			color: #6D6D6D;
+		}
+
+	}
+
+// Responsive
+
+	@media screen and (max-width: 767px) {
+
+		width: 100%;
+		margin-top: 40px;
+
+	}
+
+}

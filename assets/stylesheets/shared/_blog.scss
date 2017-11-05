@@ -240,7 +240,8 @@
 
 .article-list {
 
-	width: 70%;
+	width: 65%;
+	padding-right: 40px;
 
 	&.article-list-2-column {
 
@@ -452,7 +453,7 @@
 
 .blog-article {
 
-	width: 70%;
+	width: 65%;
 	margin-right: 40px;
 
 	@media screen and (max-width: 767px) {
@@ -583,21 +584,6 @@
 		.video-container {
 			height: 66vw;
 		}
-
-	}
-
-}
-
-// Sidebar
-
-.sidebar {
-
-	width: 30%;
-
-	@media screen and (max-width: 767px) {
-
-		width: 100%;
-		margin-top: 40px;
 
 	}
 

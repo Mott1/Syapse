@@ -1537,7 +1537,8 @@ div.theme-reduce-top-spacing {
       min-height: 50vw; } }
 
 .article-list {
-  width: 70%; }
+  width: 65%;
+  padding-right: 40px; }
   .article-list.article-list-2-column {
     width: 100%; }
     .article-list.article-list-2-column .global-wrapper {
@@ -1658,7 +1659,7 @@ div.theme-reduce-top-spacing {
           flex-wrap: wrap; } }
 
 .blog-article {
-  width: 70%;
+  width: 65%;
   margin-right: 40px; }
   @media screen and (max-width: 767px) {
     .blog-article {
@@ -1755,7 +1756,67 @@ div.theme-reduce-top-spacing {
     height: 66vw; } }
 
 .sidebar {
-  width: 30%; }
+  width: 35%; }
+  .sidebar .module {
+    margin-bottom: 40px;
+    padding: 35px 30px;
+    background-color: #F9FAFB; }
+  .sidebar .resource {
+    padding: 35px 30px;
+    background-color: #F9FAFB; }
+    .sidebar .resource p {
+      font-size: 14px;
+      line-height: 1.3em; }
+    .sidebar .resource .button {
+      margin-top: 20px; }
+  .sidebar .newsletter-signup label {
+    display: block;
+    margin-bottom: 20px; }
+  .sidebar .quote blockquote {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    width: 100%;
+    margin: 0 0 20px 30px;
+    padding-right: 30px;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 38px; }
+  .sidebar .quote .dquo {
+    position: relative;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    color: transparent; }
+    .sidebar .quote .dquo:before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      left: -26px;
+      width: 18px;
+      height: 12px;
+      background: url("/images/ui/quotation_mark-left.svg") no-repeat center center;
+      background-size: contain; }
+  .sidebar .quote .quotee {
+    padding-left: 30px; }
+  .sidebar .quote .quotee:before {
+    content: '';
+    display: block;
+    margin-bottom: 15px;
+    width: 70px;
+    border: 2px solid #21C2D2;
+    border-radius: 2px; }
+  .sidebar .quote .full-name {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: #282A50; }
+  .sidebar .quote .assignment {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: block;
+    font-size: 18px;
+    line-height: 1.3em;
+    color: #6D6D6D; }
   @media screen and (max-width: 767px) {
     .sidebar {
       width: 100%;

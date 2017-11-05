@@ -1,9 +1,62 @@
-{# <div class="sidebar"> #}
+<div class="sidebar">
 
-	{# <h2>[sidebar]</h2> #}
+{# Modal #}
 
-    {# Newsletter Sign Up #}
-    {# {{ formNewsletterSignup.iframe }} #}
+	<div class="modal">
+
+        <div class="modal-close" data-modal-type="resource">
+            <img src="/images/ui/icon-close.svg" alt="close">
+        </div>
+
+        <div class="modal-info">
+            {# Embed #}
+        </div>
+
+    </div>
+
+{# Quote #}
+
+	<div class="quote module">
+		<blockquote>
+			<span class="dquo">"</span>This is a blockquote in the sidebar."
+		</blockquote>
+
+		<div class="quotee">
+			
+			<div class="quotee-info">
+
+				<span class="full-name">
+					Full Name
+				</span>
+
+				<span class="assignment">
+					Title/Company Name
+				</span>
+
+			</div>
+
+		</div>
+					
+	</div>
+
+{# Resource #}
+
+	<div class="resource module">
+		<h4>Resource Title</h4>
+		<p>
+			Resource description goes here if present.
+		</p>
+		<a class="button modal-link {# {{ readMoreClasses }} #}" data-modal-type="resource" data-iframe='{# {{ iframe }} #}' href="#{# {{ readMoreLink }} #}">Button label</a>
+	</div>
+
+{# Newsletter Sign-up #}
+
+	<div class="newsletter-signup module theme-hide-on-mobile">
+		{% include 'includes/partial/_subscribe' %}
+	</div>
+
+{# Newsletter Sign Up #}
+{# {{ formNewsletterSignup.iframe }} #}
 
 {# Let's Talk Form
 {{ contactForm.iframe }}
@@ -20,5 +73,4 @@ Download Syapse Network 1 Pager
 Download Intermountain Case Study 1 Pager
 {{ formDownloadCaseStudy1Pager.iframe }} #}
 
-
-{# </div> #}
+</div>
