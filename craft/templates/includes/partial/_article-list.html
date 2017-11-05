@@ -21,7 +21,7 @@
 
                     <h3 class="heading">{{ article.title }}</h3>
 
-                    {% if article.author | length and article.type.handle != "inTheNewsArticle" %}
+                    {% if article.author | length and article.type.handle == "blogPost" %}
                         <p class="author">By {{ article.author.fullName | default('Syapse') }}</p>
                     {% endif %}
                     

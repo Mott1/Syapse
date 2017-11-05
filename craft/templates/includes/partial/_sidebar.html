@@ -1,7 +1,6 @@
 <div class="sidebar">
 
-{# Modal #}
-
+	{# Modal #}
 	<div class="modal">
 
         <div class="modal-close" data-modal-type="resource">
@@ -14,42 +13,64 @@
 
     </div>
 
-{# Quote #}
+	{% for item in entry.sidebar %}
+		
+		{% switch item.type.handle %}
+		
+			{% case "quote" %}
 
-	<div class="quote module">
-		<blockquote>
-			<span class="dquo">"</span>This is a blockquote in the sidebar."
-		</blockquote>
+				{# Quote #}
+				{% if item.person.count() %}
 
-		<div class="quotee">
-			
-			<div class="quotee-info">
+					{% set person = item.person.first() %}
 
-				<span class="full-name">
-					Full Name
-				</span>
+					<div class="quote module">
+						<blockquote>
+							{{ person.quote | typogrify }}
+						</blockquote>
 
-				<span class="assignment">
-					Title/Company Name
-				</span>
+						<div class="quotee">
+							
+							<div class="quotee-info">
 
-			</div>
+								<span class="full-name">
+									{{ person.title }}
+								</span>
 
-		</div>
+								<span class="assignment">
+									{{ person.placeOfWork }}
+								</span>
+
+							</div>
+
+						</div>
+									
+					</div>
+
+				{% endif %}
+
+		
+			{% case "resource" %}
+
+				{# Resource #}
+				{% if item.resource.count() %}
+
+					{% set resource = item.resource.first() %}
+
+					<div class="resource module">
+						<h4>{{ resource.title }}</h4>
+						{{ helpers.buildResourceButton( { article: resource } ) }}
+					</div>
 					
-	</div>
+				{% endif %}
+		
+			{% default %}
+			
+		{% endswitch %}
 
-{# Resource #}
+	{% endfor %}
 
-	<div class="resource module">
-		<h4>Resource Title</h4>
-		<p>
-			Resource description goes here if present.
-		</p>
-		<a class="button modal-link {# {{ readMoreClasses }} #}" data-modal-type="resource" data-iframe='{# {{ iframe }} #}' href="#{# {{ readMoreLink }} #}">Button label</a>
-	</div>
-
-{# Newsletter Sign-up #}
+	{# Newsletter Sign-up #}
 
 	<div class="newsletter-signup module theme-hide-on-mobile">
 		{% include 'includes/partial/_subscribe' %}
