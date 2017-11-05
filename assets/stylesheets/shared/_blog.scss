@@ -468,7 +468,14 @@
 .blog-body {
 
 	a {
+
 		color: $buttonBlue;
+		transition: color 0.15s ease-in-out;
+
+		&:hover {
+			color: darken($buttonBlue, 10%);
+		}
+
 	}
 
 	img {

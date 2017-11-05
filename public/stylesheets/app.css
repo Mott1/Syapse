@@ -1667,7 +1667,10 @@ div.theme-reduce-top-spacing {
       margin-right: 0; } }
 
 .blog-body a {
-  color: #21C2D2; }
+  color: #21C2D2;
+  transition: color 0.15s ease-in-out; }
+  .blog-body a:hover {
+    color: #1a99a6; }
 
 .blog-body img {
   margin: 20px auto;
