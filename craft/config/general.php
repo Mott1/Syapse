@@ -38,9 +38,29 @@ return array(
         // Dev Mode (see https://craftcms.com/support/dev-mode)
         'devMode' => false,
 
+        // Caching
+        'cache' => true,
+
+    ),
+
+    'localhost' => array(
+
+        'siteUrl' => 'http://localhost:8888/',
+
+        'devMode' => true,
+        'cache' => false,
+
+        'environmentVariables' => array(
+            'baseUrl' => 'http://localhost:8888/',
+            'basePath' => '/Applications/MAMP/htdocs/syapse/public/',
+            'inlinPublicRoot' => '/Applications/MAMP/htdocs/syapse/public/',
+        ),
+
     ),
 
     'test.syapse.com' => array(
+
+        'siteUrl' => 'https://test.syapse.com/',
 
         'environmentVariables' => array(
             'baseUrl' => 'https://test.syapse.com/',
@@ -52,6 +72,8 @@ return array(
 
     'stage.syapse.com' => array(
 
+        'siteUrl' => 'https://stage.syapse.com/',
+
         'environmentVariables' => array(
             'baseUrl' => 'https://stage.syapse.com/',
             'basePath' => '/home/syapseadmin/webapps/stage_syapse/public/',
@@ -60,14 +82,14 @@ return array(
 
     ),
 
-    'localhost' => array(
+    'syapse.com' => array(
 
-        'devMode' => true,
+        'siteUrl' => 'https://www.syapse.com/',
 
         'environmentVariables' => array(
-            'baseUrl' => 'http://localhost:8888/',
-            'basePath' => '/Applications/MAMP/htdocs/syapse/public/',
-            'inlinPublicRoot' => '/Applications/MAMP/htdocs/syapse/public/',
+            'baseUrl' => 'https://www.syapse.com/',
+            'basePath' => '/home/syapseadmin/webapps/prod_syapse/public/',
+            'inlinPublicRoot' => '/home/syapseadmin/webapps/prod_syapse/public/',
         ),
 
     )
