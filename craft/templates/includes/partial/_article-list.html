@@ -28,12 +28,12 @@
                         <p class="author">By {{ article.author.fullName | default('Syapse') }}</p>
                     {% endif %}
             
- {#                    {% if article.type.handle == "inTheNewsArticle" %}
-                        <p class="author">{{ entry.postDate | date("m/d/Y") }}</p>                    
-                    {% endif %} #}
+                    {% if article.type.handle == "inTheNewsArticle" %}
+                        <p class="author">{{ article.postDate | date("m/d/Y") }}</p>                    
+                    {% endif %}
 
                     <p class="description">
-                        {{ body }}
+                        {{ body | replace('&nbsp;', " ")  }}
                     </p>
 
                     {% if readMore != "" %}
