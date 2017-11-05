@@ -1,4 +1,4 @@
-{% set heading = theHeader.heading | default('Home Heading') %}
+{% set heading = entry.title  %}
 {% set body = entry.body | striptags | slice(0, 100) | trim  ~ '...' %}
 {% set imageURL = entry.heroImage.first().getUrl() | default('http://via.placeholder.com/600x600') %}
 {% set customerLogo = entry.customer.first().logo.first() | default("") %}
