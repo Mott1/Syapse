@@ -78,8 +78,8 @@
 		padding-left: 40px;
 	}
 
-	.pages-li:last-of-type {
-		margin-right: 40px;
+	.pages-button {
+		margin-left: 40px;
 	}
 
 	.pages-li:hover {
@@ -96,30 +96,33 @@
 
 	}
 
-	.pages-li.active {
+	@media screen and (min-width: 768px) {
 
-		position: relative;
-		color: $buttonBlue;
+		.pages-li.active {
 
-		.page-heading:after {
-			content: '';
-			position: absolute;
-			right: 18px;
-			bottom: 15px;
-			width: calc(100% - 58px);
-			height: 2px;
-			background-color: $buttonBlue;
-		}
+			position: relative;
+			color: $buttonBlue;
 
-		.page-heading svg path {
-			fill: $buttonBlue;
+			.page-heading:after {
+				content: '';
+				position: absolute;
+				right: 18px;
+				bottom: 15px;
+				width: calc(100% - 58px);
+				height: 2px;
+				background-color: $buttonBlue;
+			}
+
+			.page-heading svg path {
+				fill: $buttonBlue;
+			}
+
 		}
 
 	}
 
 	.page-heading {
 
-		@include anti-alias;
 		cursor: default;
 		display: inline-block;
 		font-size: 18px;
@@ -136,6 +139,10 @@
 				transition: fill 0.15s ease-in-out;
 			}
 
+		}
+
+		@media screen and (min-width: 768px) {
+			@include anti-alias;
 		}
 
 	}
@@ -188,8 +195,8 @@
 			padding-left: 20px;
 		}
 
-		.pages-li:last-of-type {
-			margin-right: 20px;
+		.pages-button {
+			margin-left: 20px;
 		}
 
 		.page-heading {
@@ -278,6 +285,96 @@
 
 		.logo {
 			max-width: 80px;
+		}
+
+	}
+
+}
+
+// Mobile Navigation
+
+@media screen and (max-width: 767px) {
+
+	.nav-open .core-header .nav {
+
+		display: block;
+		position: fixed;
+		top: 48px;
+		left: 0;
+		z-index: 3;
+		width: 100%;
+		height: calc(100vh - 48px);
+		padding: 20px;
+		background-color: #fff;
+		overflow: hidden;
+		overflow-y: scroll;
+
+		.pages {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.pages-li {
+			width: 33.3%;
+			margin-bottom: 30px;
+			padding-left: 0;
+			padding-right: 10px;
+		}
+
+		.page-heading {
+
+			padding-bottom: 10px;
+			color: #3F3F3F;
+			font-weight: 500;
+
+			svg {
+				display: none;
+			}
+
+		}
+
+		.subpages {
+			display: block;
+			position: static;
+			padding: 0;
+			width: 100%;
+			background-color: transparent;
+		}
+
+		.subpages-li:not(:last-of-type) {
+			margin-bottom: 10px;
+		}
+
+		.subpage-link {
+			font-size: 14px;
+		}
+
+		.mobile-support-pages {
+
+			margin-top: 10px;
+
+			&:before {
+				content: '';
+				display: block;
+				width: 100%;
+				height: 3px;
+				margin-bottom: 17px;
+				background: linear-gradient(to right, #21c2d2 0%, #635feb 100%);
+				border-radius: 3px;
+			}
+
+		}
+
+	}
+
+}
+
+@media screen and (max-width: 567px) {
+
+	.nav-open .core-header .nav {
+
+		.pages-li {
+			width: 50%;
 		}
 
 	}

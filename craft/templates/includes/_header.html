@@ -62,15 +62,37 @@
 
 							{% set page = section.page.first() %}
 							
-							<a class="button" href="{{ page.url }}" title="{{ page.title }}">
+							<a class="button pages-button theme-hide-on-mobile" href="{{ page.url }}" title="{{ page.title }}">
 								{{ page.title }}
-							</a>						
+							</a>
 					
 						{% default %}
 					
 					{% endswitch %}
 					
 				{% endfor %}
+
+				{# Mobile only Support links #}
+
+				<li class="pages-li mobile-support-pages theme-hide-on-desktop">
+
+					<ul class="subpages">
+
+						{% set supportPages = craft.entries.section('pages').slug('support').status('all').first().children() %}
+
+						{% for page in supportPages %}
+							
+							<li class="subpages-li">
+								<a class="subpage-link subpage-{{ loop.index }}" href="{{ page.url }}">
+									{{ page.title }}
+								</a>
+							</li>
+
+						{% endfor %}
+
+					</ul>
+
+				</li>
 
 			</ul>
 

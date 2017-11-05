@@ -737,30 +737,29 @@ button:not([type="button"]) {
     display: inline-block;
     position: relative;
     padding-left: 40px; }
-  .core-header .pages-li:last-of-type {
-    margin-right: 40px; }
+  .core-header .pages-button {
+    margin-left: 40px; }
   .core-header .pages-li:hover {
     color: #21C2D2; }
     .core-header .pages-li:hover .page-heading svg path {
       fill: #21C2D2; }
     .core-header .pages-li:hover > .subpages {
       display: block; }
-  .core-header .pages-li.active {
-    position: relative;
-    color: #21C2D2; }
-    .core-header .pages-li.active .page-heading:after {
-      content: '';
-      position: absolute;
-      right: 18px;
-      bottom: 15px;
-      width: calc(100% - 58px);
-      height: 2px;
-      background-color: #21C2D2; }
-    .core-header .pages-li.active .page-heading svg path {
-      fill: #21C2D2; }
+  @media screen and (min-width: 768px) {
+    .core-header .pages-li.active {
+      position: relative;
+      color: #21C2D2; }
+      .core-header .pages-li.active .page-heading:after {
+        content: '';
+        position: absolute;
+        right: 18px;
+        bottom: 15px;
+        width: calc(100% - 58px);
+        height: 2px;
+        background-color: #21C2D2; }
+      .core-header .pages-li.active .page-heading svg path {
+        fill: #21C2D2; } }
   .core-header .page-heading {
-    -webkit-font-smoothing: subpixel-antialiased;
-    -moz-osx-font-smoothing: grayscale;
     cursor: default;
     display: inline-block;
     font-size: 18px;
@@ -772,6 +771,10 @@ button:not([type="button"]) {
       margin-left: 5px; }
       .core-header .page-heading svg path {
         transition: fill 0.15s ease-in-out; }
+    @media screen and (min-width: 768px) {
+      .core-header .page-heading {
+        -webkit-font-smoothing: subpixel-antialiased;
+        -moz-osx-font-smoothing: grayscale; } }
   .core-header .subpages {
     display: none;
     position: absolute;
@@ -801,8 +804,8 @@ button:not([type="button"]) {
       margin-right: 30px; }
     .core-header .pages-li {
       padding-left: 20px; }
-    .core-header .pages-li:last-of-type {
-      margin-right: 20px; }
+    .core-header .pages-button {
+      margin-left: 20px; }
     .core-header .page-heading {
       font-size: 16px; }
     .core-header .pages-li.active .page-heading:after {
@@ -867,6 +870,61 @@ button:not([type="button"]) {
       padding: 0 20px; }
       .core-header .logo {
         max-width: 80px; } }
+
+@media screen and (max-width: 767px) {
+  .nav-open .core-header .nav {
+    display: block;
+    position: fixed;
+    top: 48px;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: calc(100vh - 48px);
+    padding: 20px;
+    background-color: #fff;
+    overflow: hidden;
+    overflow-y: scroll; }
+    .nav-open .core-header .nav .pages {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+    .nav-open .core-header .nav .pages-li {
+      width: 33.3%;
+      margin-bottom: 30px;
+      padding-left: 0;
+      padding-right: 10px; }
+    .nav-open .core-header .nav .page-heading {
+      padding-bottom: 10px;
+      color: #3F3F3F;
+      font-weight: 500; }
+      .nav-open .core-header .nav .page-heading svg {
+        display: none; }
+    .nav-open .core-header .nav .subpages {
+      display: block;
+      position: static;
+      padding: 0;
+      width: 100%;
+      background-color: transparent; }
+    .nav-open .core-header .nav .subpages-li:not(:last-of-type) {
+      margin-bottom: 10px; }
+    .nav-open .core-header .nav .subpage-link {
+      font-size: 14px; }
+    .nav-open .core-header .nav .mobile-support-pages {
+      margin-top: 10px; }
+      .nav-open .core-header .nav .mobile-support-pages:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 3px;
+        margin-bottom: 17px;
+        background: linear-gradient(to right, #21c2d2 0%, #635feb 100%);
+        border-radius: 3px; } }
+
+@media screen and (max-width: 567px) {
+  .nav-open .core-header .nav .pages-li {
+    width: 50%; } }
 
 .core-content {
   width: 100%;
@@ -1451,6 +1509,9 @@ div.theme-reduce-top-spacing {
               order: 2;
       width: 100%;
       padding-bottom: 0; }
+    .blog-post-header.blog-post-header .left-blog-hero,
+    .customer-story-header.blog-post-header .left-blog-hero {
+      padding-top: 30px; }
     .blog-post-header .category,
     .customer-story-header .category {
       margin-bottom: 10px; }
