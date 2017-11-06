@@ -2630,6 +2630,7 @@ div.theme-reduce-top-spacing {
     display: flex; }
   .news .image {
     min-width: 180px;
+    width: calc(100% - 40px);
     margin-right: 40px; }
   .news .info {
     display: -webkit-box;
