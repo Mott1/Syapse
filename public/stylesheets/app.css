@@ -417,7 +417,8 @@ input {
   padding-bottom: 4px;
   border: none;
   border-bottom: 1px solid #D2D2D2;
-  background-color: transparent; }
+  background-color: transparent;
+  outline: 0; }
 
 button {
   cursor: pointer; }
@@ -431,8 +432,10 @@ button:not([type="button"]) {
   border-radius: 6px;
   background-color: transparent;
   transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out; }
-  .button:hover,
-  button:not([type="button"]):hover {
+  .button:hover, .button:focus,
+  button:not([type="button"]):hover,
+  button:not([type="button"]):focus {
+    color: #fff;
     background-color: #21C2D2; }
 
 .button[type="submit"],
@@ -446,7 +449,8 @@ textarea {
   padding-bottom: 4px;
   border: none;
   border-bottom: 1px solid #D2D2D2;
-  background-color: transparent; }
+  background-color: transparent;
+  outline: 0; }
 
 hr {
   display: block;
