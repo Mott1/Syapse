@@ -535,7 +535,7 @@ hr {
   background-color: #27b8d4; }
 
 .hero-info {
-  max-width: 1022px;
+  max-width: 970px;
   min-height: 180px;
   padding: 0 80px 80px; }
 
@@ -2216,7 +2216,7 @@ div.theme-reduce-top-spacing {
 .quote-block .assignment {
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin-left: 30px;
+  margin-top: 5px;
   font-size: 18px;
   line-height: 1.3em;
   color: #6D6D6D; }
@@ -2403,7 +2403,7 @@ div.theme-reduce-top-spacing {
   width: calc(100% / 5 - 30px); }
 
 .logo-grid .logo {
-  width: calc(16.66% - 30px);
+  width: calc(20% - 30px);
   margin: 0 15px 30px; }
 
 @media screen and (max-width: 1059px) {
