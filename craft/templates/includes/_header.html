@@ -28,7 +28,9 @@
 							{% set subpages = section.pages %}
 							{% set pageSection = section.pages.first().uri | split("/")[0] %}
 
+							{% nocache with {pageSection: pageSection} %}	
 							<li class="pages-li {% if craft.request.getFirstSegment() == pageSection %}active{% endif %}">
+							{% endnocache %}
 
 								<div class="page-heading">
 									

@@ -41,7 +41,10 @@
 
 	<main class="core-body" role="main">
 
+        {% set cacheKey = "nav" %}
+        {% cache globally using key cacheKey if craft.config.cache %}        
 		{% include 'includes/_header' %}
+        {% endcache %}
 
 		{% block content %}{% endblock %}
 
