@@ -2,14 +2,23 @@
 
 {% block content %}
 
-	<div class="core-content">
+	{# Set the cache key based on the url segments #}
+	{% set cacheKey = "page" %}
+	{% for key in craft.request.getSegments() %}
+		{% set cacheKey = cacheKey ~ "_" ~ key %}
+	{% endfor %}
+	{% cache globally using key cacheKey if craft.config.cache %}
 
-        {% include 'includes/headers/_headers-matrix' %}
+		<div class="core-content">
 
-	    {% include 'includes/partial/_article-list-2-column' with { articles: craft.entries.section('customers'), readMore: false } %}
+	        {% include 'includes/headers/_headers-matrix' %}
 
-        {% include 'includes/block/_block-matrix' %}
+		    {% include 'includes/partial/_article-list-2-column' with { articles: craft.entries.section('customers'), readMore: false } %}
 
-	</div>
+	        {% include 'includes/block/_block-matrix' %}
+
+		</div>
+
+	{% endcache %}
 
 {% endblock %}

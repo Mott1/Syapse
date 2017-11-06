@@ -7,43 +7,52 @@
 
 {% block content %}
 
-    <div class="core-content">
+    {# Set the cache key based on the url segments #}
+    {% set cacheKey = "page" %}
+    {% for key in craft.request.getSegments() %}
+        {% set cacheKey = cacheKey ~ "_" ~ key %}
+    {% endfor %}
+    {% cache globally using key cacheKey if craft.config.cache %}
 
-        {% if entry is defined and entry.slug == "blog" %}
+        <div class="core-content">
 
-            {% include 'includes/headers/_blogPost-header' with { entry: articles.first(), linkPostTitle: true } %}
-            {% set articles = articles.offset(1) %}
+            {% if entry is defined and entry.slug == "blog" %}
 
-        {% else %}
+                {% include 'includes/headers/_blogPost-header' with { entry: articles.first(), linkPostTitle: true } %}
+                {% set articles = articles.offset(1) %}
 
-            {% set heading = sectionTitle %}
-            {% set preHeading = "" %}
+            {% else %}
 
-            {% if isCategory is defined and isCategory %}
-                {% set preHeading = "Blog" %}
-                {% set heading = sectionTitle %}            
+                {% set heading = sectionTitle %}
+                {% set preHeading = "" %}
+
+                {% if isCategory is defined and isCategory %}
+                    {% set preHeading = "Blog" %}
+                    {% set heading = sectionTitle %}            
+                {% endif %}
+
+                {% set params = {
+                    heading: heading,
+                    preHeading: preHeading
+                } %}
+
+                {% include 'includes/headers/_standard-header' with params %}
+
             {% endif %}
 
-            {% set params = {
-                heading: heading,
-                preHeading: preHeading
-            } %}
+            <div class="listing-container">
 
-            {% include 'includes/headers/_standard-header' with params %}
+                <div class="global-wrapper">
 
-        {% endif %}
+                    {% include 'includes/partial/_article-list' %}
+                    {% include 'includes/partial/_sidebar' %}
 
-        <div class="listing-container">
-
-            <div class="global-wrapper">
-
-                {% include 'includes/partial/_article-list' %}
-                {% include 'includes/partial/_sidebar' %}
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+    {% endcache %}
 
 {% endblock %}

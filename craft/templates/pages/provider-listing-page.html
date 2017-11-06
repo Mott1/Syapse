@@ -4,29 +4,38 @@
 
 {% block content %}
 
-    <div class="core-content">
+{# Set the cache key based on the url segments #}
+    {% set cacheKey = "page" %}
+    {% for key in craft.request.getSegments() %}
+        {% set cacheKey = cacheKey ~ "_" ~ key %}
+    {% endfor %}
+    {% cache globally using key cacheKey if craft.config.cache %}
 
-        {% include 'includes/headers/_headers-matrix' %}
+        <div class="core-content">
 
-        {% include 'includes/block/_block-matrix' %}
+            {% include 'includes/headers/_headers-matrix' %}
 
-        {% for provider in providers %}
-            
-            {% if loop.index % 2 %}
-                {% set themes = "theme-darker-background imageLeft" %}
-            {% else %}
-                {% set themes = "imageRight" %}
-            {% endif %}
-            
-            {% set theBlock = {
-                themes: themes,
-                testimonial: provider
-            } %}
+            {% include 'includes/block/_block-matrix' %}
 
-            {% include 'includes/block/_quote-block' with { theBlock: theBlock } %}
+            {% for provider in providers %}
+                
+                {% if loop.index % 2 %}
+                    {% set themes = "theme-darker-background imageLeft" %}
+                {% else %}
+                    {% set themes = "imageRight" %}
+                {% endif %}
+                
+                {% set theBlock = {
+                    themes: themes,
+                    testimonial: provider
+                } %}
 
-        {% endfor %}
+                {% include 'includes/block/_quote-block' with { theBlock: theBlock } %}
 
-    </div>
+            {% endfor %}
+
+        </div>
+
+    {% endcache %}
 
 {% endblock %}

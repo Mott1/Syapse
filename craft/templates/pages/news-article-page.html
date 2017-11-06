@@ -2,56 +2,65 @@
 
 {% block content %}
 
-	<div class="core-content">
-		  
-        {% if entry.type == "blogPost" %}
-            {% include 'includes/headers/_blogPost-header' %}
+{# Set the cache key based on the url segments #}
+    {# {% set cacheKey = "page" %}
+    {% for key in craft.request.getSegments() %}
+        {% set cacheKey = cacheKey ~ "_" ~ key %}
+    {% endfor %}
+    {% cache globally using key cacheKey if craft.config.cache %} #}
 
-        {% elseif entry.type == "customerStory" %}
-            {% include 'includes/headers/_customerStory-header' %}
+    	<div class="core-content">
+    		  
+            {% if entry.type == "blogPost" %}
+                {% include 'includes/headers/_blogPost-header' %}
 
-        {% else %}
-            {% include 'includes/headers/_standard-news-hero' %}
+            {% elseif entry.type == "customerStory" %}
+                {% include 'includes/headers/_customerStory-header' %}
 
-        {% endif %}
+            {% else %}
+                {% include 'includes/headers/_standard-news-hero' %}
 
-        <div class="article-body">
+            {% endif %}
 
-            <div class="global-wrapper">
+            <div class="article-body">
 
-                <div class="blog-article">
+                <div class="global-wrapper">
 
-                    <h2 class="blog-subheading">{{ entry.subHeading }}</h2>
+                    <div class="blog-article">
 
-                    <div class="blog-body">
-                        {{ entry.body | typogrify }}
+                        <h2 class="blog-subheading">{{ entry.subHeading }}</h2>
+
+                        <div class="blog-body">
+                            {{ entry.body | typogrify }}
+                        </div>
+
+                        {% if entry.type.handle == "resource" %}
+                            
+                            {% if entry.download.count() %}
+                                {% set resourceUrl = entry.download.first().getUrl() | default("") %}
+                                {% set buttonText = "Download" %}
+                            {% else %}
+                                {% set resourceUrl = entry.externalLink | default("") %}
+                                {% set buttonText = "View more" %}
+                            {% endif %}
+                                            
+                            {% if resourceUrl != "" %}
+                                <a href="{{ resourceUrl }}" class="button">{{ buttonText }}</a>
+                            {% endif %}
+                            
+                        {% endif %}
+                        
                     </div>
 
-                    {% if entry.type.handle == "resource" %}
-                        
-                        {% if entry.download.count() %}
-                            {% set resourceUrl = entry.download.first().getUrl() | default("") %}
-                            {% set buttonText = "Download" %}
-                        {% else %}
-                            {% set resourceUrl = entry.externalLink | default("") %}
-                            {% set buttonText = "View more" %}
-                        {% endif %}
-                                        
-                        {% if resourceUrl != "" %}
-                            <a href="{{ resourceUrl }}" class="button">{{ buttonText }}</a>
-                        {% endif %}
-                        
-                    {% endif %}
-                    
-                </div>
+                    {# Add functionality for a resource link #}
+                    {% include 'includes/partial/_sidebar' %}
 
-                {# Add functionality for a resource link #}
-                {% include 'includes/partial/_sidebar' %}
+                </div>
 
             </div>
 
-        </div>
+    	</div>
 
-	</div>
+    {# {% endcache %} #}
 
 {% endblock %}

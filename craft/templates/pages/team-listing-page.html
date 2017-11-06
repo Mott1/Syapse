@@ -2,62 +2,71 @@
 
 {% block content %}
 
+    {# Set the cache key based on the url segments #}
+    {% set cacheKey = "page" %}
+    {% for key in craft.request.getSegments() %}
+        {% set cacheKey = cacheKey ~ "_" ~ key %}
+    {% endfor %}
+    {% cache globally using key cacheKey if craft.config.cache %}
+
     {% set teamTypes = craft.entries.section('team').level(1).status('null') %}
 
-	<div class="core-content">
+    	<div class="core-content">
 
-        <div class="modal">
+            <div class="modal">
 
-            <div class="modal-close" data-modal-type="team">
-                <img src="/images/ui/icon-close.svg" alt="close">
+                <div class="modal-close" data-modal-type="team">
+                    <img src="/images/ui/icon-close.svg" alt="close">
+                </div>
+
+                <div class="modal-info">
+                    <h2 class="name"></h2>
+                    <h2 class="job-title"></h2>
+                    <p class="bio"></p>
+                </div>
+
             </div>
 
-            <div class="modal-info">
-                <h2 class="name"></h2>
-                <h2 class="job-title"></h2>
-                <p class="bio"></p>
-            </div>
+            {% include 'includes/headers/_headers-matrix' %}
 
-        </div>
+            <div class="team-listing">
 
-        {% include 'includes/headers/_headers-matrix' %}
+                {% for type in teamTypes %}
 
-        <div class="team-listing">
+                    <div class="team-group">
 
-            {% for type in teamTypes %}
+                        <div class="global-wrapper">
+                    
+                            <h2 class="title">{{ type.title }}</h2>
 
-                <div class="team-group">
+                            <div class="members">
 
-                    <div class="global-wrapper">
-                
-                        <h2 class="title">{{ type.title }}</h2>
+                                {% for employee in type.getChildren() %}
+                                    
+                                    <div class="team-member {% if type.title == "Leadership" %}modal-link{% endif %}" {% if type.title == "Leadership" %}data-modal-type="team" data-name="{{ employee.title }}" data-job-title="{{ employee.jobTitle }}" data-bio="{{ employee.bio }}"{% endif %}>
+                                        <img class="headshot" src="{{ employee.headshot.first().url | default('/images/ui/team-member-default.png') }}">
+                                        {% if type.title == "Leadership" %}
+                                            <h3 class="name">{{ employee.title }}</h3>
+                                            <p class="job-title">{{ employee.jobTitle }}</p>
+                                        {% endif %}
+                                    </div>
 
-                        <div class="members">
+                                {% endfor %}
 
-                            {% for employee in type.getChildren() %}
-                                
-                                <div class="team-member {% if type.title == "Leadership" %}modal-link{% endif %}" {% if type.title == "Leadership" %}data-modal-type="team" data-name="{{ employee.title }}" data-job-title="{{ employee.jobTitle }}" data-bio="{{ employee.bio }}"{% endif %}>
-                                    <img class="headshot" src="{{ employee.headshot.first().url | default('/images/ui/team-member-default.png') }}">
-                                    {% if type.title == "Leadership" %}
-                                        <h3 class="name">{{ employee.title }}</h3>
-                                        <p class="job-title">{{ employee.jobTitle }}</p>
-                                    {% endif %}
-                                </div>
-
-                            {% endfor %}
+                            </div>
 
                         </div>
 
                     </div>
 
-                </div>
+                {% endfor %}
 
-            {% endfor %}
+            </div>
 
-        </div>
+            {% include 'includes/block/_block-matrix' %}
 
-        {% include 'includes/block/_block-matrix' %}
+    	</div>
 
-	</div>
+    {% endcache %}
 
 {% endblock %}

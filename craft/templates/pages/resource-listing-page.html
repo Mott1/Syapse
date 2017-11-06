@@ -2,19 +2,28 @@
 
 {% block content %}
 
+	{# Set the cache key based on the url segments #}
+    {% set cacheKey = "page" %}
+    {% for key in craft.request.getSegments() %}
+        {% set cacheKey = cacheKey ~ "_" ~ key %}
+    {% endfor %}
+    {% cache globally using key cacheKey if craft.config.cache %}
+
     {% set resources = craft.entries.section('resources') %}
 
-	<div class="core-content resource-listing">
+		<div class="core-content resource-listing">
 
-        {% set params = {
-            heading: entry.title,
-            preHeading: ""
-        } %}
+	        {% set params = {
+	            heading: entry.title,
+	            preHeading: ""
+	        } %}
 
-        {% include 'includes/headers/_standard-header' with params %}
+	        {% include 'includes/headers/_standard-header' with params %}
 
-        {% include 'includes/partial/_article-list-2-column' with { articles: resources, readMore: true } %}
+	        {% include 'includes/partial/_article-list-2-column' with { articles: resources, readMore: true } %}
 
-	</div>
+		</div>
+
+	{% endcache %}
 
 {% endblock %}

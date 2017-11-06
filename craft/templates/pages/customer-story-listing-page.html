@@ -4,65 +4,74 @@
 
 {% block content %}
 
-    <div class="core-content">
-        
-        <div class="customer-stories-header theme-darker-background">
+    {# Set the cache key based on the url segments #}
+    {% set cacheKey = "page" %}
+    {% for key in craft.request.getSegments() %}
+        {% set cacheKey = cacheKey ~ "_" ~ key %}
+    {% endfor %}
+    {% cache globally using key cacheKey if craft.config.cache %}
 
-            <div class="global-wrapper">
+        <div class="core-content">
+            
+            <div class="customer-stories-header theme-darker-background">
 
-                {% for article in articles.limit(2) %}
+                <div class="global-wrapper">
 
-                    {% set customerLogoURL = article.customer.first().logo.first().getUrl("") | default("") %}
+                    {% for article in articles.limit(2) %}
 
-                    <div class="customer-stories-header-{{ loop.index }}">
+                        {% set customerLogoURL = article.customer.first().logo.first().getUrl("") | default("") %}
 
-                        {% if loop.index0 == 0%}
-                            {% set thumbnailUrl = article.heroImage.first().getUrl() | default("http://via.placeholder.com/180x180") %}
-                        {% else %}
-                            {% set thumbnailUrl = article.heroImage.first().getUrl() | default("http://via.placeholder.com/110x110") %}
-                        {% endif %}
-                        
-                        <div class="background" style="background-image: url('{{ thumbnailUrl }}');"></div>
-
-                        <div class="info">
-
-                            <img class="logo" src="{{ customerLogoURL }}" alt="">
+                        <div class="customer-stories-header-{{ loop.index }}">
 
                             {% if loop.index0 == 0%}
-                                <h2 class="title">{{ article.title }}</h2>
+                                {% set thumbnailUrl = article.heroImage.first().getUrl() | default("http://via.placeholder.com/180x180") %}
                             {% else %}
-                                <h3 class="title">{{ article.title }}</h3>
+                                {% set thumbnailUrl = article.heroImage.first().getUrl() | default("http://via.placeholder.com/110x110") %}
                             {% endif %}
+                            
+                            <div class="background" style="background-image: url('{{ thumbnailUrl }}');"></div>
 
-                            {% if loop.index0 == 0%}
-                                <p class="description">{{ article.body | striptags | slice(0, 100) | trim  ~ '...' }}</p>
-                            {% endif %}                    
+                            <div class="info">
 
-                            <div class="link-wrapper">
-                                <a class="link" href="{{ article.url }}">Read</a>
+                                <img class="logo" src="{{ customerLogoURL }}" alt="">
+
+                                {% if loop.index0 == 0%}
+                                    <h2 class="title">{{ article.title }}</h2>
+                                {% else %}
+                                    <h3 class="title">{{ article.title }}</h3>
+                                {% endif %}
+
+                                {% if loop.index0 == 0%}
+                                    <p class="description">{{ article.body | striptags | slice(0, 100) | trim  ~ '...' }}</p>
+                                {% endif %}                    
+
+                                <div class="link-wrapper">
+                                    <a class="link" href="{{ article.url }}">Read</a>
+                                </div>
+
                             </div>
 
                         </div>
 
-                    </div>
+                    {% endfor %}
 
-                {% endfor %}
+                </div>
+
+            </div>
+
+            <div class="listing-container">
+
+                <div class="global-wrapper">
+
+                    {% include 'includes/partial/_article-list' with { articles: articles.offset(1) } %}
+                    {% include 'includes/partial/_sidebar' %}
+
+                </div>
 
             </div>
 
         </div>
 
-        <div class="listing-container">
-
-            <div class="global-wrapper">
-
-                {% include 'includes/partial/_article-list' with { articles: articles.offset(1) } %}
-                {% include 'includes/partial/_sidebar' %}
-
-            </div>
-
-        </div>
-
-    </div>
+    {% endcache %}
 
 {% endblock %}
