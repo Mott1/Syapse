@@ -52,6 +52,10 @@
 			margin-bottom: 30px;
 		}
 
+		li:last-of-type .description {
+			margin-bottom: 0;
+		}
+
 		.info {
 			width: calc(100% - 115px);
 		}
