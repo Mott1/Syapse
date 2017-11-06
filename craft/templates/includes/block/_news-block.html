@@ -29,7 +29,7 @@
 
 	{% set parentURI = post.uri | split('/') | slice(0,2) | join('/') %}
 	{% set newsDescription = post.body | default('') %}
-	{% set newsThumbnailUrl = post.thumbnail.first().getUrl() | default('http://via.placeholder.com/180x180') %}
+	{% set newsThumbnailUrl = post.heroImage.first().getUrl() | default('http://via.placeholder.com/180x180') %}
     {% set readMore = post.url | default("#") %}
 
     {% if post.type.handle == "inTheNewsArticle" %}
