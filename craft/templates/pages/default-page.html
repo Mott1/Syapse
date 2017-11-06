@@ -2,12 +2,19 @@
 
 {% block content %}
 
+{% set shouldCache = true %}
+
+	{# If we have a partial cake, abort caching #}
+	{% for block in entry.contentBlocks.find() if (block.type.handle == 'partial' and block.partial.value == "jobOpenings" ) %}
+	    {% set shouldCache = false %}
+	{% endfor %}
+
 	{# Set the cache key based on the url segments #}
 	{% set cacheKey = "page" %}
 	{% for key in craft.request.getSegments() %}
 		{% set cacheKey = cacheKey ~ "_" ~ key %}
 	{% endfor %}
-	{% cache globally using key cacheKey if craft.config.cache %}
+	{% cache globally using key cacheKey if (craft.config.cache and shouldCache) %}
 
 		<div class="core-content">
 			{% include 'includes/headers/_headers-matrix' %}
