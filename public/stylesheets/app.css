@@ -2407,7 +2407,7 @@ div.theme-reduce-top-spacing {
   width: calc(100% / 5 - 30px); }
 
 .logo-grid .logo {
-  width: calc(20% - 30px);
+  width: calc(16.66% - 30px);
   margin: 0 15px 30px; }
 
 @media screen and (max-width: 1059px) {
