@@ -48,7 +48,7 @@ return array(
         'siteUrl' => 'http://localhost:8888/',
 
         'devMode' => true,
-        'cache' => true,
+        'cache' => false,
 
         'environmentVariables' => array(
             'baseUrl' => 'http://localhost:8888/',
