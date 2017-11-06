@@ -907,6 +907,8 @@ button:not([type="button"]) {
       padding: 0;
       width: 100%;
       background-color: transparent; }
+    .nav-open .core-header .nav .subpages-li {
+      list-style: none; }
     .nav-open .core-header .nav .subpages-li:not(:last-of-type) {
       margin-bottom: 10px; }
     .nav-open .core-header .nav .subpage-link {
@@ -1114,8 +1116,7 @@ button:not([type="button"]) {
     .core-footer .pages-li {
       width: 25%; }
     .core-footer .pages-li-group {
-      width: 100%;
-      margin-bottom: 0; }
+      width: 100%; }
     .core-footer .copyright {
       margin-top: 0;
       text-align: left; }
