@@ -45,7 +45,7 @@
                                     
                                     <div class="team-member {% if type.title == "Leadership" %}modal-link{% endif %}" {% if type.title == "Leadership" %}data-modal-type="team" data-name="{{ employee.title }}" data-job-title="{{ employee.jobTitle }}" data-bio="{{ employee.bio }}"{% endif %}>
                                         <img class="headshot" src="{{ employee.headshot.first().url | default('/images/ui/team-member-default.png') }}">
-                                        {% if type.title == "Leadership" %}
+                                        {% if type.title == "Leadership" or type.title == "Board of Directors" %}
                                             <h3 class="name">{{ employee.title }}</h3>
                                             <p class="job-title">{{ employee.jobTitle }}</p>
                                         {% endif %}
