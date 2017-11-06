@@ -49,11 +49,13 @@
 
 									<ul class="subpages">
 
-									{% for subpage in subpages %}
+									{% for subpage in subpages.status('all') %}
 								
 										<li class="subpages-li">
 
-											<a class="subpage-link subpage-{{ loop.index }}" href="{{ subpage.url }}" title="{{ subpage.title }}">{{ subpage.title }}</a>
+											{# if it's the partners page, link to the first child #}
+											{% set url = subpage.slug == 'partners' ? subpage.getChildren().first().url : subpage.url %}
+											<a class="subpage-link subpage-{{ loop.index }}" href="{{ url }}" title="{{ subpage.title }}">{{ subpage.title }}</a>
 											
 										</li>
 
