@@ -59,7 +59,7 @@
     {% set iframe = "" %}
 
     {% if article.externalLink != "" %}
-        {% set readMoreText = "Read Article" %}
+        {% set readMoreText = "Read article" %}
         {% set readMoreLink = article.externalLink %}                                
     {% endif %}                               
 
@@ -71,7 +71,7 @@
     {% endif %}                            
 
     {% if article.videoEmbed != "" %}
-        {% set readMoreText = "Watch Video" %}
+        {% set readMoreText = "Watch video" %}
         {% set readMoreLink = "#" %}
         {% set readMoreClasses = "modal-link" %}
         {% set iframe = article.videoEmbed %}                                
