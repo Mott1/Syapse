@@ -13,9 +13,13 @@
 
 	        {% include 'includes/headers/_headers-matrix' %}
 
+	        {% include 'includes/block/_block-matrix' %}
+
 		    {% include 'includes/partial/_article-list-2-column' with { articles: craft.entries.section('customers'), readMore: false } %}
 
-	        {% include 'includes/block/_block-matrix' %}
+		    {% set newsBlockTheme = craft.entries.section('themes').slug('theme-reduce-top-spacing') %}
+
+	        {% include 'includes/block/_news-block' with { theBlock: { themes: newsBlockTheme } } %}
 
 		</div>
 

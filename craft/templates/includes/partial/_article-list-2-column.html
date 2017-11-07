@@ -30,7 +30,17 @@
                 {% elseif article.type.handle == "customer" %}
                     {% set thumbnailUrl = article.logo.first().getUrl() | default('http://via.placeholder.com/180x200') %}                   
                 {% else %}
+                    
                     {% set thumbnailUrl = article.heroImage.first().getUrl() | default('http://via.placeholder.com/180x200') %}
+                    
+                    {% set readMore = article.url | default("") %}
+                    {% set body = article.body | striptags | slice(0, 140) | trim  ~ '...' | convert_encoding('UTF-8', 'HTML-ENTITIES') %}
+
+                    {% if article.type.handle == "inTheNewsArticle" %}
+                        {% set readMore = article.externalLink | default("") %}
+                        {% set body = article.body | striptags | convert_encoding('UTF-8', 'HTML-ENTITIES') %}
+                    {% endif %}
+
                 {% endif %}
 
                 {% set description = article.description | striptags %}
@@ -48,10 +58,22 @@
                                 {{ description }}
                             </p>
                         {% endif %}
+
+                        {% if body is defined %}
+                            <p class="description">
+                                {{ body }}
+                            </p>
+                        {% endif %}
                         
-                        {% if readMore %}
+                        {% if readMore and article.type.handle == "resource" %}
 
                             {{ helpers.buildResourceButton( { article: article } ) }}
+
+                        {% else %}
+                            
+                            {% if readMore != "" %}
+                                <a class="link" href="{{ readMore }}">Read</a>
+                            {% endif %}
 
                         {% endif %}
 

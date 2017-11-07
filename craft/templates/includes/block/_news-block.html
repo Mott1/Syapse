@@ -1,4 +1,4 @@
-{% set themes = helpers.getThemes(theBlock.themes) | trim  %}
+{% set themes = helpers.getThemes(theBlock.themes) | trim %}
 
 {% set leftNews = theBlock.news[0] | default(craft.entries.section('inTheNews').order('postDate desc').first()) %}
 {% set rightNews = theBlock.news[1] | default(craft.entries.section('blog').order('postDate desc').first()) %}

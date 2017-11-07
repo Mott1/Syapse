@@ -246,6 +246,7 @@
 	&.article-list-2-column {
 
 		width: 100%;
+		padding-right: 0;
 
 		.global-wrapper {
 			@include sectionPadding;
