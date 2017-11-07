@@ -1183,6 +1183,11 @@ div.theme-reduce-top-spacing {
   div.theme-reduce-top-spacing .global-wrapper {
     padding-top: 0; }
 
+div.theme-reduce-bottom-spacing {
+  padding-bottom: 0; }
+  div.theme-reduce-bottom-spacing .global-wrapper {
+    padding-bottom: 0; }
+
 @media screen and (min-width: 768px) {
   .theme-hide-on-desktop {
     display: none !important; } }
@@ -2573,7 +2578,7 @@ div.theme-reduce-top-spacing {
 
 .copy-block .global-wrapper {
   padding: 100px 80px;
-  max-width: 1200px; }
+  max-width: 1280px; }
   @media screen and (max-width: 767px) {
     .copy-block .global-wrapper {
       padding: 40px 20px; } }

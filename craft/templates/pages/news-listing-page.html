@@ -42,12 +42,25 @@
 
             <div class="listing-container">
 
-                {# <div class="global-wrapper"> #}
+                {% if entry is defined and entry.slug == "press-releases" %}
 
-                    {% include 'includes/partial/_article-list-2-column' with {readMore: true} %}
-                    {# {% include 'includes/partial/_sidebar' %} #}
+                    <div class="global-wrapper">
 
-                {# </div> #}
+                        {% include 'includes/partial/_article-list' with {readMore: true} %}
+                        {% include 'includes/partial/_sidebar' %}
+
+                    </div>
+
+                {% else %}
+                    
+                    {# <div class="global-wrapper"> #}
+
+                        {% include 'includes/partial/_article-list-2-column' with {readMore: true} %}
+                        {# {% include 'includes/partial/_sidebar' %} #}
+
+                    {# </div> #}
+
+                {% endif %}
 
             </div>
 

@@ -30,6 +30,16 @@ div.theme-reduce-top-spacing {
 	
 }
 
+div.theme-reduce-bottom-spacing {
+
+	padding-bottom: 0;
+
+	.global-wrapper {
+		padding-bottom: 0;
+	}
+	
+}
+
 @media screen and (min-width: 768px) {
 	.theme-hide-on-desktop {
 		display: none !important;
