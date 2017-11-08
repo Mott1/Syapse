@@ -19,9 +19,9 @@
 					{{ craft.inlin.er('/images/logos/syapse.svg') | raw }}
 				</a>
 
-				<div class="slogan">
+				{# <div class="slogan">
 					{{ companySlogan }}
-				</div>
+				</div> #}
 
 			</div>
 			
@@ -73,11 +73,13 @@
 		
 								<div class="pages-li-group">
 
-									<li class="pages-li-group theme-hide-on-mobile">
+									<li class="pages-li-group">
 
-										<div class="page-heading">
-											{{ section.heading }}
-										</div>
+										{% if section.heading != "" %}
+											<div class="page-heading">
+												{{ section.heading }}
+											</div>
+										{% endif %}
 
 										<ul class="subpages">
 											<li class="subpages-li">
@@ -93,9 +95,9 @@
 
 										<li class="pages-li social">
 
-											<div class="page-heading">
+											{# <div class="page-heading">
 												Social
-											</div>
+											</div> #}
 
 											<ul class="subpages">
 											

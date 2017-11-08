@@ -26,7 +26,7 @@
 				{% set iconAssetUrl = iconAsset.url() %}
 				{% set iconAssetAlt = iconAsset.alt | default('') %}
 
-				<li class="icon {% if iconDescription != "" %}align-top{% endif %}">
+				<li class="icon {% if iconHeading != "" %}align-top{% endif %}">
 
 					<img class="icon-image" src="{{ iconAssetUrl }}" alt="{{ iconAssetAlt }}">
 

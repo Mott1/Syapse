@@ -407,6 +407,10 @@
 	padding: 40px 80px 60px;
 	background-color: $lightGray;
 
+	.global-wrapper {
+		position: relative;
+	}
+
 	.content-wrapper {
 		@include clearfix;
 		width: 100%;
@@ -478,19 +482,26 @@
 		float: left;
 		margin-bottom: 30px;
 		padding-right: 20px;
-		width: calc(25% - 45px);
+		width: 20%;
 	}
 
 	.pages-li-group {
+		clear: both;
+	}
+
+	.pages-li-group > .pages-li-group {
 		float: left;
-		margin-bottom: 30px;
-		width: 180px;
+		margin-bottom: 0;
 	}
 
 	.pages-li-group .pages-li {
+		float: left;
 		margin-right: 0;
 		padding-right: 0;
-		width: 100%;
+	}
+
+	.pages-li-group .subpages-li {
+		margin-bottom: 0;
 	}
 
 	.page-heading {
@@ -523,14 +534,24 @@
 	// Social
 	.social {
 
-		.page-heading {
-			margin-bottom: 5px;
+		// .page-heading {
+		// 	margin-bottom: 5px;
+		// }
+
+		margin-left: 30px;
+		margin-bottom: 0;
+
+		.subpages {
+			display: flex;
+			align-items: center;
+			min-height: 36px;
 		}
 
 		.subpages-li {
 			display: inline-block;
 			margin-right: 5px;
 			margin-bottom: 0;
+			height: 25px;
 		}
 
 		a {
@@ -570,10 +591,14 @@
 	// Copyright
 	.copyright {
 		@include clearfix;
-		width: 100%;
-		margin-top: 60px;
+		width: calc(100% - 230px);
+		margin-top: 20px;
+		margin-left: 230px;
 		font-size: 14px;
-		text-align: center;
+	}
+
+	.copyright br {
+		display: none;
 	}
 
 	.privacy-policy {
@@ -608,6 +633,11 @@
 			width: 100%;
 		}
 
+		.copyright {
+			margin-left: 0;
+			width: 100%;
+		}
+
 	}
 
 	@media screen and (max-width: 960px) {
@@ -634,11 +664,22 @@
 	@media screen and (max-width: 870px) {
 
 		.pages-li {
-			width: 25%;
+			width: 33.3%;
 		}
 
 		.pages-li-group {
+			clear: none;
+			float: left;
+			width: 33.3%;
+		}
+
+		.pages-li-group > .pages-li-group {
 			width: 100%;
+		}
+
+		.pages-li-group .pages-li.social {
+			margin-left: 0;
+			margin-top: 20px;
 		}
 
 		.copyright {
@@ -691,9 +732,22 @@
 			width: 50%;
 		}
 
+		.pages-li-group {
+			width: 50%;
+		}
+
 		.subpage-link, 
 		.copyright {
 			font-size: 12px;
+		}
+
+	}
+
+	@media screen and (max-width: 420px) {
+
+		.subpages .button {
+			padding-top: 11px;
+			font-size: 11px;
 		}
 
 	}
