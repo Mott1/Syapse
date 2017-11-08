@@ -76,13 +76,13 @@
 
                         {% if description is defined %}
                             <p class="description">
-                                {{ description }}
+                                {{ description | replace("&nbsp;", " ") }}
                             </p>
                         {% endif %}
 
                         {% if body is defined %}
                             <p class="description">
-                                {{ body }}
+                                {{ body | replace("&nbsp;", " ") }}
                             </p>
                         {% endif %}
                         
