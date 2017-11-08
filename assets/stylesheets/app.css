@@ -1924,18 +1924,17 @@ button:not([type="button"]) {
   width: calc(25% - 30px);
   margin: 30px 15px 0; }
 
+.icon-list .icon.align-top {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+
 .icon-list .icon-image {
   width: 72px;
   margin-right: 35px; }
 
 .icon-list .info {
   width: calc(100% - 107px); }
-
-.icon-list .icon-title {
-  margin-bottom: 0; }
-
-.icon-list .description {
-  margin-top: 20px; }
 
 @media screen and (max-width: 1240px) {
   .icon-list .list .icon {

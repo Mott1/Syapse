@@ -20,19 +20,21 @@
 
 				{% for icon in iconList %}
 
-				{% set iconHeading = icon.heading %}
 				{% set iconTitle = icon.title %}
+				{% set iconHeading = icon.heading %}
 				{% set iconAsset = icon.icon.first() %}
 				{% set iconAssetUrl = iconAsset.url() %}
 				{% set iconAssetAlt = iconAsset.alt | default('') %}
 
-				<li class="icon">
+				<li class="icon {% if iconHeading != "" %}align-top{% endif %}">
 
 					<img class="icon-image" src="{{ iconAssetUrl }}" alt="{{ iconAssetAlt }}">
 
 					<div class="info">
 
-						<h4 class="icon-title">{{ iconTitle }}</h4>
+						{% if iconTitle != "" %}
+							<h4 class="icon-title">{{ iconTitle }}</h4>
+						{% endif %}
 
 						{% if iconHeading != "" %}
 							<p class="description">{{ iconHeading }}</p>
