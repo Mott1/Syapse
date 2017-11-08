@@ -34,7 +34,7 @@
 
     {% if post.type.handle == "inTheNewsArticle" %}
         {% set readMore = post.externalLink | default("#") %}
-		{% set newsDescription = post.body | striptags | convert_encoding('UTF-8', 'HTML-ENTITIES') %}
+		{% set newsDescription = post.excerpt | default(post.body | striptags | convert_encoding('UTF-8', 'HTML-ENTITIES')) %}
     {% endif %}
 
 	<h4 class="heading">
