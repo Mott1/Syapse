@@ -28,12 +28,13 @@
 {% macro article(post) %}
 
 	{% set parentURI = post.uri | split('/') | slice(0,2) | join('/') %}
-	{% set newsDescription = post.body | default('') %}
+	{% set newsDescription = post.excerpt | default(post.body | striptags | slice(0, 140) | trim ~ '…' ) %}
 	{% set newsThumbnailUrl = post.heroImage.first().getUrl() | default('http://via.placeholder.com/180x180') %}
     {% set readMore = post.url | default("#") %}
 
     {% if post.type.handle == "inTheNewsArticle" %}
         {% set readMore = post.externalLink | default("#") %}
+		{% set newsDescription = post.excerpt | default(post.body | striptags | convert_encoding('UTF-8', 'HTML-ENTITIES')) %}
     {% endif %}
 
 	<h4 class="heading">
@@ -55,7 +56,7 @@
 			</h5>
 
 			<p class="excerpt">
-				{{ newsDescription | length > 100 ? newsDescription | striptags | slice(0, 100) | trim ~ '…' : newsDescription | striptags }}
+				{{ newsDescription }}
 			</p>
 
             <a class="link" href="{{ readMore }}">Read</a>

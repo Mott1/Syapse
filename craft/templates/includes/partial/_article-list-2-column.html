@@ -58,7 +58,7 @@
                     {% set thumbnailUrl = article.heroImage.first().getUrl() | default('http://via.placeholder.com/180x200') %}
                     
                     {% set readMore = article.url | default("") %}
-                    {% set body = article.body | striptags | slice(0, 140) | trim  ~ '...' | convert_encoding('UTF-8', 'HTML-ENTITIES') %}
+                    {% set body = article.excerpt | default(article.body | striptags | slice(0, 140) | trim ~ '…' ) %}
 
                     {% if article.type.handle == "inTheNewsArticle" %}
                         {% set readMore = article.externalLink | default("") %}
@@ -76,16 +76,12 @@
                     <div class="info">
 
                         {% if article.type.handle == "customer" and customerStoryURL != "" %}
-
                             <h3 class="heading"><a href="{{ customerStoryURL }}">{{ article.title }}</a></h3>
 
                         {% else %}
-                            
                             <h3 class="heading">{{ article.title }}</h3>
 
                         {% endif %}
-                        
-
 
                         {% if description is defined %}
                             <p class="description">
