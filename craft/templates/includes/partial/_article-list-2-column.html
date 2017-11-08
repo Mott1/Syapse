@@ -49,7 +49,10 @@
                     {% endif %}
 
                 {% elseif article.type.handle == "customer" %}
-                    {% set thumbnailUrl = article.logo.first().getUrl() | default('http://via.placeholder.com/180x200') %}                   
+
+                    {% set thumbnailUrl = article.logo.first().getUrl() | default('http://via.placeholder.com/180x200') %}
+                    {% set customerStoryURL = craft.entries.section('customerStories').relatedTo(article).first().url | default(article.externalLink) %}
+
                 {% else %}
                     
                     {% set thumbnailUrl = article.heroImage.first().getUrl() | default('http://via.placeholder.com/180x200') %}
@@ -72,7 +75,18 @@
 
                     <div class="info">
 
-                        <h3 class="heading">{{ article.title }}</h3>
+                        {% if article.type.handle == "customer" and customerStoryURL != "" %}
+
+
+                            <h3 class="heading"><a href="{{ customerStoryURL }}">{{ article.title }}</a></h3>
+
+                        {% else %}
+                            
+                            <h3 class="heading">{{ article.title }}</h3>
+
+                        {% endif %}
+                        
+
 
                         {% if description is defined %}
                             <p class="description">
