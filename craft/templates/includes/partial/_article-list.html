@@ -8,12 +8,11 @@
 
             {% set thumbnailUrl = article.heroImage.first().getUrl() | default('http://via.placeholder.com/180x200') %}
             {% set readMore = article.url | default("") %}
-            {% set body = article.body | striptags | slice(0, 140) | trim  ~ '...' | convert_encoding('UTF-8', 'HTML-ENTITIES') %}
+            {% set body = article.excerpt | default(article.body | striptags | slice(0, 140) | trim ~ '…' ) %}
 
             {% if article.type.handle == "inTheNewsArticle" %}
                 {% set readMore = article.externalLink | default("") %}
                 {% set body = article.body | striptags | convert_encoding('UTF-8', 'HTML-ENTITIES') %}
-
             {% endif %}
 
             <div class="article-item {% if loop.index == 1 %}isFirst{% endif %}">

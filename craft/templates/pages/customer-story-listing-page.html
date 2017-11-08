@@ -20,6 +20,7 @@
                     {% for article in articles.limit(2) %}
 
                         {% set customerLogoURL = article.customer.first().logo.first().getUrl("") | default("") %}
+                        {% set body = article.excerpt | default(article.body | striptags | slice(0, 140) | trim ~ '…' ) %}
 
                         <div class="customer-stories-header-{{ loop.index }}">
 
@@ -42,7 +43,7 @@
                                 {% endif %}
 
                                 {% if loop.index0 == 0%}
-                                    <p class="description">{{ article.body | striptags | slice(0, 100) | trim  ~ '...' }}</p>
+                                    <p class="description">{{ body }}</p>
                                 {% endif %}                    
 
                                 <div class="link-wrapper">
