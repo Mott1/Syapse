@@ -15,7 +15,8 @@
 
 	        {% set params = {
 	            heading: entry.title,
-	            preHeading: ""
+	            preHeading: "",
+                iconURL: entry.icon.first().getUrl() | default(siteUrl ~ 'images/ui/temp-hero-icon.svg')
 	        } %}
 
 	        {% include 'includes/headers/_standard-header' with params %}
