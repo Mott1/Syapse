@@ -617,6 +617,7 @@ hr {
 body {
   font-family: "museo-sans", sans-serif;
   font-size: 18px;
+  font-weight: 300;
   color: #4A4A4A; }
 
 h1, h2, h3, h4, h5, h6 {
