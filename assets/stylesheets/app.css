@@ -1571,6 +1571,11 @@ button:not([type="button"]) {
         margin-right: 40px; }
     .article-list.article-list-2-column .image {
       background-color: #F4F5F6; }
+    .article-list.article-list-2-column .heading a {
+      color: #21C2D2;
+      transition: color 0.15s ease-in-out; }
+      .article-list.article-list-2-column .heading a:hover {
+        color: #1a99a6; }
     .article-list.article-list-2-column .description {
       font-size: 16px; }
     @media screen and (max-width: 1200px) and (min-width: 1024px) {
@@ -1970,7 +1975,6 @@ button:not([type="button"]) {
       -ms-flex-order: 1;
           order: 1;
   width: 50%;
-  min-height: 460px;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain; }

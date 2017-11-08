@@ -1,6 +1,6 @@
 {% set mainNavPages = craft.entries.section('pages').status('all').level(1) %}
 {% set partnersIndexUrl = craft.entries.section('pages').slug('partners').status('all').first().children()[0].url %}
-{% set companySlogan = footer.companySlogan | default('#') %}
+{% set companySlogan = footer.companySlogan | default('') %}
 {% set facebookUrl = footer.socialFacebook | default('#') %}
 {% set twitterUrl = footer.socialTwitter | default('#') %}
 {% set linkedInUrl = footer.socialLinkedin | default('#') %}
