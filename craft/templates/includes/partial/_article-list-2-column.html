@@ -25,8 +25,29 @@
             {% for article in articles %}
 
                 {% if article.type.handle == "resource" %}
+
                     {# get the resource icon #}
-                    {% set thumbnailUrl = 'http://via.placeholder.com/180x200' %}
+
+                    {% if article.externalLink != "" %}
+                        {# Read article #}
+                        {% set thumbnailUrl = '/images/ui/resources-article.svg' %}                             
+                    {% endif %}                               
+
+                    {% if article.download.count() %}
+                        {# Download #}
+                        {% set thumbnailUrl = '/images/ui/resources-PDF.svg' %}
+                    {% endif %}                            
+
+                    {% if article.videoEmbed != "" %}
+                        {# Watch video #}
+                        {% set thumbnailUrl = '/images/ui/resources-video.svg' %}                               
+                    {% endif %}    
+
+                    {% if article.iframe !="" %}
+                        {# Download #}
+                        {% set thumbnailUrl = '/images/ui/resources-PDF.svg' %}
+                    {% endif %}
+
                 {% elseif article.type.handle == "customer" %}
                     {% set thumbnailUrl = article.logo.first().getUrl() | default('http://via.placeholder.com/180x200') %}                   
                 {% else %}

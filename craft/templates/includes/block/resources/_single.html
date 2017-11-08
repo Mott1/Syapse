@@ -5,7 +5,27 @@
 {% set title = resource.title | default('') %}
 {% set link = resource.url | default('#') %}
 
-{% set image = "" | default("http://via.placeholder.com/180x130") %}
+{# get the resource icon #}
+
+{% if resource.externalLink != "" %}
+    {# Read article #}
+    {% set image = '/images/ui/resources-article.svg' | default("http://via.placeholder.com/180x130") %}                             
+{% endif %}                               
+
+{% if resource.download.count() %}
+    {# Download #}
+    {% set image = '/images/ui/resources-PDF.svg' | default("http://via.placeholder.com/180x130") %}
+{% endif %}                            
+
+{% if resource.videoEmbed != "" %}
+    {# Watch video #}
+    {% set image = '/images/ui/resources-video.svg' | default("http://via.placeholder.com/180x130") %}                               
+{% endif %}    
+
+{% if resource.iframe !="" %}
+    {# Download #}
+    {% set image = '/images/ui/resources-PDF.svg' | default("http://via.placeholder.com/180x130") %}
+{% endif %}
 
 <div class="resources-single {{ themes }}">
 

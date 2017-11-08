@@ -1178,15 +1178,17 @@ button:not([type="button"]) {
   background-color: transparent;
   color: #21C2D2; }
 
-div.theme-reduce-top-spacing {
-  padding-top: 0; }
-  div.theme-reduce-top-spacing .global-wrapper {
+@media screen and (min-width: 768px) {
+  div.theme-reduce-top-spacing {
     padding-top: 0; }
+    div.theme-reduce-top-spacing .global-wrapper {
+      padding-top: 0; } }
 
-div.theme-reduce-bottom-spacing {
-  padding-bottom: 0; }
-  div.theme-reduce-bottom-spacing .global-wrapper {
+@media screen and (min-width: 768px) {
+  div.theme-reduce-bottom-spacing {
     padding-bottom: 0; }
+    div.theme-reduce-bottom-spacing .global-wrapper {
+      padding-bottom: 0; } }
 
 @media screen and (min-width: 768px) {
   .theme-hide-on-desktop {
@@ -2479,9 +2481,11 @@ div.theme-reduce-bottom-spacing {
       align-self: stretch;
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover; }
+  background-size: contain;
+  background-color: #F9FAFB; }
 
 .resources-single .info {
+  width: 100%;
   padding: 40px; }
 
 .resources-single .title {
@@ -2492,7 +2496,7 @@ div.theme-reduce-bottom-spacing {
   min-width: 200px;
   margin-right: 40px; }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   .resources-single .resource {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -2504,8 +2508,7 @@ div.theme-reduce-bottom-spacing {
     padding: 30px; }
   .resources-single .button-container {
     width: 100%;
-    padding: 0 30px 30px;
-    text-align: center; }
+    padding: 0 30px 30px; }
   .resources-single .button {
     width: 100%;
     max-width: 300px; } }

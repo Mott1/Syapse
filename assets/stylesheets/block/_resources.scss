@@ -16,10 +16,12 @@
 		align-self: stretch;
 		background-position: center center;
 		background-repeat: no-repeat;
-		background-size: cover;
+		background-size: contain;
+		background-color: #F9FAFB;
 	}
 
 	.info {
+		width: 100%;
 		padding: 40px;
 	}
 
@@ -35,7 +37,7 @@
 
 // Responsive
 
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 768px) {
 
 		.resource {
 			flex-wrap: wrap;
@@ -54,7 +56,6 @@
 		.button-container {
 			width: 100%;
 			padding: 0 30px 30px;
-			text-align: center;
 		}
 
 		.button {
