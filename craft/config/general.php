@@ -39,6 +39,9 @@ return array(
         // Control Panel trigger word
         'cpTrigger' => 'admin',
 
+        // Disable Auto Updates
+        'allowAutoUpdates' => false,
+
         // Dev Mode (see https://craftcms.com/support/dev-mode)
         'devMode' => false,
 
@@ -51,6 +54,7 @@ return array(
 
         'siteUrl' => 'http://localhost:8888/',
 
+        'allowAutoUpdates' => true,
         'devMode' => true,
         'cache' => false,
 
