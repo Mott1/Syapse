@@ -21,7 +21,11 @@ return array(
         ),        
 
         // Environment-specific variables (see https://craftcms.com/docs/multi-environment-configs#environment-specific-variables)
-        'environmentVariables' => array(),
+        'environmentVariables' => array(
+            'baseUrl' => 'https://www.syapse.com/',
+            'basePath' => '/home/syapseadmin/webapps/prod_syapse/public/',
+            'inlinPublicRoot' => '/home/syapseadmin/webapps/prod_syapse/public/',
+        ),
 
         // Default Week Start Day (0 = Sunday, 1 = Monday...)
         'defaultWeekStartDay' => 0,
