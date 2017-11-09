@@ -559,7 +559,7 @@
 
 		position: relative;
 		width: 100%;
-		height: 33vw;
+		padding-bottom: 56.25%; /* 16:9 */
 
 		iframe {
 			position: absolute;
@@ -600,9 +600,9 @@
 			font-size: 14px;
 		}
 
-		.video-container {
-			height: 66vw;
-		}
+		// .video-container {
+		// 	height: 66vw;
+		// }
 
 	}
 
