@@ -1882,8 +1882,8 @@ button:not([type="button"]) {
 
 .cta .global-wrapper {
   padding: 100px 80px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1925,8 +1925,8 @@ button:not([type="button"]) {
 
 .icon-list .global-wrapper {
   padding: 100px 80px;
-  padding-top: 50px;
-  padding-bottom: 50px; }
+  padding-top: 80px;
+  padding-bottom: 80px; }
   @media screen and (max-width: 767px) {
     .icon-list .global-wrapper {
       padding: 40px 20px; } }
@@ -2001,8 +2001,8 @@ button:not([type="button"]) {
 
 .image-copy .global-wrapper {
   padding: 100px 80px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
@@ -2133,8 +2133,8 @@ button:not([type="button"]) {
 
 .image-copy-small-icon-list .global-wrapper {
   padding: 100px 80px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
@@ -2197,8 +2197,8 @@ button:not([type="button"]) {
 
 .quote-block .global-wrapper {
   padding: 100px 80px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2428,8 +2428,8 @@ button:not([type="button"]) {
 
 .logo-grid .global-wrapper {
   padding: 100px 80px;
-  padding-top: 50px;
-  padding-bottom: 50px; }
+  padding-top: 80px;
+  padding-bottom: 80px; }
   @media screen and (max-width: 767px) {
     .logo-grid .global-wrapper {
       padding: 40px 20px; } }
@@ -2523,8 +2523,8 @@ button:not([type="button"]) {
 
 .resources-single .global-wrapper {
   padding: 100px 80px;
-  padding-top: 50px;
-  padding-bottom: 50px; }
+  padding-top: 80px;
+  padding-bottom: 80px; }
   @media screen and (max-width: 767px) {
     .resources-single .global-wrapper {
       padding: 40px 20px; } }
@@ -2579,8 +2579,8 @@ button:not([type="button"]) {
 
 .resources-multiple .global-wrapper {
   padding: 100px 80px;
-  padding-top: 50px;
-  padding-bottom: 50px; }
+  padding-top: 80px;
+  padding-bottom: 80px; }
   @media screen and (max-width: 767px) {
     .resources-multiple .global-wrapper {
       padding: 40px 20px; } }
@@ -2647,8 +2647,8 @@ button:not([type="button"]) {
 
 .copy-block .global-wrapper {
   padding: 100px 80px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   max-width: 1280px; }
   @media screen and (max-width: 767px) {
     .copy-block .global-wrapper {
@@ -2692,8 +2692,8 @@ button:not([type="button"]) {
 
 .news .global-wrapper {
   padding: 100px 80px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
@@ -2819,8 +2819,8 @@ button:not([type="button"]) {
 
 .lets-talk {
   padding: 100px 80px;
-  padding-top: 50px;
-  padding-bottom: 50px; }
+  padding-top: 80px;
+  padding-bottom: 80px; }
   .lets-talk:before, .lets-talk:after {
     content: " ";
     display: table; }
@@ -3057,8 +3057,8 @@ button:not([type="button"]) {
 
 .team-listing .global-wrapper {
   padding: 100px 80px;
-  padding-top: 50px;
-  padding-bottom: 50px; }
+  padding-top: 80px;
+  padding-bottom: 80px; }
   @media screen and (max-width: 767px) {
     .team-listing .global-wrapper {
       padding: 40px 20px; } }
