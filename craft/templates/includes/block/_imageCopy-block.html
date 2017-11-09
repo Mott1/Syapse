@@ -1,6 +1,8 @@
 {% set themes = helpers.getThemes(theBlock.themes) | trim %}
 {% set layout = theBlock.imageAlignment | default('imageLeft') %}
-{% set imageUrl = theBlock.image.first().getUrl() | default('http://via.placeholder.com/620x460') %}
+{% set image = theBlock.image.first() %}
+{% set imageUrl = image.getUrl() | default('http://via.placeholder.com/620x460') %}
+{% set imageAlt = image.alt | default('') %}
 {% set heading = theBlock.heading %}
 {% set description = theBlock.body %}
 
@@ -9,7 +11,8 @@
 	<div class="global-wrapper">
 
 		{% if imageUrl != "" %}
-			<div class="image" style="background-image: url('{{ imageUrl }}');"></div>
+			{# <div class="image" style="background-image: url('{{ imageUrl }}');"></div> #}
+			<img class="image" src="{{ imageUrl }}" alt="{{ imageAlt }}">
 		{% endif %}
 
 		<div class="copy">

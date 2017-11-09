@@ -1,8 +1,9 @@
 .news {
 
-	@include sectionPadding;
-
 	.global-wrapper {
+		@include sectionPadding;
+		padding-top: 50px;
+		padding-bottom: 50px;
 		display: flex;
 	}
 	

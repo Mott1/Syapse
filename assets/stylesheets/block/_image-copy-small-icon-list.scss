@@ -1,14 +1,15 @@
 .image-copy-small-icon-list {
 
-	@include sectionPadding;
-
 	.global-wrapper {
+		@include sectionPadding;
+		padding-top: 50px;
+		padding-bottom: 50px;
 		display: flex;
 	}
 
 	.left-content {
-		width: 50%;
-		margin-right: 40px;
+		width: calc(50% - 20px);
+		margin-right: 20px;
 	}
 
 	.image {
@@ -29,7 +30,8 @@
 
 	.right-content {
 
-		width: 50%;
+		width: calc(50% - 20px);
+		margin-left: 20px;
 
 		ul {
 			margin: 0;
@@ -51,9 +53,9 @@
 			margin-right: 40px;
 		}
 
-		.description {
-			margin-bottom: 30px;
-		}
+		// .description {
+		// 	margin-bottom: 30px;
+		// }
 
 		li:last-of-type .description {
 			margin-bottom: 0;
@@ -82,10 +84,11 @@
 		.left-content, 
 		.right-content {
 			width: 100%;
+			margin-left: 0;
+			margin-right: 0;
 		}
 
 		.left-content {
-			margin-right: 0;
 			margin-bottom: 30px;
 		}
 
