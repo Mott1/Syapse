@@ -5,7 +5,7 @@
 		background-color: rgba(255,255,255,0.98);
 	}
 
-	@media screen and (min-width: 768px) {
+	@media screen and (min-width: 1024px) {
 
 		&.sticky {
 
@@ -96,7 +96,7 @@
 
 	}
 
-	@media screen and (min-width: 768px) {
+	@media screen and (min-width: 1024px) {
 
 		.pages-li.active {
 
@@ -141,7 +141,7 @@
 
 		}
 
-		@media screen and (min-width: 768px) {
+		@media screen and (min-width: 1024px) {
 			@include anti-alias;
 		}
 
@@ -279,7 +279,7 @@
 
 	}
 
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 1023px) {
 
 		padding: 0 20px;
 
@@ -293,7 +293,19 @@
 
 // Mobile Navigation
 
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 1024px) {
+
+	.mobile-support-pages {
+		display: none;
+	}
+
+}
+
+@media screen and (max-width: 1023px) {
+
+	.pages-button {
+		display: none;
+	}
 
 	.nav-open .core-header .nav {
 
@@ -393,7 +405,7 @@
 
 // Responsive
 
-	@media screen and (max-width: 767px) {
+	@media screen and (max-width: 1023px) {
 
 		padding-top: 48px;
 
