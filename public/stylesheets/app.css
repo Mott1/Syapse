@@ -2518,8 +2518,9 @@ button:not([type="button"]) {
     padding-right: 20px; }
   .logo-grid .logo {
     float: left;
-    width: auto;
-    height: 50px; } }
+    width: auto !important;
+    height: 50px;
+    margin-bottom: 0; } }
 
 .resources-single .global-wrapper {
   padding: 100px 80px;

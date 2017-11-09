@@ -33,7 +33,13 @@
             {% endif %}
 
             {% if heading != "" %}
-                <h1 class="heading">{{ heading }}</h1>
+                <h1 class="heading">
+                    {% if heading == "Press Releases" or heading == "In the News" %}
+                        {{ heading | capitalize }}
+                    {% else %}
+                        {{ heading }}
+                    {% endif %}
+                </h1>
             {% endif %}
 
             {% if description != "" %}

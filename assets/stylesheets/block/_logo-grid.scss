@@ -94,9 +94,32 @@
 
 		.logo {
 			float: left;
-			width: auto;
+			width: auto !important;
 			height: 50px;
+			margin-bottom: 0;
 		}
+
+		// @for $i from 1 through 4 {
+
+		// 	.count-#{$i}.logos {
+		// 		flex-wrap: wrap;
+		// 	}
+
+		// 	.count-#{$i} .logo {
+
+		// 		width: calc(200% / #{$i} - 30px);
+
+		// 		&:nth-child(2n) {
+		// 			margin-bottom: 30px;
+		// 		}
+
+		// 		&:last-of-type {
+		// 			margin-bottom: 0;
+		// 		}
+
+		// 	}
+
+		// }
 
 	}
 
