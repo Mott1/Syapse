@@ -2133,10 +2133,11 @@ button:not([type="button"]) {
     width: 50%;
     margin-right: 40px; }
   .image-copy-small-icon-list .image {
-    width: 100%;
-    margin-top: 20px; }
+    width: 100%; }
   .image-copy-small-icon-list .left-content .title {
     margin-bottom: 30px; }
+  .image-copy-small-icon-list .left-content .image {
+    margin-top: 20px; }
   .image-copy-small-icon-list .right-content {
     width: 50%; }
     .image-copy-small-icon-list .right-content ul {
