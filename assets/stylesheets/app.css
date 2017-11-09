@@ -2716,7 +2716,10 @@ button:not([type="button"]) {
   margin-bottom: 20px; }
 
 .news .heading a {
-  color: #3F3F3F; }
+  color: #3F3F3F;
+  transition: color 0.15s ease-in-out; }
+  .news .heading a:hover {
+    color: #21C2D2; }
 
 .news .article {
   display: -webkit-box;

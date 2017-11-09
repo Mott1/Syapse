@@ -24,7 +24,14 @@
 	}
 
 	.heading a {
+
 		color: $darkGray;
+		transition: color 0.15s ease-in-out;
+
+		&:hover {
+			color: $buttonBlue
+		}
+
 	}
 
 	.article {
