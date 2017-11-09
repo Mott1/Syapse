@@ -404,7 +404,7 @@
 // Core Footer
 .core-footer {
 
-	padding: 40px 80px 60px;
+	padding: 80px 80px 190px;
 	background-color: $lightGray;
 
 	.global-wrapper {
@@ -487,6 +487,7 @@
 
 	.pages-li-group {
 		clear: both;
+		margin-top: 30px;
 	}
 
 	.pages-li-group > .pages-li-group {
@@ -538,12 +539,13 @@
 		// 	margin-bottom: 5px;
 		// }
 
+		margin-top: 30px;
 		margin-left: 30px;
 		margin-bottom: 0;
 
 		.subpages {
 			display: flex;
-			align-items: center;
+			// align-items: center;
 			min-height: 36px;
 		}
 
@@ -671,6 +673,7 @@
 			clear: none;
 			float: left;
 			width: 33.3%;
+			margin-top: 0;
 		}
 
 		.pages-li-group > .pages-li-group {
