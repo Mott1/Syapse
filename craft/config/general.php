@@ -80,6 +80,18 @@ return array(
             'inlinPublicRoot' => '/home/syapseadmin/webapps/stage_syapse/public/',
         ),
 
+    ),
+
+    'prod.syapse.com' => array(
+
+        'siteUrl' => 'https://prod.syapse.com/',
+
+        'environmentVariables' => array(
+            'baseUrl' => 'https://prod.syapse.com/',
+            'basePath' => '/home/syapseadmin/webapps/prod_syapse/public/',
+            'inlinPublicRoot' => '/home/syapseadmin/webapps/prod_syapse/public/',
+        ),
+
     )
 
 );
