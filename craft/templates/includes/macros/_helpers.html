@@ -13,7 +13,7 @@
     {% endif %}
     
     {% if url != "" %}
-        <a class="button" href="{{ url }}" target="{{ target }}" classes="{{ classes }}">{{ text }}</a>
+        <a class="button {{ classes }}" href="{{ url }}" target="{{ target }}">{{ text }}</a>
     {% endif %}
 
 {% endmacro %}
@@ -53,6 +53,8 @@
 
     {% set article = params.article %}
 
+    {% set articleTitle = article.title %}
+
     {% set readMoreText = "" %}
     {% set readMoreLink = "#" %}
     {% set readMoreClasses = "" %}
@@ -85,7 +87,7 @@
     {% endif %}
 
     {% if readMoreText != "" %}
-        <a class="button {{ readMoreClasses }}" data-modal-type="resource" data-iframe='{{ iframe }}' href="{{ readMoreLink }}">{{ readMoreText }}</a>
+        <a class="button {{ readMoreClasses }}" data-modal-type="resource" data-iframe='{{ iframe }}' data-modal-title="{{ articleTitle }}" href="{{ readMoreLink }}">{{ readMoreText }}</a>
     {% endif %}
 
 {% endmacro %}

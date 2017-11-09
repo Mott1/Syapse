@@ -11099,9 +11099,13 @@ var Modal = function () {
 
 			if (modalType == 'resource') {
 
+				var title = target.getAttribute('data-modal-title');
+				var modalTitle = this.modal.querySelector('.modal-title');
+
 				var iframe = target.getAttribute('data-iframe');
 				var modalInfo = this.modal.querySelector('.modal-info');
 
+				modalTitle.innerHTML = title;
 				modalInfo.innerHTML = iframe;
 			}
 
@@ -11136,8 +11140,10 @@ var Modal = function () {
 
 			if (modalType == 'resource') {
 
+				var modalTitle = this.modal.querySelector('.modal-title');
 				var modalInfo = this.modal.querySelector('.modal-info');
 
+				modalTitle.innerHTML = "";
 				modalInfo.innerHTML = "";
 			}
 

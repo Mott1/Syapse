@@ -18,10 +18,6 @@
                 <h2 class="heading">{{ heading }}</h2>
             {% endif %}
 
-            {% if imageUrl != "" %}
-                <img class="image" src="{{ imageUrl }}" alt="">
-            {% endif %}
-
             {% if subHeading | length %}
                 <h3 class="title">{{ subHeading }}</h3>
             {% endif %}
@@ -38,6 +34,10 @@
             } %}
 
             {{ helpers.ctaBuilder(ctaParams) }}
+
+            {% if imageUrl != "" %}
+                <img class="image" src="{{ imageUrl }}" alt="">
+            {% endif %}
 
         </div>
 

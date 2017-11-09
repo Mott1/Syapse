@@ -60,9 +60,13 @@ class Modal {
 
 		if (modalType == 'resource') {
 
+			let title = target.getAttribute('data-modal-title');
+			let modalTitle = this.modal.querySelector('.modal-title');
+
 			let iframe = target.getAttribute('data-iframe');
 			let modalInfo = this.modal.querySelector('.modal-info');
 
+			modalTitle.innerHTML = title;
 			modalInfo.innerHTML = iframe;
 
 		}
@@ -99,8 +103,10 @@ class Modal {
 
 		if (modalType == 'resource') {
 
+			let modalTitle = this.modal.querySelector('.modal-title');
 			let modalInfo = this.modal.querySelector('.modal-info');
 
+			modalTitle.innerHTML = "";
 			modalInfo.innerHTML = "";
 
 		}
