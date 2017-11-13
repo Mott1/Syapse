@@ -24,7 +24,7 @@
 
             {% if body | length %}
                 <div class="description">
-                    {{ body }}
+                    {{ body | typogrify }}
                 </div>
             {% endif %}
 
@@ -49,7 +49,7 @@
 
             {% if iconListBody | length %}
                 <div class="description">
-                    {{ iconListBody }}
+                    {{ iconListBody | typogrify }}
                 </div>
             {% endif %}
             
@@ -67,7 +67,7 @@
                             {% endif %}
 
                             {% if item.title | length %}
-                                <p class="description">{{ item.title }}</p>
+                                <p class="description">{{ item.title | typogrify }}</p>
                             {% endif %}
 
                             {% set iconListCtaParams = {

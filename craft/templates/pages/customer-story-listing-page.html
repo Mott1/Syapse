@@ -43,7 +43,7 @@
                                 {% endif %}
 
                                 {% if loop.index0 == 0%}
-                                    <p class="description">{{ body }}</p>
+                                    <p class="description">{{ body | typogrify }}</p>
                                 {% endif %}                    
 
                                 <div class="link-wrapper">

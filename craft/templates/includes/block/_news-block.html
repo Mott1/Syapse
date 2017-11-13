@@ -52,11 +52,11 @@
 		<div class="info">
 
 			<h5 class="title">
-				{{ post.title }}
+				{{ post.title | typogrify }}
 			</h5>
 
 			<p class="excerpt">
-				{{ newsDescription }}
+				{{ newsDescription | typogrify }}
 			</p>
 
             <a class="link" href="{{ readMore }}">Read</a>

@@ -47,7 +47,7 @@
                                         <img class="headshot" src="{{ employee.headshot.first().url | default('/images/ui/team-member-default.png') }}">
                                         {% if type.title == "Leadership" or type.title == "Board of Directors" %}
                                             <h3 class="name">{{ employee.title }}</h3>
-                                            <p class="job-title">{{ employee.jobTitle }}</p>
+                                            <p class="job-title">{{ employee.jobTitle | typogrify }}</p>
                                         {% endif %}
                                     </div>
 
