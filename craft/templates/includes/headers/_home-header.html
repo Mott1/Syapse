@@ -21,7 +21,7 @@
             {% endif %}
             
             {% if description != "" %}
-                <div class="description">{{ description }}</div>
+                <div class="description">{{ description | typogrify }}</div>
             {% endif %}
 
         </div>
@@ -52,7 +52,7 @@
 
                     <h4 class="cta-title">{{ cta.heading }}</h4>
 
-                    <p class="cta-description">{{ cta.description | striptags }}</p>
+                    <p class="cta-description">{{ cta.description | striptags | typogrify }}</p>
 
                     <a class="link" href="{{ url(cta.linkUrl) }}">{{ cta.linkText }}</a>
 

@@ -21,7 +21,7 @@
 
                 <div class="info">
 
-                    <h3 class="heading">{{ article.title }}</h3>
+                    <h3 class="heading">{{ article.title | typogrify }}</h3>
 
                     {% if article.author | length and article.type.handle == "blogPost" %}
                         <p class="author">By {{ article.author.fullName | default('Syapse') }}</p>
@@ -32,7 +32,7 @@
                     {% endif %}
 
                     <p class="description">
-                        {{ body | replace('&nbsp;', " ")  }}
+                        {{ body | replace('&nbsp;', " ") | typogrify  }}
                     </p>
 
                     {% if readMore != "" %}

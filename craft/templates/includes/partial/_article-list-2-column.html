@@ -87,13 +87,13 @@
 
                         {% if description is defined %}
                             <p class="description">
-                                {{ description | replace("&nbsp;", " ") }}
+                                {{ description | replace("&nbsp;", " ") | typogrify }}
                             </p>
                         {% endif %}
 
                         {% if body is defined %}
                             <p class="description">
-                                {{ body | replace("&nbsp;", " ") }}
+                                {{ body | replace("&nbsp;", " ") | typogrify }}
                             </p>
                         {% endif %}
                         

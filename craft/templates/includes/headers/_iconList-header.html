@@ -27,11 +27,11 @@
             {% endif %}
 
             {% if heading != "" %}
-                <h1 class="heading">{{ heading }}</h1>
+                <h1 class="heading">{{ heading | typogrify }}</h1>
             {% endif %}
             
             {% if description != "" %}
-                <div class="description">{{ description }}</div>
+                <div class="description">{{ description | typogrify }}</div>
             {% endif %}
 
         </div>
@@ -53,13 +53,13 @@
         <div class="list-container">
 
             {% if subHeading != "" %}
-                <h2>{{ subHeading }}</h2>
+                <h2>{{ subHeading | typogrify }}</h2>
             {% endif %}
 
             <hr>
 
             {% if listHeading != "" %}
-                <h3>{{ listHeading }}</h3>
+                <h3>{{ listHeading | typogrify }}</h3>
             {% endif %}
 
             {% if list | length %}
@@ -67,7 +67,7 @@
                     {% for item in list %}
                         <div class="list-item">
                             <img class="icon" src="/images/ui/icon-circle-checkmark.svg" alt="icon circle checkmark">
-                            {{ item.listItem }}
+                            {{ item.listItem | typogrify }}
                         </div>
                     {% endfor %}
                 </div>
