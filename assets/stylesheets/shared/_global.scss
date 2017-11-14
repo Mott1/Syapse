@@ -101,6 +101,16 @@ hr {
     padding: 0;
 }
 
+// Modal
+
+@media screen and (max-width: 1024px) {
+	html.modal-open, body.modal-open {
+		-webkit-overflow-scrolling: touch !important;
+		overflow: auto !important;
+		height: 100% !important;
+	}
+}
+
 .modal {
 
 	.modal-open & {

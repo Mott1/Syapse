@@ -460,6 +460,12 @@ hr {
   margin: 1em 0;
   padding: 0; }
 
+@media screen and (max-width: 1024px) {
+  html.modal-open, body.modal-open {
+    -webkit-overflow-scrolling: touch !important;
+    overflow: auto !important;
+    height: 100% !important; } }
+
 .modal {
   display: none;
   position: fixed;

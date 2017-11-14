@@ -11126,6 +11126,7 @@ var Modal = function () {
 				modalBio.innerHTML = bio;
 			}
 
+			document.getElementsByTagName('html')[0].classList.add('modal-open');
 			document.body.classList.add('modal-open');
 		}
 	}, {
@@ -11160,6 +11161,7 @@ var Modal = function () {
 				modalBio.innerHTML = "";
 			}
 
+			document.getElementsByTagName('html')[0].classList.remove('modal-open');
 			document.body.classList.remove('modal-open');
 		}
 	}]);
