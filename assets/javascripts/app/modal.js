@@ -89,7 +89,6 @@ class Modal {
 
 		}
 
-		document.getElementsByTagName('html')[0].classList.add('modal-open');
 		document.body.classList.add('modal-open');
 
 	}
@@ -126,7 +125,6 @@ class Modal {
 
 		}
 
-		document.getElementsByTagName('html')[0].classList.remove('modal-open');
 		document.body.classList.remove('modal-open');
 
 	}

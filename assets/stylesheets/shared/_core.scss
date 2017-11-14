@@ -710,6 +710,14 @@
 
 	}
 
+	@media screen and (max-width: 870px) and (min-width: 768px) {
+
+		.pages-li:nth-child(3n+1) {
+			clear: left;
+		}
+
+	}
+
 	@media screen and (max-width: 767px) {
 
 		@include sectionPadding;
@@ -745,6 +753,10 @@
 
 		.pages-li {
 			width: 50%;
+		}
+
+		.pages-li:nth-child(2n+1) {
+			clear: left;
 		}
 
 		.pages-li-group {

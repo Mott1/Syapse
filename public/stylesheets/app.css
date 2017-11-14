@@ -460,12 +460,6 @@ hr {
   margin: 1em 0;
   padding: 0; }
 
-@media screen and (max-width: 1024px) {
-  html.modal-open, body.modal-open {
-    -webkit-overflow-scrolling: touch !important;
-    overflow: auto !important;
-    height: 100% !important; } }
-
 .modal {
   display: none;
   position: fixed;
@@ -1172,6 +1166,9 @@ button:not([type="button"]) {
       display: inline-block;
       margin-top: 5px;
       margin-left: 0; } }
+  @media screen and (max-width: 870px) and (min-width: 768px) {
+    .core-footer .pages-li:nth-child(3n+1) {
+      clear: left; } }
   @media screen and (max-width: 767px) {
     .core-footer {
       padding: 100px 80px; } }
@@ -1198,6 +1195,8 @@ button:not([type="button"]) {
         color: #3F3F3F; }
       .core-footer .pages-li {
         width: 50%; }
+      .core-footer .pages-li:nth-child(2n+1) {
+        clear: left; }
       .core-footer .pages-li-group {
         width: 50%; }
       .core-footer .subpage-link,
