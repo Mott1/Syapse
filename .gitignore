@@ -8,6 +8,7 @@ craft/storage/runtime/*
 craft/storage/backups/*
 craft/storage/logo/*
 craft/storage/userphotos/*
+craft/storage/rebrand/*
 public/uploads/*
 assets/javascripts/compiled/*
  
