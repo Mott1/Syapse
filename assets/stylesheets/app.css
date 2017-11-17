@@ -1297,7 +1297,8 @@ button:not([type="button"]) {
 
 .standard-news-hero .global-wrapper {
   padding: 100px 80px;
-  padding-top: 150px;
+  padding-top: 120px;
+  padding-bottom: 50px;
   position: relative; }
   @media screen and (max-width: 767px) {
     .standard-news-hero .global-wrapper {
