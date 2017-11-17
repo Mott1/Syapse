@@ -5,6 +5,7 @@
 <div class="article-list article-list-2-column">
 
     {% if entry.type.handle == "resourceListing" %}
+
         <div class="modal">
 
             <div class="modal-close" data-modal-type="resource">
@@ -18,6 +19,9 @@
             </div>
 
         </div>
+
+        <div class="modal-cover"></div>
+
     {% endif %}
     
     <div class="global-wrapper">
@@ -81,7 +85,16 @@
                             <h3 class="heading"><a href="{{ customerStoryURL }}">{{ article.title }}</a></h3>
 
                         {% else %}
-                            <h3 class="heading">{{ article.title }}</h3>
+
+                            {% if readMore != "" %}
+                                <h3 class="heading">
+                                    <a href="{{ readMore }}">
+                                        {{ article.title }}
+                                    </a>
+                                </h3>
+                            {% else %}
+                                <h3 class="heading">{{ article.title }}</h3>
+                            {% endif %}
 
                         {% endif %}
 

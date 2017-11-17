@@ -14,6 +14,7 @@ class Modal {
 		this.modal = document.querySelector('.modal');
 		this.modalLinks = document.querySelectorAll('.modal-link');
 		this.modalClose = document.querySelector('.modal-close');
+		this.modalCover = document.querySelector('.modal-cover');
 		this.openModalRef = this.openModal.bind(this);
 		this.closeModalRef = this.closeModal.bind(this);
 
@@ -23,6 +24,20 @@ class Modal {
 
 		const _this = this;
 
+		document.onkeydown = function(evt) {
+
+			if (!document.body.classList.contains('modal-open')) {
+				return;
+			}
+
+			evt = evt || window.event;
+			if (evt.keyCode == 27) {
+				_this.closeModalRef();
+			}
+
+		};
+
+		this.modalCover.addEventListener('click', _this.closeModalRef, false);
 		
 		this.modalClose.addEventListener('click', _this.closeModalRef, false);
 
@@ -35,6 +50,8 @@ class Modal {
 	stopEvents() {
 
 		const _this = this;
+
+		this.modalCover.removeEventListener('click', _this.closeModalRef, false);
 
 		this.modalClose.removeEventListener('click', _this.closeModalRef, false);
 
@@ -95,9 +112,11 @@ class Modal {
 
 	closeModal(e) {
 
-		e.preventDefault();
+		if (e) {
+			e.preventDefault();
+		}
 
-		let modalType = e.target.getAttribute('data-modal-type');
+		let modalType = this.modal.getAttribute('data-modal-type');
 
 		// Resource
 

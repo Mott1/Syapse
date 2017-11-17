@@ -18,7 +18,7 @@
 
             {% if entry is defined and entry.slug == "blog" %}
 
-                {% include 'includes/headers/_blogPost-header' with { entry: articles.first(), linkPostTitle: true } %}
+                {% include 'includes/headers/_blogPost-header' with { entry: articles.first(), linkPostTitle: true, listingPage: true } %}
                 {% set articles = articles.offset(1) %}
 
             {% else %}

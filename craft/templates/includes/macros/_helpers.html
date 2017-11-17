@@ -62,22 +62,22 @@
 
     {% if article.externalLink != "" %}
         {% set readMoreText = "Read article" %}
-        {% set readMoreLink = article.externalLink %}                                
-    {% endif %}                               
+        {% set readMoreLink = article.externalLink %}
+    {% endif %}
 
     {% if article.download.count() %}
         {% set readMoreText = "Download" %}
-        {% set readMoreLink = article.download.first().getUrl() | default("") %}    
+        {% set readMoreLink = article.download.first().getUrl() | default("") %}
         {% set readMoreClasses = "" %}
         {% set iframe = article.iframe %}
-    {% endif %}                            
+    {% endif %}
 
     {% if article.videoEmbed != "" %}
         {% set readMoreText = "Watch video" %}
         {% set readMoreLink = "#" %}
         {% set readMoreClasses = "modal-link" %}
-        {% set iframe = article.videoEmbed %}                                
-    {% endif %}    
+        {% set iframe = article.videoEmbed %}
+    {% endif %}
 
     {% if article.iframe !="" %}
         {% set readMoreText = "Download" %}
@@ -87,7 +87,7 @@
     {% endif %}
 
     {% if readMoreText != "" %}
-        <a class="button {{ readMoreClasses }}" data-modal-type="resource" data-iframe='{{ iframe }}' data-modal-title="{{ articleTitle }}" href="{{ readMoreLink }}">{{ readMoreText }}</a>
+        <a class="button {{ readMoreClasses }}" data-modal-type="resource" data-iframe='{{ iframe }}' data-modal-title="{{ articleTitle }}" href="{{ readMoreLink }}" {% if article.externalLink != "" %}target="_blank"{% endif %}>{{ readMoreText }}</a>
     {% endif %}
 
 {% endmacro %}

@@ -120,7 +120,8 @@
 	}
 
 	&.blog-post-header .left-blog-hero {
-		padding-top: 200px;
+		padding-top: 100px;
+		padding-bottom: 50px;
 	}
 
 	.logo {
@@ -179,11 +180,23 @@
 	}
 
 	.right-blog-hero {
+		position: relative;
 		order: 2;
 		width: 50%;
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
+	}
+
+	&.listing .right-blog-hero:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba($buttonBlue, 50%);
+		background: -webkit-linear-gradient(45deg, rgba(33,194,210,0.15), rgba(99,95,235,0.15));
 	}
 
 // Responsive
@@ -203,6 +216,7 @@
 
 		&.blog-post-header .left-blog-hero {
 			padding-top: 30px;
+			padding-bottom: 0;
 		}
 
 		.category {
@@ -277,16 +291,16 @@
 
 		}
 
-		.heading a {
+		// .heading a {
 
-			color: $buttonBlue;
-			transition: color 0.15s ease-in-out;
+		// 	color: $buttonBlue;
+		// 	transition: color 0.15s ease-in-out;
 
-			&:hover {
-				color: darken($buttonBlue, 10%);
-			}
+		// 	&:hover {
+		// 		color: darken($buttonBlue, 10%);
+		// 	}
 
-		}
+		// }
 
 		.description {
 			font-size: 16px;
@@ -352,6 +366,17 @@
 		width: calc(100% - 180px);
 		padding: 40px;
 		border: 1px solid $hrColor;
+	}
+
+	.heading a {
+
+		color: $buttonBlue;
+		transition: color 0.15s ease-in-out;
+
+		&:hover {
+			color: $defaultColor;
+		}
+
 	}
 
 	.author {
@@ -458,6 +483,8 @@
 	.global-wrapper {
 
 		@include sectionPadding;
+		padding-top: 80px;
+		padding-bottom: 80px;
 		display: flex;
 
 		@media screen and (max-width: 767px) {

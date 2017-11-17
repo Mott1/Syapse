@@ -19,6 +19,14 @@
 		-webkit-text-fill-color: transparent;
 	}
 
+	@media screen and (min-width: 768px) {
+
+		.description {
+			font-size: 20px;
+		}
+
+	}
+
 	// List
 
 	.list-container-wrapper {

@@ -5,7 +5,7 @@
 		background-color: rgba(255,255,255,0.98);
 	}
 
-	@media screen and (min-width: 1024px) {
+	@media screen and (min-width: 930px) {
 
 		&.sticky {
 
@@ -96,7 +96,7 @@
 
 	}
 
-	@media screen and (min-width: 1024px) {
+	@media screen and (min-width: 930px) {
 
 		.pages-li.active {
 
@@ -141,7 +141,7 @@
 
 		}
 
-		@media screen and (min-width: 1024px) {
+		@media screen and (min-width: 930px) {
 			@include anti-alias;
 		}
 
@@ -185,7 +185,7 @@
 
 	// Responsive
 
-	@media screen and (max-width: 1180px) {
+	@media screen and (max-width: 1040px) {
 
 		.logo {
 			margin-right: 30px;
@@ -209,7 +209,7 @@
 
 	}
 
-	@media screen and (max-width: 1023px) {
+	@media screen and (max-width: 929px) {
 
 		.logo svg {
 			vertical-align: middle;
@@ -279,7 +279,7 @@
 
 	}
 
-	@media screen and (max-width: 1023px) {
+	@media screen and (max-width: 929px) {
 
 		padding: 0 20px;
 
@@ -293,15 +293,15 @@
 
 // Mobile Navigation
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 930px) {
 
-	.mobile-support-pages {
+	.core-header .pages-li.mobile-support-pages {
 		display: none;
 	}
 
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 929px) {
 
 	.pages-button {
 		display: none;
@@ -401,11 +401,11 @@
 .core-content {
 	@include clearfix;
 	width: 100%;
-	padding-top: 96px;
+	padding-top: 90px;
 
 // Responsive
 
-	@media screen and (max-width: 1023px) {
+	@media screen and (max-width: 929px) {
 
 		padding-top: 48px;
 

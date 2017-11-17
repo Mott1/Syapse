@@ -6,10 +6,10 @@
 {% set imageURL = entry.heroImage.first().getUrl() | default('http://via.placeholder.com/600x600') %}
 {% set body = entry.excerpt | default(entry.body | striptags | slice(0, 140) | trim ~ '…' ) %}
 {% set linkPostTitle = linkPostTitle | default(false) %}
+{% set listingPage = listingPage | default(false) %}
 
-
-
-<div class="blog-post-header theme-darker-background">
+<div class="blog-post-header theme-darker-background {% if listingPage %}listing{% endif %}
+">
 
     {% if craft.request.getSegments() | length > 2 %}
         <div class="back-wrapper theme-hide-on-mobile">

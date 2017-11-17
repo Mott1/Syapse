@@ -28,7 +28,9 @@
 
                     <div class="blog-article">
 
-                        <h2 class="blog-subheading">{{ entry.subHeading }}</h2>
+                        {% if entry.subHeading | length %}
+                            <h2 class="blog-subheading">{{ entry.subHeading }}</h2>
+                        {% endif %}
 
                         <div class="blog-body">
                             {{ entry.body | typogrify }}

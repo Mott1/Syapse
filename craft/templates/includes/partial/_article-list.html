@@ -21,7 +21,15 @@
 
                 <div class="info">
 
-                    <h3 class="heading">{{ article.title | typogrify }}</h3>
+                    {% if readMore != "" %}
+                        <h3 class="heading">
+                            <a href="{{ readMore }}">
+                                {{ article.title }}
+                            </a>
+                        </h3>
+                    {% else %}
+                        <h3 class="heading">{{ article.title }}</h3>
+                    {% endif %}
 
                     {% if article.author | length and article.type.handle == "blogPost" %}
                         <p class="author">By {{ article.author.fullName | default('Syapse') }}</p>
