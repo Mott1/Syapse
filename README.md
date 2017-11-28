@@ -1,5 +1,13 @@
 # Syapse Craft CMS Site
 
+#### Project Documentation:
+---------------
+
+[CMS Guide](https://paper.dropbox.com/doc/Syapse-CMS-Guide-eEAGoxfbPVdlwdOPrG9XZ?_tk=share_copylink)
+
+[Content Blocks](https://paper.dropbox.com/doc/Syapse-Content-Blocks-OVqQFJEw1xk6rp8ezJH8F?_tk=share_copylink)
+
+---------------
 #### Technology Stack:
 ---------------
 
