@@ -1,5 +1,14 @@
 # Syapse Craft CMS Site
 
+#### Environments:
+
+ - Local: http://localhost:8888
+ - Stage: https://stage.syapse.com
+ - Production: https://www.syapse.com
+
+**Note:** Append /admin to access the CMS.
+
+---------------
 #### Project Documentation:
 ---------------
 
