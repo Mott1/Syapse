@@ -1,6 +1,5 @@
 # Syapse Craft CMS Site
 
----------------
 #### Technology Stack:
 ---------------
 
