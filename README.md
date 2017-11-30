@@ -1,6 +1,6 @@
 # Syapse Craft CMS Site
 
-#### Environments:
+## Environments:
 
  - Local: http://localhost:8888
  - Stage: https://stage.syapse.com
@@ -9,16 +9,14 @@
 **Note:** Append /admin to access the CMS.
 
 ---------------
-#### Project Documentation:
----------------
+## Project Documentation:
 
 [CMS Guide](https://paper.dropbox.com/doc/Syapse-CMS-Guide-eEAGoxfbPVdlwdOPrG9XZ?_tk=share_copylink)
 
 [Content Blocks](https://paper.dropbox.com/doc/Syapse-Content-Blocks-OVqQFJEw1xk6rp8ezJH8F?_tk=share_copylink)
 
 ---------------
-#### Technology Stack:
----------------
+## Technology Stack:
 
  - MAMP
  - Apache
@@ -32,8 +30,7 @@
  - Sass
  
 ---------------
-#### Local Webserver Configuration (MAMP):
----------------
+## Local Webserver Configuration (MAMP):
 
  - Apache Port: 8888
  - MySQL Port: 3306
@@ -41,8 +38,7 @@
  - Document Root: *(full path to project)*/public/
  
 ---------------
-#### Creating and Importing Database:
----------------
+## Creating and Importing Database:
 
 1. Add a new database (utf8, utf8_general_ci) locally named "syapse_craftcms".
     
@@ -53,8 +49,7 @@ https://www.syapse.com/admin/settings
 3. Import the database into the local "syapse_craftcms" database.
  
 ---------------
-#### Download the Production Media Assets:
----------------
+## Download the Production Media Assets:
 
 Using SFTP or SCP download the following directories:
 
@@ -64,8 +59,7 @@ Using SFTP or SCP download the following directories:
 Put each in the same paths as your local directories.
  
 ---------------
-#### Grunt:
----------------
+## Grunt:
 
 1. Install Node Modules
 
@@ -81,8 +75,7 @@ Put each in the same paths as your local directories.
     ```
  
 ---------------
-#### Grunt Tasks
----------------
+## Grunt Tasks
 
 1. Builds all files in the site (which is required prior to deploying to a server):
 
@@ -96,3 +89,10 @@ Put each in the same paths as your local directories.
     $ grunt
     $ grunt watch
     ```
+
+---------------
+## Helpful Resources:
+
+[Craft CMS Documentation](https://craftcms.com/docs/introduction)
+
+[Craft CMS Stack Exchange](https://craftcms.stackexchange.com)
