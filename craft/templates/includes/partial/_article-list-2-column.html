@@ -88,9 +88,12 @@
 
                             {% if readMore != "" %}
                                 <h3 class="heading">
-                                    <a href="{{ readMore }}">
+                                    {# <a href="{{ readMore }}">
                                         {{ article.title }}
-                                    </a>
+                                    </a> #}
+                                    {% if readMore and article.type.handle == "resource" %}
+                                        {{ helpers.buildResourceButton( { article: article, isText: true } ) }}
+                                    {% endif %}
                                 </h3>
                             {% else %}
                                 <h3 class="heading">{{ article.title }}</h3>

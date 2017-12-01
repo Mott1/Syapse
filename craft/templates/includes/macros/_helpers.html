@@ -52,6 +52,7 @@
 {% macro buildResourceButton(params) %}
 
     {% set article = params.article %}
+    {% set isText = params.isText | default(false) %}
 
     {% set articleTitle = article.title %}
 
@@ -87,7 +88,14 @@
     {% endif %}
 
     {% if readMoreText != "" %}
-        <a class="button {{ readMoreClasses }}" data-modal-type="resource" data-iframe='{{ iframe }}' data-modal-title="{{ articleTitle }}" href="{{ readMoreLink }}" {% if article.externalLink != "" %}target="_blank"{% endif %}>{{ readMoreText }}</a>
+        <a class="{% if isText == false %}
+        button{% endif %} {{ readMoreClasses }}" data-modal-type="resource" data-iframe='{{ iframe }}' data-modal-title="{{ articleTitle }}" href="{{ readMoreLink }}" {% if article.externalLink != "" %}target="_blank"{% endif %}>
+            {% if isText %}
+                {{ articleTitle }}
+            {% else %}
+                {{ readMoreText }}
+            {% endif %}
+        </a>
     {% endif %}
 
 {% endmacro %}
