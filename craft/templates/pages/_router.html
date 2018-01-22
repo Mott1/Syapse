@@ -4,34 +4,39 @@
 
         {# News sections #}
         {% case "newsListing" %}
-    
-            {% set articles = craft.entries.section(entry.slug | camel) %}
-            {% set title = craft.entries.section('pages').slug(entry.slug).first().title %}
-            {% include "pages/news-listing-page" with { articles: articles, sectionTitle: title } %}
+            {% set name = entry.slug %}
+            {% set title = craft.entries.section('pages').slug(name).first().title %}
+            {% set articles = craft.entries.section(name | camel) %}
+            {% include "pages/news-listing-page" with { sectionName: name, sectionTitle: title, articles: articles } %}
 
         {% case "blogPost" or "resource" or "pressRelease" or "customerStory"%}
             {% include "pages/news-article-page" %}
 
         {# Resource listing  #}
         {% case "resourceListing" %}
-            {% include "pages/resource-listing-page" %}   
+            {% set name = entry.slug %}
+            {% include "pages/resource-listing-page" with { sectionName: name} %}   
         
         {# Customer stories  #}
         {% case "customerStoryListing" %}
-            {% include "pages/customer-story-listing-page" %}
+            {% set name = entry.slug %}
+            {% include "pages/customer-story-listing-page" with { sectionName: name} %}
 
 
         {# Customer listing / Health systems  #}
         {% case "customerListing" %}
-            {% include "pages/customer-listing-page" %}
+            {% set name = entry.slug %}
+            {% include "pages/customer-listing-page" with { sectionName: name} %}
 
         {# Provider listing  #}
         {% case "providerListing" %}
-            {% include "pages/provider-listing-page" %}
+            {% set name = entry.slug %}
+            {% include "pages/provider-listing-page" with { sectionName: name} %}
         
         {# Team listing  #}
         {% case "teamListing" %}
-            {% include "pages/team-listing-page" %}    
+            {% set name = entry.slug %}
+            {% include "pages/team-listing-page" with { sectionName: name} %}    
 
         {# Home #}
         {% case "homepage" %}

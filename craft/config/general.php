@@ -46,7 +46,7 @@ return array(
         'devMode' => false,
 
         // Caching
-        'cache' => true,
+        'enableTemplateCaching' => true,
 
     ),
 
@@ -56,24 +56,12 @@ return array(
 
         'allowAutoUpdates' => true,
         'devMode' => true,
-        'cache' => false,
+        'enableTemplateCaching' => false,
 
         'environmentVariables' => array(
             'baseUrl' => 'http://localhost:8888/',
             'basePath' => '/Applications/MAMP/htdocs/syapse/public/',
             'inlinPublicRoot' => '/Applications/MAMP/htdocs/syapse/public/',
-        ),
-
-    ),
-
-    'test.syapse.com' => array(
-
-        'siteUrl' => 'https://test.syapse.com/',
-
-        'environmentVariables' => array(
-            'baseUrl' => 'https://test.syapse.com/',
-            'basePath' => '/home/syapseadmin/webapps/test_syapse/public/',
-            'inlinPublicRoot' => '/home/syapseadmin/webapps/test_syapse/public/',
         ),
 
     ),

@@ -7,7 +7,7 @@
     {% for key in craft.request.getSegments() %}
         {% set cacheKey = cacheKey ~ "_" ~ key %}
     {% endfor %}
-    {% cache globally using key cacheKey if craft.config.cache %}
+    {% cache globally using key cacheKey %}
 
     	<div class="core-content">
     		  

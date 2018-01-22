@@ -2,7 +2,16 @@
 
 {% block content %}
 
-{% set shouldCache = true %}
+	{% set shouldCache = true %}
+
+	{# Check for a pending post #}
+    {% set firstPending = craft.entries({
+        section: ["inTheNews", "blog", "pressReleases", "customers", "customerStories", "team", "providers", "resources"],
+        status: 'pending',
+        order: 'postDate asc'
+    }).first %}
+
+    {% set cacheUntil = firstPending ? firstPending.postDate : now|date_modify('+1 year') %}
 
 	{# If we have a partial cake, abort caching #}
 	{% for block in entry.contentBlocks.find() if (block.type.handle == 'partial' and block.partial.value == "jobOpenings" ) %}
@@ -14,13 +23,25 @@
 	{% for key in craft.request.getSegments() %}
 		{% set cacheKey = cacheKey ~ "_" ~ key %}
 	{% endfor %}
-	{% cache globally using key cacheKey if (craft.config.cache and shouldCache) %}
 
+	{% if shouldCache %}
+
+		{% cache globally using key cacheKey until cacheUntil %}
+
+			<div class="core-content">
+				{% include 'includes/headers/_headers-matrix' %}
+				{% include 'includes/block/_block-matrix' %}
+			</div>
+
+		{% endcache %}
+
+	{% else %}
+	
 		<div class="core-content">
 			{% include 'includes/headers/_headers-matrix' %}
 			{% include 'includes/block/_block-matrix' %}
 		</div>
 
-	{% endcache %}
+	{% endif %}
 
 {% endblock %}

@@ -7,7 +7,17 @@
 	{% for key in craft.request.getSegments() %}
 		{% set cacheKey = cacheKey ~ "_" ~ key %}
 	{% endfor %}
-	{% cache globally using key cacheKey if craft.config.cache %}
+
+	{# Check for a pending post #}
+    {% set firstPending = craft.entries({
+        section: ["inTheNews", "blog", "pressReleases", "customers", "customerStories", "team", "providers", "resources"],
+        status: 'pending',
+        order: 'postDate asc'
+    }).first %}
+
+    {% set cacheUntil = firstPending ? firstPending.postDate : now|date_modify('+1 year') %}
+
+    {% cache globally using key cacheKey until cacheUntil %}
 
 		<div class="core-content">
 			{% include 'includes/headers/_home-header' %}

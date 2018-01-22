@@ -51,14 +51,14 @@
 	<main class="core-body" role="main">
 
         {% set cacheKey = "nav_" ~ craft.request.getFirstSegment() %}
-		{% cache globally using key cacheKey if craft.config.cache %}        
-		{% include 'includes/_header' %}
+		{% cache globally using key cacheKey %}
+			{% include 'includes/_header' %}
 		{% endcache %}
 
 		{% block content %}{% endblock %}
 
 		{% set cacheKey = "footer" %}
-		{% cache globally using key cacheKey if craft.config.cache %}
+		{% cache globally using key cacheKey %}
 			{% include 'includes/_footer' %}
 		{% endcache %}
 		

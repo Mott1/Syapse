@@ -7,9 +7,19 @@
     {% for key in craft.request.getSegments() %}
         {% set cacheKey = cacheKey ~ "_" ~ key %}
     {% endfor %}
-    {% cache globally using key cacheKey if craft.config.cache %}
 
-    {% set resources = craft.entries.section('resources') %}
+    {# Check for a pending post #}
+    {% set firstPending = craft.entries({
+        section: sectionName | camel,
+        status: 'pending',
+        order: 'postDate asc'
+    }).first %}
+
+    {% set cacheUntil = firstPending ? firstPending.postDate : now|date_modify('+1 year') %}
+
+    {% cache globally using key cacheKey until cacheUntil %}
+
+    	{% set resources = craft.entries.section('resources') %}
 
 		<div class="core-content resource-listing">
 
